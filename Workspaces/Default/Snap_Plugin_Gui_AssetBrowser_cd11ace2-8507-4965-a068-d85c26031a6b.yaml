@@ -1,14 +1,13 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 907
+    size: 906
     values:
       - Base.png
       - Box.mesh
       - MaterialParams.png
       - Normal.png
       - PBR.mat
-      - SpectaclesSyncKit
       - SpectaclesSyncKit/Components
       - SpectaclesSyncKit/Components/Instantiator.ts
       - SpectaclesSyncKit/Components/SyncHelpers
