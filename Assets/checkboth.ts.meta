@@ -1,0 +1,42 @@
+- !<AssetImportMetadata/14ac42d8-409e-4918-a3f7-36263f073fe4>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> e6dd3128-b9f4-4bc0-93e1-da2a75033485
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> e6dd3128-b9f4-4bc0-93e1-da2a75033485
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 794f6f97-6fdc-49d4-8769-62326bc92c83
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/794f6f97-6fdc-49d4-8769-62326bc92c83>
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 53cca088-be9b-48af-93a7-17c4201cc043
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    sphereManipulation1: false
+    sphereManipulation2: false
+  ScriptTypesHidden:
+    {}
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - sphereManipulation1: !<MappingBased.InteractableManipulation> 00000000-0000-0000-0000-000000000000
+      sphereManipulation2: !<MappingBased.InteractableManipulation> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input InteractableManipulation sphereManipulation1
+    - // @input InteractableManipulation sphereManipulation2

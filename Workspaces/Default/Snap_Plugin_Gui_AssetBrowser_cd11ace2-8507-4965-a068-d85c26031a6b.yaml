@@ -1,12 +1,26 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 907
+    size: 924
     values:
       - Base.png
       - Box.mesh
+      - Generative 3D Package
+      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb
+      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/.hidden
+      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/.hidden/default
+      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/068154d1-a877-7f55-8000-594cafc23ee8-model
+      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Materials
+      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Materials/default
+      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Meshes
+      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Meshes/model
+      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Textures
+      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Textures/texture_kd
+      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Textures/texture_pm-texture_pr
+      - Generative 3D Package/package.native
       - MaterialParams.png
       - Normal.png
+      - PBR 2.mat
       - PBR.mat
       - SpectaclesSyncKit
       - SpectaclesSyncKit/Components
@@ -909,5 +923,8 @@ CollapsedEntities:
       - SpectaclesSyncKit/Utils/Unsubscribe.ts
       - SpectaclesSyncKit/VersionNumber.ts
       - SpectaclesSyncKit/package.native
+      - Sphere.mesh
+      - checkboth.ts
       - pbr.ss_graph
+      - rope!.prefab
   options: 4
