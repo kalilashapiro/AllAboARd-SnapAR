@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 - !<Material/e79b658b-1553-4f9e-a58b-b3e1d7ea2a44>
   PackagePath: ""
   PassesInfo:
     - !<own> c213e67e-6f68-438b-8ad4-d7c2b9566c9b
   Name: Material_Simulate
 - !<PassInfo/c213e67e-6f68-438b-8ad4-d7c2b9566c9b>
+=======
+- !<Material/15607004-fbf9-4d43-a546-5beb20301121>
+  PackagePath: ""
+  PassesInfo:
+    - !<own> a5dd7fb4-6fc8-463b-853e-9a65d09390f2
+  Name: Material_Simulate
+- !<PassInfo/a5dd7fb4-6fc8-463b-853e-9a65d09390f2>
+>>>>>>> upstream/main
   CachedProperties:
     []
   DepthWrite: false

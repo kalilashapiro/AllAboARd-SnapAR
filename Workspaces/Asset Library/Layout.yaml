@@ -14,8 +14,13 @@ dock:
             type: section
             current: 0
         sizes:
+<<<<<<< HEAD
           - 431
           - 414
+=======
+          - 346
+          - 332
+>>>>>>> upstream/main
         type: splitter
         orientation: vertical
       - items:
@@ -31,8 +36,13 @@ dock:
                 type: section
                 current: 0
             sizes:
+<<<<<<< HEAD
               - 156
               - 357
+=======
+              - 42
+              - 334
+>>>>>>> upstream/main
             type: splitter
             orientation: horizontal
           - items:
@@ -41,8 +51,13 @@ dock:
             type: section
             current: 0
         sizes:
+<<<<<<< HEAD
           - 658
           - 187
+=======
+          - 464
+          - 214
+>>>>>>> upstream/main
         type: splitter
         orientation: vertical
       - items:
@@ -60,9 +75,16 @@ dock:
         type: section
         current: 0
     sizes:
+<<<<<<< HEAD
       - 385
       - 516
       - 466
       - 56
+=======
+      - 366
+      - 379
+      - 198
+      - 352
+>>>>>>> upstream/main
     type: splitter
     orientation: horizontal

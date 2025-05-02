@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 - !<Material/02c50374-6216-49ab-8bcd-c3ccd25395a5>
   PackagePath: ""
   PassesInfo:
     - !<own> 2622dfcd-c526-484f-8d43-3356efbf8a87
   Name: Material_Feedback
 - !<PassInfo/2622dfcd-c526-484f-8d43-3356efbf8a87>
+=======
+- !<Material/95833c17-2706-4d81-a28d-70dff6e6368d>
+  PackagePath: ""
+  PassesInfo:
+    - !<own> f6ccea59-6102-44da-9482-c01b11f66cf7
+  Name: Material_Feedback
+- !<PassInfo/f6ccea59-6102-44da-9482-c01b11f66cf7>
+>>>>>>> upstream/main
   CachedProperties:
     []
   DepthWrite: false
