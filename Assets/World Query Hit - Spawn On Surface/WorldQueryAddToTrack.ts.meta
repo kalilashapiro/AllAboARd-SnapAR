@@ -30,6 +30,7 @@
     prefabToSpawn: false
     riverController: false
     targetObject: false
+    worldMeshObject: false
   ScriptTypesHidden:
     {}
   DefaultScriptInputs:
@@ -37,6 +38,7 @@
       filterEnabled: false
       riverController: !<MappingBased.RiverPathController> 00000000-0000-0000-0000-000000000000
       prefabToSpawn: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      worldMeshObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
@@ -45,4 +47,5 @@
     - // @input SceneObject prefabToSpawn
     - // @input bool filterEnabled
     - // @input RiverPathController riverController
+    - // @input SceneObject worldMeshObject
   DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000

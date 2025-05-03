@@ -112,17 +112,20 @@ export class NewScript extends BaseScriptComponent {
                     // Triggered on a Wall or non-horizontal surface
                     print("Wall pressed!"); // User requested print statement
                     
-                    // Deactivate World Mesh if assigned
+                    // Destroy World Mesh if assigned
                     if (this.worldMeshObject) {
-                        print("Deactivating World Mesh Object: " + this.worldMeshObject.name);
-                        this.worldMeshObject.enabled = false;
+                        print("Destroying World Mesh Object: " + this.worldMeshObject.name);
+                        this.worldMeshObject.destroy(); // Use destroy()
                     }
 
-                    // Deactivate this script's object
-                    print("Deactivating World Query Object: " + this.getSceneObject().name);
-                    this.getSceneObject().enabled = false;
+                    // Destroy this script's object
+                    // Important: Get reference BEFORE destroying
+                    const selfObject = this.getSceneObject(); 
+                    print("Destroying World Query Object: " + selfObject.name);
+                    selfObject.destroy(); // Use destroy()
                     
                     // Do NOT add point or spawn object
+                    // No need to return here, as destroying selfObject stops further script execution anyway
                 } else {
                     // Triggered on a horizontal surface - Perform normal action
                     // print("WorldQueryAddToTrack: Triggered on horizontal surface"); // Optional log
