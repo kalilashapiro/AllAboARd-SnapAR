@@ -17,9 +17,14 @@ export namespace RiverMeshGenerator {
      * @param lipHeight The vertical height of the lips.
      * @param lipWidth The horizontal width of the lips extending outwards.
      * @param isLoop (Optional) Whether the path forms a closed loop. Defaults to false.
+     * @param relaxationIterations (Optional) Number of smoothing iterations for silhouette banks.
+     * @param relaxationFactor (Optional) Strength of smoothing (0-1).
      * @returns A RenderMesh representing the generated river geometry.
      */
-    export function buildRiverMesh(points: vec3[], riverWidth: number, lipHeight: number, lipWidth: number, isLoop: boolean = false): RenderMesh | null {
+    export function buildRiverMesh(points: vec3[], riverWidth: number, lipHeight: number, lipWidth: number, 
+                                 isLoop: boolean = false, 
+                                 relaxationIterations: number = 0, 
+                                 relaxationFactor: number = 0.5): RenderMesh | null {
         if (points.length < 2 || riverWidth <= 0 || lipHeight < 0 || lipWidth < 0) {
             print("RiverMeshGenerator: Invalid input parameters.");
             return null; // Not enough points or invalid dimensions
@@ -104,44 +109,41 @@ export namespace RiverMeshGenerator {
         }
         const totalPathLength = accumulatedLength;
 
-        // --- 2. Generate Vertices (Smooth Shading with Averaged Normals) ---
-        const vertices: number[] = [];
-        const vertexCountPerSegment = 8; // Back to 8 shared vertices
+        // --- 2. Calculate Initial Silhouette Vertices --- 
+        const numPoints = points.length;
+        // Store initial positions per bank [bankIndex][pointIndex]
+        const initialBankPositions: vec3[][] = [[], [], [], [], [], [], [], []]; 
+        const vertexCountPerSegment = 8; // Still 8 conceptual points per cross-section
 
-        // Pre-calculate segment directions for curvature estimation
+        // Pre-calculate segment directions for curvature estimation (used for width scaling)
         const segmentDirections: vec3[] = [];
-        for (let i = 0; i < points.length - 1; i++) {
+        for (let i = 0; i < numPoints - 1; i++) {
             segmentDirections.push(points[i + 1].sub(points[i]).normalize());
         }
 
-        for (let i = 0; i < points.length; i++) {
+        // Calculate initial positions based on path and width scaling
+        for (let i = 0; i < numPoints; i++) {
             const segment_i = pathSegmentsData[i];
             const p_i = segment_i.point;
             const right_i = segment_i.right;
             const up_i = segment_i.up;
-            const v_i = totalPathLength > 0 ? segment_i.length / totalPathLength : 0;
 
-            // Get next segment's frame for averaging normals (handle last point)
-            const segment_i1 = (i < points.length - 1) ? pathSegmentsData[i + 1] : segment_i;
-            const right_i1 = segment_i1.right;
-            const up_i1 = segment_i1.up;
-
-            // --- Width Scaling Calculation --- (Keep this logic)
-            let leftScale = 1.0;
-            let rightScale = 1.0;
-            const minWidthScale = 0.2;
-            const straightThreshold = 0.99;
-             if (i > 0 && i < points.length - 1) { 
-                 const dir_in = (i > 0) ? segmentDirections[i - 1] : segmentDirections[0]; 
-                 const dir_out = (i < segmentDirections.length) ? segmentDirections[i] : segmentDirections[segmentDirections.length -1]; 
-                const dotProd = clamp(dir_in.dot(dir_out), -1.0, 1.0);
-                if (dotProd < straightThreshold) {
-                    let widthScale = clamp(minWidthScale + (1.0 - minWidthScale) * (dotProd + 1.0) / 2.0, minWidthScale, 1.0);
-                    const turnCross = dir_in.cross(dir_out);
-                    if (turnCross.dot(up_i) > 0) { rightScale = widthScale; }
-                    else { leftScale = widthScale; }
-                }
-            }
+            // --- Width Scaling Calculation (Keep this logic) ---
+             let leftScale = 1.0;
+             let rightScale = 1.0;
+             const minWidthScale = 0.2;
+             const straightThreshold = 0.99;
+              if (i > 0 && i < numPoints - 1) { 
+                  const dir_in = segmentDirections[i - 1]; 
+                  const dir_out = segmentDirections[i]; 
+                 const dotProd = clamp(dir_in.dot(dir_out), -1.0, 1.0);
+                 if (dotProd < straightThreshold) {
+                     let widthScale = clamp(minWidthScale + (1.0 - minWidthScale) * (dotProd + 1.0) / 2.0, minWidthScale, 1.0);
+                     const turnCross = dir_in.cross(dir_out);
+                     if (turnCross.dot(up_i) > 0) { rightScale = widthScale; }
+                     else { leftScale = widthScale; }
+                 }
+             }
             // --- End Width Scaling ---
 
             const leftHalfTotalWidth = halfTotalWidth * leftScale;
@@ -149,7 +151,7 @@ export namespace RiverMeshGenerator {
             const leftHalfRiverWidth = Math.max(0, leftHalfTotalWidth - lipWidth);
             const rightHalfRiverWidth = Math.max(0, rightHalfTotalWidth - lipWidth);
 
-            // Calculate base positions
+            // Calculate and store initial positions
             const p0 = p_i.add(right_i.uniformScale(-leftHalfTotalWidth));
             const p1 = p0.add(up_i.uniformScale(lipHeight));
             const p3 = p_i.add(right_i.uniformScale(-leftHalfRiverWidth));
@@ -159,24 +161,100 @@ export namespace RiverMeshGenerator {
             const p7 = p_i.add(right_i.uniformScale(rightHalfTotalWidth));
             const p6 = p7.add(up_i.uniformScale(lipHeight));
 
-            // Estimate face normals by averaging adjacent segment frames
-            const avgNormOuterLeft = averageVec3(right_i, right_i1).uniformScale(-1.0).normalize();
-            const avgNormInnerLeft = averageVec3(right_i, right_i1).normalize();
-            const avgNormTop = averageVec3(up_i, up_i1).normalize(); // Average up vectors too
-            const avgNormInnerRight = averageVec3(right_i, right_i1).uniformScale(-1.0).normalize();
-            const avgNormOuterRight = averageVec3(right_i, right_i1).normalize();
+            initialBankPositions[0].push(p0);
+            initialBankPositions[1].push(p1);
+            initialBankPositions[2].push(p2);
+            initialBankPositions[3].push(p3);
+            initialBankPositions[4].push(p4);
+            initialBankPositions[5].push(p5);
+            initialBankPositions[6].push(p6);
+            initialBankPositions[7].push(p7);
+        }
 
-            // Calculate vertex normals by averaging face normals
-            const n0 = avgNormOuterLeft; // Corner vertex, only one face normal
-            const n1 = avgNormOuterLeft.add(avgNormTop).normalize();
-            const n2 = avgNormTop.add(avgNormInnerLeft).normalize();
-            const n3 = avgNormInnerLeft.add(avgNormTop).normalize(); // Bed uses Top normal
-            const n4 = avgNormTop.add(avgNormInnerRight).normalize(); // Bed uses Top normal
-            const n5 = avgNormInnerRight.add(avgNormTop).normalize();
-            const n6 = avgNormTop.add(avgNormOuterRight).normalize();
-            const n7 = avgNormOuterRight; // Corner vertex, only one face normal
+        // --- 3. Perform Relaxation Smoothing on Silhouette --- 
+        let relaxedBankPositions = initialBankPositions; // Start with initial
+        const numRelaxIterations = Math.max(0, relaxationIterations);
+        const rFactor = clamp(relaxationFactor, 0.0, 1.0);
 
-            // Append 8 vertices (pos, avg_norm, uv)
+        if (numRelaxIterations > 0 && numPoints >= 3) { // Need at least 3 points for neighbours
+            print(`RiverMeshGenerator: Applying ${numRelaxIterations} relaxation iterations (factor: ${rFactor}).`);
+            let currentPositions = initialBankPositions.map(bank => bank.map(p => new vec3(p.x, p.y, p.z))); // Deep copy
+
+            for (let iter = 0; iter < numRelaxIterations; iter++) {
+                let nextPositions = currentPositions.map(bank => bank.map(p => new vec3(p.x, p.y, p.z))); // Deep copy for next state
+
+                for (let bankIdx = 0; bankIdx < 8; bankIdx++) {
+                     // Determine loop range based on isLoop
+                    const startPoint = isLoop ? 0 : 1;
+                    const endPoint = isLoop ? numPoints : numPoints - 1;
+
+                    for (let i = startPoint; i < endPoint; i++) {
+                        const prevIdx = (i - 1 + numPoints) % numPoints;
+                        const nextIdx = (i + 1) % numPoints;
+
+                        const v_prev = currentPositions[bankIdx][prevIdx];
+                        const v_curr = currentPositions[bankIdx][i];
+                        const v_next = currentPositions[bankIdx][nextIdx];
+
+                        // Target position = midpoint of neighbours
+                        const targetPos = v_prev.add(v_next).uniformScale(0.5);
+                        
+                        // Move current towards target
+                        const delta = targetPos.sub(v_curr);
+                        const newPos = v_curr.add(delta.uniformScale(rFactor));
+                        
+                        nextPositions[bankIdx][i] = newPos;
+                    }
+                }
+                currentPositions = nextPositions; // Update positions for next iteration
+            }
+            relaxedBankPositions = currentPositions; // Final relaxed positions
+        } else {
+             relaxedBankPositions = initialBankPositions; // No smoothing applied
+        }
+
+        // --- 4. Generate Final Vertices using Relaxed Positions --- 
+        const vertices: number[] = [];
+        for (let i = 0; i < numPoints; i++) {
+             const p0 = relaxedBankPositions[0][i];
+             const p1 = relaxedBankPositions[1][i];
+             const p2 = relaxedBankPositions[2][i];
+             const p3 = relaxedBankPositions[3][i];
+             const p4 = relaxedBankPositions[4][i];
+             const p5 = relaxedBankPositions[5][i];
+             const p6 = relaxedBankPositions[6][i];
+             const p7 = relaxedBankPositions[7][i];
+
+             // Re-calculate frame vectors based on relaxed positions? Or use original pathSegmentsData?
+             // Using original pathSegmentsData is simpler and keeps normal orientation aligned with path intent.
+             const segment_i = pathSegmentsData[i];
+             const right_i = segment_i.right;
+             const up_i = segment_i.up;
+             const v_i = totalPathLength > 0 ? segment_i.length / totalPathLength : 0;
+
+             // Get next frame for normal averaging
+             const segment_i1 = (i < numPoints - 1) ? pathSegmentsData[i + 1] : segment_i;
+             const right_i1 = segment_i1.right;
+             const up_i1 = segment_i1.up;
+
+             // Estimate face normals by averaging adjacent segment frames
+             const avgNormOuterLeft = averageVec3(right_i, right_i1).uniformScale(-1.0).normalize();
+             const avgNormInnerLeft = averageVec3(right_i, right_i1).normalize();
+             const avgNormTop = averageVec3(up_i, up_i1).normalize(); 
+             const avgNormInnerRight = averageVec3(right_i, right_i1).uniformScale(-1.0).normalize();
+             const avgNormOuterRight = averageVec3(right_i, right_i1).normalize();
+
+             // Calculate vertex normals by averaging face normals
+             const n0 = avgNormOuterLeft;
+             const n1 = avgNormOuterLeft.add(avgNormTop).normalize();
+             const n2 = avgNormTop.add(avgNormInnerLeft).normalize();
+             const n3 = avgNormInnerLeft.add(avgNormTop).normalize();
+             const n4 = avgNormTop.add(avgNormInnerRight).normalize();
+             const n5 = avgNormInnerRight.add(avgNormTop).normalize();
+             const n6 = avgNormTop.add(avgNormOuterRight).normalize();
+             const n7 = avgNormOuterRight;
+
+             // Append 8 vertices (RELAXED pos, avg_norm, uv)
             vertices.push(p0.x, p0.y, p0.z, n0.x, n0.y, n0.z, 0, v_i);
             vertices.push(p1.x, p1.y, p1.z, n1.x, n1.y, n1.z, 0, v_i);
             vertices.push(p2.x, p2.y, p2.z, n2.x, n2.y, n2.z, uLip, v_i);
@@ -185,64 +263,37 @@ export namespace RiverMeshGenerator {
             vertices.push(p5.x, p5.y, p5.z, n5.x, n5.y, n5.z, uRiver, v_i);
             vertices.push(p6.x, p6.y, p6.z, n6.x, n6.y, n6.z, 1, v_i);
             vertices.push(p7.x, p7.y, p7.z, n7.x, n7.y, n7.z, 1, v_i);
-        }
+         }
 
         builder.appendVerticesInterleaved(vertices);
 
-        // --- 3. Generate Indices (Simple 8-vertex segments) --- 
+        // --- 5. Generate Indices (Same as before) ---
         const indices: number[] = [];
-        const numSegments = isLoop ? points.length : points.length - 1;
+        const numSegments = isLoop ? numPoints : numPoints - 1;
+        if (numSegments > 0) {
+             for (let i = 0; i < numSegments; i++) {
+                 const idx = i * vertexCountPerSegment; 
+                 const nextIdx = ((i + 1) % numPoints) * vertexCountPerSegment;
 
-        if (numSegments <= 0 && points.length >= 2) {
-             print("Warning: Not enough segments to generate indices, but points exist."); // Should not happen with points.length >= 2
-        } else {
-            for (let i = 0; i < numSegments; i++) {
-                const idx = i * vertexCountPerSegment; // Now 8
-                const nextIdx = ((i + 1) % points.length) * vertexCountPerSegment; // Use modulo for wrap-around
-
-                // Apply consistent CCW winding (ca, nb, na) / (nb, ca, cb) to all faces
-
-                // Outer Left Wall (P0, P1)
-                indices.push(idx + 0, nextIdx + 1, nextIdx + 0); // Tri 1: ca, nb, na
-                indices.push(nextIdx + 1, idx + 0, idx + 1);     // Tri 2: nb, ca, cb
-
-                // Left Lip Top (P1, P2)
-                indices.push(idx + 1, nextIdx + 2, nextIdx + 1); // Tri 1: ca, nb, na
-                indices.push(nextIdx + 2, idx + 1, idx + 2);     // Tri 2: nb, ca, cb
-
-                // Inner Left Wall (P2, P3)
-                indices.push(idx + 2, nextIdx + 3, nextIdx + 2); // Tri 1: ca, nb, na
-                indices.push(nextIdx + 3, idx + 2, idx + 3);     // Tri 2: nb, ca, cb
-
-                // River Bed (P3, P4)
-                indices.push(idx + 3, nextIdx + 4, nextIdx + 3); // Tri 1: ca, nb, na
-                indices.push(nextIdx + 4, idx + 3, idx + 4);     // Tri 2: nb, ca, cb
-
-                // Inner Right Wall (P4, P5)
-                indices.push(idx + 4, nextIdx + 5, nextIdx + 4); // Tri 1: ca, nb, na
-                indices.push(nextIdx + 5, idx + 4, idx + 5);     // Tri 2: nb, ca, cb
-
-                // Right Lip Top (P5, P6)
-                indices.push(idx + 5, nextIdx + 6, nextIdx + 5); // Tri 1: ca, nb, na
-                indices.push(nextIdx + 6, idx + 5, idx + 6);     // Tri 2: nb, ca, cb
-
-                // Outer Right Wall (P6, P7)
-                indices.push(idx + 6, nextIdx + 7, nextIdx + 6); // Tri 1: ca, nb, na
-                indices.push(nextIdx + 7, idx + 6, idx + 7);     // Tri 2: nb, ca, cb
-            }
-        }
-
+                 // CCW winding
+                 indices.push(idx + 0, nextIdx + 1, nextIdx + 0); indices.push(nextIdx + 1, idx + 0, idx + 1); 
+                 indices.push(idx + 1, nextIdx + 2, nextIdx + 1); indices.push(nextIdx + 2, idx + 1, idx + 2); 
+                 indices.push(idx + 2, nextIdx + 3, nextIdx + 2); indices.push(nextIdx + 3, idx + 2, idx + 3); 
+                 indices.push(idx + 3, nextIdx + 4, nextIdx + 3); indices.push(nextIdx + 4, idx + 3, idx + 4); 
+                 indices.push(idx + 4, nextIdx + 5, nextIdx + 4); indices.push(nextIdx + 5, idx + 4, idx + 5); 
+                 indices.push(idx + 5, nextIdx + 6, nextIdx + 5); indices.push(nextIdx + 6, idx + 5, idx + 6); 
+                 indices.push(idx + 6, nextIdx + 7, nextIdx + 6); indices.push(nextIdx + 7, idx + 6, idx + 7); 
+             }
+         }
         builder.appendIndices(indices);
 
-        // --- 4. Finalize Mesh --- 
+        // --- 6. Finalize Mesh ---
         if (!builder.isValid()) {
             print("RiverMeshGenerator: MeshBuilder state is invalid before finalizing.");
             return null;
         }
-
         builder.updateMesh();
-
-        print(`RiverMeshGenerator: Generated smooth mesh with ${vertices.length / (3+3+2)} vertices and ${indices.length / 3} triangles.`);
+        print(`RiverMeshGenerator: Generated relaxed mesh (${numRelaxIterations} iterations) with ${vertices.length / (3+3+2)} vertices and ${indices.length / 3} triangles.`);
         return builder.getMesh();
     }
 

@@ -31,6 +31,12 @@ export class RiverPathController extends BaseScriptComponent {
     @input
     clickDistanceThreshold: number = 15.0; // Distance to trigger delete last or close loop.
 
+    @input
+    relaxationIterations: number = 2; // Iterations for silhouette smoothing.
+
+    @input
+    relaxationFactor: number = 0.5; // Strength of silhouette smoothing (0 to 1).
+
     // Optional: Use world tracking for placing points
     // @input
     // worldTrackingComponent: WorldTrackingComponent;
@@ -257,7 +263,9 @@ export class RiverPathController extends BaseScriptComponent {
             this.riverWidth,
             this.lipHeight,
             this.lipWidth,
-            this.isLoop
+            this.isLoop,
+            this.relaxationIterations,
+            this.relaxationFactor
         );
 
         if (newMesh) {
