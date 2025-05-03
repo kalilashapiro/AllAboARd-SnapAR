@@ -149,33 +149,33 @@ export namespace RiverMeshGenerator {
             // Create the 7 quads (14 triangles) connecting segment i to i+1
             // Quad structure: (current_a, next_a, next_b, current_b) -> Tri1(ca, na, nb), Tri2(nb, cb, ca)
 
-            // Outer Left Wall (P0-P1)
-            indices.push(idx + 0, nextIdx + 0, nextIdx + 1);
-            indices.push(nextIdx + 1, idx + 1, idx + 0);
+            // Outer Left Wall (P0-P1) - Reversed Winding
+            indices.push(idx + 0, nextIdx + 1, nextIdx + 0); // Swapped last two
+            indices.push(nextIdx + 1, idx + 0, idx + 1); // Swapped last two
 
-            // Left Lip Top (P1-P2)
-            indices.push(idx + 1, nextIdx + 1, nextIdx + 2);
-            indices.push(nextIdx + 2, idx + 2, idx + 1);
+            // Left Lip Top (P1-P2) - Reversed Winding (Correct from previous edit)
+            indices.push(idx + 1, nextIdx + 2, nextIdx + 1);
+            indices.push(nextIdx + 2, idx + 1, idx + 2);
 
-            // Inner Left Wall (P2-P3)
-            indices.push(idx + 2, nextIdx + 2, nextIdx + 3);
-            indices.push(nextIdx + 3, idx + 3, idx + 2);
+            // Inner Left Wall (P2-P3) - Reversed Winding
+            indices.push(idx + 2, nextIdx + 3, nextIdx + 2); // Swapped last two
+            indices.push(nextIdx + 3, idx + 2, idx + 3); // Swapped last two
 
-            // River Bed (P3-P4)
-            indices.push(idx + 3, nextIdx + 3, nextIdx + 4);
-            indices.push(nextIdx + 4, idx + 4, idx + 3);
+            // River Bed (P3-P4) - Reversed Winding (Correct from previous edit)
+            indices.push(idx + 3, nextIdx + 4, nextIdx + 3);
+            indices.push(nextIdx + 4, idx + 3, idx + 4);
 
-            // Inner Right Wall (P4-P5)
-            indices.push(idx + 4, nextIdx + 4, nextIdx + 5);
-            indices.push(nextIdx + 5, idx + 5, idx + 4);
+            // Inner Right Wall (P4-P5) - Reversed Winding
+            indices.push(idx + 4, nextIdx + 5, nextIdx + 4); // Swapped last two
+            indices.push(nextIdx + 5, idx + 4, idx + 5); // Swapped last two
 
-            // Right Lip Top (P5-P6)
-            indices.push(idx + 5, nextIdx + 5, nextIdx + 6);
-            indices.push(nextIdx + 6, idx + 6, idx + 5);
+            // Right Lip Top (P5-P6) - Reversed Winding (Correct from previous edit)
+            indices.push(idx + 5, nextIdx + 6, nextIdx + 5);
+            indices.push(nextIdx + 6, idx + 5, idx + 6);
 
-            // Outer Right Wall (P6-P7)
-            indices.push(idx + 6, nextIdx + 6, nextIdx + 7);
-            indices.push(nextIdx + 7, idx + 7, idx + 6);
+            // Outer Right Wall (P6-P7) - Reversed Winding
+            indices.push(idx + 6, nextIdx + 7, nextIdx + 6); // Swapped last two
+            indices.push(nextIdx + 7, idx + 6, idx + 7); // Swapped last two
         }
 
         if (indices.length === 0 && points.length >= 2) {
