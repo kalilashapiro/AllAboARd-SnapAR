@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 1541
+    size: 1542
     values:
       - Base.png
       - Box.mesh
@@ -621,6 +621,7 @@ CollapsedEntities:
       - SpectaclesInteractionKit/Utils/views/MeshView.ts
       - SpectaclesInteractionKit/Utils/views/View.ts
       - SpectaclesInteractionKit/package.native
+      - SpectaclesSyncKit
       - SpectaclesSyncKit/Components
       - SpectaclesSyncKit/Components/Instantiator.ts
       - SpectaclesSyncKit/Components/SyncHelpers
@@ -1519,7 +1520,7 @@ CollapsedEntities:
       - SpectaclesSyncKit/package.native
       - TrackFinalizerGameBeginHandlers
       - TrackFinalizerGameBeginHandlers/FinalizeTrackAndSetupControls.ts
-      - WaterMat
+      - WaterMat/BoardWalkShader.ss_graph
       - WaterMat/ImageMaterial.mat
       - WaterMat/WaterMat.mat
       - WaterMat/WaterShader.ss_graph

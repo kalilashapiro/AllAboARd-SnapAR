@@ -363,9 +363,8 @@ export namespace RiverMeshGenerator {
                  // --- End Debug ---
 
                  // Append 2 vertices per point (pos, norm, uv)
-                 // Use world XZ coordinates for UVs
-                 waterVertices.push(waterP3.x, waterP3.y, waterP3.z, normWater.x, normWater.y, normWater.z, waterP3.x, waterP3.z); // U = worldX, V = worldZ
-                 waterVertices.push(waterP4.x, waterP4.y, waterP4.z, normWater.x, normWater.y, normWater.z, waterP4.x, waterP4.z); // U = worldX, V = worldZ
+                 waterVertices.push(waterP3.x, waterP3.y, waterP3.z, normWater.x, normWater.y, normWater.z, 0, v_water); // U = 0
+                 waterVertices.push(waterP4.x, waterP4.y, waterP4.z, normWater.x, normWater.y, normWater.z, 1, v_water); // U = 1
              }
              waterBuilder.appendVerticesInterleaved(waterVertices);
 
