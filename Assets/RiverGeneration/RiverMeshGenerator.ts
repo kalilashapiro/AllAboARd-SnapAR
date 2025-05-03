@@ -1,5 +1,10 @@
 export namespace RiverMeshGenerator {
 
+    // Helper function to clamp a value
+    function clamp(value: number, min: number, max: number): number {
+        return Math.max(min, Math.min(value, max));
+    }
+
     /**
      * Builds a RenderMesh representing a river with lips along a given path.
      * @param points An array of world space coordinates defining the center line of the river.
@@ -38,35 +43,50 @@ export namespace RiverMeshGenerator {
         for (let i = 0; i < points.length; i++) {
             const currentPoint = points[i];
             let forward: vec3;
+            let right: vec3;
+            let segmentUp: vec3;
 
+            // --- Calculate Forward Vector (Same as before) ---
             if (i < points.length - 1) {
-                forward = points[i + 1].sub(currentPoint).normalize();
+                forward = points[i + 1].sub(currentPoint);
             } else {
-                // Last point uses the direction from the previous segment
-                forward = currentPoint.sub(points[i - 1]).normalize();
+                forward = new vec3(pathSegmentsData[i - 1].forward.x, pathSegmentsData[i - 1].forward.y, pathSegmentsData[i - 1].forward.z); // Use new vec3 to clone
+            }
+            const fwdLengthSq = forward.lengthSquared;
+            if (fwdLengthSq < 0.0001) {
+                if (i > 0) forward = new vec3(pathSegmentsData[i - 1].forward.x, pathSegmentsData[i - 1].forward.y, pathSegmentsData[i - 1].forward.z); // Use new vec3 to clone
+                else forward = vec3.forward();
+            } else {
+                forward = forward.normalize();
+            }
+            // --- End Forward Calculation ---
+
+            // --- Calculate Horizontal Right and Local Up ---
+            const tempRight = forward.cross(upVec);
+            if (tempRight.lengthSquared < 0.0001) {
+                // Forward is aligned with world up (vertical path segment)
+                if (i > 0) {
+                    // Reuse previous segment's right vector for continuity
+                    right = new vec3(pathSegmentsData[i - 1].right.x, pathSegmentsData[i - 1].right.y, pathSegmentsData[i - 1].right.z);
+                    print(`Warning: Vertical segment ${i}, reusing previous right.`);
+                } else {
+                    // First segment is vertical, fallback to world right
+                    right = vec3.right();
+                    print(`Warning: First segment is vertical, using world right.`);
+                }
+            } else {
+                // Normalize the calculated horizontal right vector
+                right = tempRight.normalize();
             }
 
-            // Ensure forward is not zero vector (coincident points)
-            const fwdLength = forward.length; // Get length
-            if (fwdLength * fwdLength < 0.0001) { // Square manually
-                if (i > 0) forward = pathSegmentsData[i - 1].forward; // Use previous forward
-                else forward = vec3.forward(); // Default if first two points are coincident
-            }
-
+            // Calculate local up based on forward and horizontal right
+            segmentUp = right.cross(forward).normalize();
+            // --- End Right and Up Calculation ---
 
             // Calculate segment length for V coordinate
             if (i > 0) {
                 accumulatedLength += points[i].distance(points[i - 1]);
             }
-
-            // Calculate orthonormal basis
-            let right = forward.cross(upVec).normalize();
-            // If forward is aligned with upVec, pick an arbitrary right vector
-            const rightLength = right.length; // Get length
-            if (rightLength * rightLength < 0.0001) { // Square manually
-                right = vec3.right();
-            }
-            let segmentUp = right.cross(forward).normalize(); // Recompute 'up' to be orthogonal
 
             pathSegmentsData.push({
                 point: currentPoint,
@@ -86,6 +106,12 @@ export namespace RiverMeshGenerator {
         // Define U coordinates for edges
         const uCoords = [0, 0, uLip, uLip, uRiver, uRiver, 1, 1]; // U-coord for p0, p1, p2, p3, p4, p5, p6, p7
 
+        // Pre-calculate segment directions for curvature estimation
+        const segmentDirections: vec3[] = [];
+        for (let i = 0; i < points.length - 1; i++) {
+            segmentDirections.push(points[i + 1].sub(points[i]).normalize());
+        }
+
         for (let i = 0; i < points.length - 1; i++) {
             const segment_i = pathSegmentsData[i];
             const segment_i1 = pathSegmentsData[i + 1];
@@ -96,29 +122,68 @@ export namespace RiverMeshGenerator {
             const v_i = totalPathLength > 0 ? segment_i.length / totalPathLength : 0;
 
             const p_i1 = segment_i1.point;
-            const right_i1 = segment_i1.right; // Not strictly needed if using normals from segment i
-            const up_i1 = segment_i1.up;       // Not strictly needed if using normals from segment i
             const v_i1 = totalPathLength > 0 ? segment_i1.length / totalPathLength : 0;
 
-            // Calculate 8 points for cross-section i
-            const p0_i = p_i.add(right_i.uniformScale(-halfTotalWidth));
+            // --- Calculate Width Scaling based on curvature at point i ---
+            let widthScale = 1.0;
+            let leftScale = 1.0;
+            let rightScale = 1.0;
+            const minWidthScale = 0.2; // Minimum scale factor (e.g., 20%)
+            const straightThreshold = 0.99; // Dot product close to 1
+
+            if (i > 0 && i < points.length - 2) { // Can calculate turn only for internal points
+                const dir_in = segmentDirections[i - 1]; // Direction leading to point i
+                const dir_out = segmentDirections[i];    // Direction leaving point i
+                const dotProd = clamp(dir_in.dot(dir_out), -1.0, 1.0);
+
+                if (dotProd < straightThreshold) { // It's a turn
+                    widthScale = clamp((dotProd + 1.0) * 0.5, minWidthScale, 1.0); // Map [-1, 1] to [min, 1]
+                    // Simple linear mapping for now: widthScale = clamp(dotProd, minWidthScale, 1.0);
+                     // Map dot product [-1, 1] to scale [minWidthScale, 1.0]
+                    // Higher dot product (straighter) -> higher scale
+                    widthScale = clamp(minWidthScale + (1.0 - minWidthScale) * (dotProd + 1.0) / 2.0, minWidthScale, 1.0);
+
+
+                    const turnCross = dir_in.cross(dir_out);
+                    // Check alignment with segment's up vector to determine turn direction relative to path
+                    if (turnCross.dot(up_i) > 0) { // Left turn (relative to path direction)
+                        rightScale = widthScale; // Inner bank is right
+                    } else { // Right turn
+                        leftScale = widthScale; // Inner bank is left
+                    }
+                }
+            }
+            // --- End Width Scaling Calculation ---
+
+            // Calculate scaled widths for cross-section i
+            const leftHalfTotalWidth = halfTotalWidth * leftScale;
+            const rightHalfTotalWidth = halfTotalWidth * rightScale;
+            // Adjust inner river width calculation based on which side scaled
+            const leftHalfRiverWidth = Math.max(0, leftHalfTotalWidth - lipWidth);
+            const rightHalfRiverWidth = Math.max(0, rightHalfTotalWidth - lipWidth);
+
+
+            // Calculate 8 points for cross-section i using scaled widths
+            const p0_i = p_i.add(right_i.uniformScale(-leftHalfTotalWidth)); // Use left scale
             const p1_i = p0_i.add(up_i.uniformScale(lipHeight));
-            const p3_i = p_i.add(right_i.uniformScale(-halfRiverWidth));
+            const p3_i = p_i.add(right_i.uniformScale(-leftHalfRiverWidth)); // Use left scale
             const p2_i = p3_i.add(up_i.uniformScale(lipHeight));
-            const p4_i = p_i.add(right_i.uniformScale(halfRiverWidth));
+            const p4_i = p_i.add(right_i.uniformScale(rightHalfRiverWidth)); // Use right scale
             const p5_i = p4_i.add(up_i.uniformScale(lipHeight));
-            const p7_i = p_i.add(right_i.uniformScale(halfTotalWidth));
+            const p7_i = p_i.add(right_i.uniformScale(rightHalfTotalWidth)); // Use right scale
             const p6_i = p7_i.add(up_i.uniformScale(lipHeight));
             const points_i = [p0_i, p1_i, p2_i, p3_i, p4_i, p5_i, p6_i, p7_i];
 
-            // Calculate 8 points for cross-section i+1
-            const p0_i1 = p_i1.add(segment_i1.right.uniformScale(-halfTotalWidth)); // Use i+1 basis
+            // Calculate 8 points for cross-section i+1 (COULD also apply scaling based on turn at i+1, but simpler for now to use i)
+            // For simplicity, we use the scaling determined at point i for the segment i -> i+1
+            // A more advanced method might blend scales or calculate scale for i+1 too
+            const p0_i1 = p_i1.add(segment_i1.right.uniformScale(-leftHalfTotalWidth)); // Use scale from i
             const p1_i1 = p0_i1.add(segment_i1.up.uniformScale(lipHeight));
-            const p3_i1 = p_i1.add(segment_i1.right.uniformScale(-halfRiverWidth));
+            const p3_i1 = p_i1.add(segment_i1.right.uniformScale(-leftHalfRiverWidth)); // Use scale from i
             const p2_i1 = p3_i1.add(segment_i1.up.uniformScale(lipHeight));
-            const p4_i1 = p_i1.add(segment_i1.right.uniformScale(halfRiverWidth));
+            const p4_i1 = p_i1.add(segment_i1.right.uniformScale(rightHalfRiverWidth)); // Use scale from i
             const p5_i1 = p4_i1.add(segment_i1.up.uniformScale(lipHeight));
-            const p7_i1 = p_i1.add(segment_i1.right.uniformScale(halfTotalWidth));
+            const p7_i1 = p_i1.add(segment_i1.right.uniformScale(rightHalfTotalWidth)); // Use scale from i
             const p6_i1 = p7_i1.add(segment_i1.up.uniformScale(lipHeight));
             const points_i1 = [p0_i1, p1_i1, p2_i1, p3_i1, p4_i1, p5_i1, p6_i1, p7_i1];
 

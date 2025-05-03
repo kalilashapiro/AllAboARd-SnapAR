@@ -25,6 +25,9 @@ export class RiverPathController extends BaseScriptComponent {
     @input
     subdivisionCount: number = 8; // Number of segments per original segment
 
+    @input
+    maxYDifferenceFromStart: number = -1; // Max allowed Y diff (height) from first point. <= 0 means disabled.
+
     // Optional: Use world tracking for placing points
     // @input
     // worldTrackingComponent: WorldTrackingComponent;
@@ -119,6 +122,19 @@ export class RiverPathController extends BaseScriptComponent {
      * @param point The world space coordinate to add.
      */
     public addPoint(point: vec3): void {
+        // Check Y difference constraint if enabled and not the first point
+        if (this.pathPoints.length > 0 && this.maxYDifferenceFromStart > 0) {
+            const firstPointY = this.pathPoints[0].y;
+            const newPointY = point.y;
+            const yDifference = Math.abs(newPointY - firstPointY);
+
+            if (yDifference > this.maxYDifferenceFromStart) {
+                print(`RiverPathController: Point Y (${newPointY.toFixed(2)}) too different from start Y (${firstPointY.toFixed(2)}). Max diff: ${this.maxYDifferenceFromStart.toFixed(2)}. Point not added.`);
+                return; // Stop here, don't add the point
+            }
+        }
+
+        // If constraint passed or doesn't apply, add the point
         this.pathPoints.push(point);
         this.regenerateMesh();
     }
