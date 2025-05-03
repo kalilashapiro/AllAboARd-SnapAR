@@ -4,10 +4,11 @@ const SIK = require("SpectaclesInteractionKit/SIK").SIK;
 const InteractorTriggerType = require("SpectaclesInteractionKit/Core/Interactor/Interactor").InteractorTriggerType;
 const EPSILON = 0.01;
 
+// Import the RiverPathController to use its type
+import { RiverPathController } from "../RiverGeneration/RiverPathController"; // Adjust path if necessary
 
 @component
 export class NewScript extends BaseScriptComponent {
-
 
     private primaryInteractor;
     private hitTestSession: HitTestSession;
@@ -24,6 +25,10 @@ export class NewScript extends BaseScriptComponent {
     @input
     filterEnabled: boolean;
 
+    // Input to link the RiverPathController script
+    @input
+    riverController: RiverPathController;
+
     onAwake() {
         // create new hit session
         this.hitTestSession = this.createHitTestSession(this.filterEnabled);
@@ -39,7 +44,6 @@ export class NewScript extends BaseScriptComponent {
         this.createEvent("UpdateEvent").bind(this.onUpdate.bind(this));
     }
 
-
     createHitTestSession(filterEnabled) {
         // create hit test session with options
         var options = HitTestSessionOptions.create();
@@ -50,7 +54,6 @@ export class NewScript extends BaseScriptComponent {
         return session;
     }
 
-
     onHitTestResult(results) {
         if (results === null) {
             this.targetObject.enabled = false;
@@ -59,7 +62,6 @@ export class NewScript extends BaseScriptComponent {
             // get hit information
             const hitPosition = results.position;
             const hitNormal = results.normal;
-
 
             //identifying the direction the object should look at based on the normal of the hit location.
 
@@ -83,6 +85,17 @@ export class NewScript extends BaseScriptComponent {
                 this.primaryInteractor.currentTrigger === InteractorTriggerType.None
             ) {
                 // Called when a trigger ends
+
+                // --- Call River Path Controller Directly ---
+                if (this.riverController) {
+                    print("WorldQueryHitExample: Calling riverController.addPoint directly.");
+                    this.riverController.addPoint(hitPosition);
+                } else {
+                    print("WorldQueryHitExample: Error - RiverController input is not set in the Inspector!");
+                }
+                // --- End direct call ---
+
+
                 // Copy the plane/axis object
                 let parent = this.objectsToSpawn[this.indexToSpawn].getParent();
                 let newObject = parent.copyWholeHierarchy(this.objectsToSpawn[this.indexToSpawn]);

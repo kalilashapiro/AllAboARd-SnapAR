@@ -9,9 +9,9 @@ export class RiverPathController extends BaseScriptComponent {
     @input
     riverMeshVisual: RenderMeshVisual;
 
-    // Add input for the camera
-    @input
-    cameraObject: SceneObject;
+    // Remove input for the camera as it's no longer needed for placing points
+    // @input
+    // cameraObject: SceneObject;
 
     @input
     riverWidth: number = 30.0;
@@ -27,18 +27,20 @@ export class RiverPathController extends BaseScriptComponent {
     // worldTrackingComponent: WorldTrackingComponent;
 
     private pathPoints: vec3[] = [];
-    private touchStarted: boolean = false;
+    // Removed touchStarted flag
+    // private touchStarted: boolean = false;
 
     start() {
         // Initialize with a simple default path for testing
         this.initializeDefaultPath();
 
-        // Listen for specific touch event types using string names
-        this.createEvent("TouchStartEvent").bind(this.onTouchStart);
-        this.createEvent("TouchEndEvent").bind(this.onTouchEnd);
-        this.createEvent("TouchMoveEvent").bind(this.onTouchMove); // Handle move to reset flag
-        // Removed separate TapEvent handler for simplicity
-        // this.createEvent("TapEvent").bind(this.onTap);
+        // Event listener removed - points are now added via direct call
+        // script.registerEventHandler("AddWorldPointToRiver", this.onWorldPointReceived);
+
+        // Remove touch event listeners
+        // this.createEvent("TouchStartEvent").bind(this.onTouchStart);
+        // this.createEvent("TouchEndEvent").bind(this.onTouchEnd);
+        // this.createEvent("TouchMoveEvent").bind(this.onTouchMove); // Handle move to reset flag
     }
 
     initializeDefaultPath() {
@@ -51,6 +53,21 @@ export class RiverPathController extends BaseScriptComponent {
         print("RiverPathController: Initialized with default path.");
     }
 
+    // --- Removed method for handling events ---
+    /*
+    onWorldPointReceived(position: vec3) {
+        if (position && position instanceof vec3) {
+            print(`RiverPathController: Received world point: ${position.toString()}`);
+            this.addPoint(position);
+        } else {
+            print("RiverPathController: Received invalid data on AddWorldPointToRiver event.");
+        }
+    }
+    */
+    // --- End removed method ---
+
+    // Removed touch event handlers (onTouchStart, onTouchEnd, onTouchMove, addPointFromTouch)
+    /*
     // Revert to TouchStartEvent type for handler signature
     onTouchStart(event: TouchStartEvent) {
         print("RiverPathController: Touch Start / Mouse Down detected.");
@@ -73,14 +90,6 @@ export class RiverPathController extends BaseScriptComponent {
         this.touchStarted = false;
     }
 
-    /* Removed onTap handler
-    onTap(event: TapEvent) {
-         // Handle simple taps directly
-         this.addPointFromTouch(event.getTouchPosition());
-    }
-    */
-
-    // Helper function to add point based on touch position
     addPointFromTouch(screenPos: vec2) {
         // TODO: Replace this with World Mesh Query or Plane Detection Raycast
         // For now, just adds a point relative to the camera direction.
@@ -98,6 +107,7 @@ export class RiverPathController extends BaseScriptComponent {
             print(`RiverPathController: Error getting camera transform or adding point: ${e}`)
         }
     }
+    */
 
     /**
      * Adds a new point to the end of the river path.

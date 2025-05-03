@@ -14,7 +14,7 @@ dock:
               - persistentName: snap.plugin.gui.typescript_status_panel
                 Uuid: 9a42595a-a139-44b0-bcee-a3bd24dfe685
             type: section
-            current: 0
+            current: 1
         sizes:
           - 603
           - 579

@@ -28,7 +28,7 @@ lastPosition:
   options: 4
 lastRotation:
   type: vec3
-  value: {x: -55.498566, y: 64.796074, z: 0.000148}
+  value: {x: -55.498566, y: 64.796089, z: 0.000140}
   options: 4
 mirrorHorizontally:
   type: bool
