@@ -1,0 +1,51 @@
+- !<AssetImportMetadata/3e80a18a-f349-4ec5-b207-a348ba4acc1a>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 10b6f054-a07e-41dc-91ba-112fbe17175d
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 10b6f054-a07e-41dc-91ba-112fbe17175d
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> c9f2bb91-e1db-4832-b8d5-497f60fcd28d
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/c9f2bb91-e1db-4832-b8d5-497f60fcd28d>
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: bff508fa-940f-443f-84bf-735c62a6a22b
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    cameraObject: false
+    lipHeight: false
+    lipWidth: false
+    riverMeshVisual: false
+    riverWidth: false
+  ScriptTypesHidden:
+    {}
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - riverMeshVisual: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
+      cameraObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      riverWidth: !<float> 30.000000
+      lipHeight: !<float> 5.000000
+      lipWidth: !<float> 10.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input Component.RenderMeshVisual riverMeshVisual
+    - // @input SceneObject cameraObject
+    - // @input float riverWidth = 30
+    - // @input float lipHeight = 5
+    - // @input float lipWidth = 10

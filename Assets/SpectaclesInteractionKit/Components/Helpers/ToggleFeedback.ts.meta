@@ -1,0 +1,56 @@
+- !<AssetImportMetadata/b46caf59-5645-49c0-8c12-3e6e781deb1b>
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 2e02e45b-4235-4d73-b74c-73a7b1f3ca61
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 2e02e45b-4235-4d73-b74c-73a7b1f3ca61
+  PackageType: NotAPackage
+  AssetDataMap:
+    TypeScriptAsset: !<own> 689c3ca1-f94d-4160-bb84-3e6cbf8419b3
+  PackagePolicy: CannotBeUnpacked
+  DependentFiles:
+    []
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+  ExtraData:
+    {}
+- !<TypeScriptAssetData/689c3ca1-f94d-4160-bb84-3e6cbf8419b3>
+  Icon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: c34a28e0-bc3c-47b1-a980-e191d11c1f6b
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    disabledMaterial: false
+    meshVisuals: false
+    toggledOffMaterial: false
+    toggledOffSelectMaterial: false
+    toggledOnMaterial: false
+    toggledOnSelectMaterial: false
+  ScriptTypesHidden:
+    {}
+  DefaultScriptInputs:
+    - toggledOffMaterial: !<reference.Material> 0d5abaaf-637f-40ae-be45-a499c144b5e8
+      toggledOffSelectMaterial: !<reference.Material> be77b8e2-5afe-440e-a1ec-431e876fb5e7
+      toggledOnMaterial: !<reference.Material> 455efa90-60be-4c09-9596-a37abbe11216
+      toggledOnSelectMaterial: !<reference.Material> 04d0ac5a-fc91-436f-bcd7-b259d7aac2e4
+      disabledMaterial: !<reference.Material> a801545c-8c2a-4af1-a6a1-9bf6d07e3923
+      meshVisuals: !<reference.RenderMeshVisual[]>
+        []
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input Asset.Material toggledOffMaterial
+    - // @input Asset.Material toggledOffSelectMaterial
+    - // @input Asset.Material toggledOnMaterial
+    - // @input Asset.Material toggledOnSelectMaterial
+    - // @input Asset.Material disabledMaterial
+    - "// @input Component.RenderMeshVisual[] meshVisuals = {}"
+  SvgIcon: ""
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000

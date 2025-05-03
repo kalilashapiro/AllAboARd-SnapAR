@@ -12124,14 +12124,14 @@
   ScriptInputsDefault:
     {}
   ScriptTypesDefault:
-    {}
+    "Instantiator\r": true
   ScriptInputs:
     "":
-      instantiator: !<Typename.Instantiator> d33cb033-7bcb-48b1-a195-b1a1387a2bcb
+      instantiator: !<RequiredType.Instantiator> d33cb033-7bcb-48b1-a195-b1a1387a2bcb
       prefab: !<reference.ObjectPrefab> 1f9e33dc-e464-491d-b435-dc1703b3f5a3
   ScriptTypes:
     "":
-      Instantiator: !<reference.ScriptAsset> 0f0500cb-c58a-434d-a171-94167130d106
+      "Instantiator\r": !<reference.ScriptAsset> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/cb717a6f-6021-4814-96d0-5908e3a0ce56>
   PrefabRemaps:
     []

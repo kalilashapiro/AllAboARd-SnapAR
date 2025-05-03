@@ -1,0 +1,39 @@
+- !<AssetImportMetadata/e61a5da2-77d1-4e2e-aaef-06ffd7a66f78>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> ac50f1f9-4062-42ee-9cf1-b1f93ec8c05d
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> ac50f1f9-4062-42ee-9cf1-b1f93ec8c05d
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  AssetDataMap:
+    TypeScriptAsset: !<own> 6ecfff2c-5524-4f95-9f18-2ad30bb22a49
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+  ExtraData:
+    {}
+- !<TypeScriptAssetData/6ecfff2c-5524-4f95-9f18-2ad30bb22a49>
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: a70f77bc-9730-4cf4-997a-cd884e224577
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    logLevelFilter: false
+  ScriptTypesHidden:
+    {}
+  DefaultScriptInputs:
+    - logLevelFilter: 8
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input int logLevelFilter = 8 {"widget":"combobox", "values":[{"label":"Error", "value":3}, {"label":"Warning", "value":4}, {"label":"Info", "value":6}, {"label":"Debug", "value":7}, {"label":"Verbose", "value":8}]}'
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000

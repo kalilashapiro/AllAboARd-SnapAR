@@ -1,0 +1,61 @@
+- !<AssetImportMetadata/945a992e-28f1-493f-b4df-76f715363a7a>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 20423f44-f69d-4eb6-8f61-fb92c9a3311d
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 20423f44-f69d-4eb6-8f61-fb92c9a3311d
+  PackageType: NotAPackage
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> f6b998e9-2d75-4ec6-9a4c-64f69ab7f1e9
+  PackagePolicy: CannotBeUnpacked
+  DependentFiles:
+    []
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+  ExtraData:
+    {}
+- !<TypeScriptAssetData/f6b998e9-2d75-4ec6-9a4c-64f69ab7f1e9>
+  InputLines:
+    - // @input Asset.Material lineMaterial
+    - '// @input vec3 _beginColor = "{1, 1, 0}" {"widget":"color"}'
+    - '// @input vec3 _endColor = "{1, 1, 0}" {"widget":"color"}'
+    - // @input float lineWidth = 0.5
+    - // @input float lineLength = 160
+    - '// @input float lineStyle = 2 {"widget":"combobox", "values":[{"label":"Full", "value":0}, {"label":"Split", "value":1}, {"label":"FadedEnd", "value":2}]}'
+    - // @input bool shouldStick = true
+    - // @input Component.ScriptComponent _interactor
+  Icon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 67d543b2-fd68-43b7-8746-d8e8834ce1d0
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    _beginColor: false
+    _endColor: false
+    _interactor: false
+    lineLength: false
+    lineMaterial: false
+    lineStyle: false
+    lineWidth: false
+    shouldStick: false
+  ScriptTypesHidden:
+    {}
+  DefaultScriptInputs:
+    - lineMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      lineWidth: 0.500000
+      lineLength: !<float> 160.000000
+      lineStyle: !<float> 2.000000
+      shouldStick: true
+      _beginColor: !<Vec3> {x: 1.000000, y: 1.000000, z: 0.000000}
+      _endColor: !<Vec3> {x: 1.000000, y: 1.000000, z: 0.000000}
+      _interactor: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  SvgIcon: ""
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000

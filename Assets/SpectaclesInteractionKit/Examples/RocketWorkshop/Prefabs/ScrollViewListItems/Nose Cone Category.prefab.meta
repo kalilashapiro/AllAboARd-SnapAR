@@ -1,0 +1,204 @@
+- !<AssetImportMetadata/06b79a3f-a60f-4178-b010-f5b8e2888867>
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> 8419e8a5-5b42-48d6-8815-7a14fb6111ff
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> 8419e8a5-5b42-48d6-8815-7a14fb6111ff
+  PackageType: NotAPackage
+  AssetDataMap:
+    ObjectPrefab: !<own> f929613b-b16d-4dea-9105-5883fa06c3cb
+  PackagePolicy: CannotBeUnpacked
+  DependentFiles:
+    []
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+  ExtraData:
+    {}
+- !<ScreenTransform/87faab4e-f881-4797-a2b4-e795bbc8a415>
+  PrefabRemaps:
+    []
+  Name: Screen Transform
+  Enabled: true
+  IsAdvanced: false
+  Constraints:
+    pinToLeft: false
+    pinToTop: false
+    pinToRight: false
+    pinToBottom: false
+    fixedWidth: false
+    fixedHeight: false
+    deactivatedFixedSprite: false
+    deactivatedFixedPivot: false
+  Pivot: {x: 0.000000, y: 0.000000}
+  Transform:
+    position: {x: 0.000000, y: 0.300000, z: 0.000000}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  RawMode: true
+  ForceBasic: true
+  Anchor:
+    left: -1.000000
+    bottom: 0.300000
+    right: 1.000000
+    top: 0.300000
+  Offset:
+    left: 0.000001
+    bottom: -2.500000
+    right: -0.000001
+    top: 2.500000
+- !<SceneObject/8c085ccb-f606-4e73-8079-fba91ed5123a>
+  PrefabRemaps:
+    []
+  Name: ScrollViewListItem
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.300000, z: 0.000000}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> 9d8fbb74-8f8d-4dd9-814d-3b87159ea98e
+  Components:
+    - !<own> 87faab4e-f881-4797-a2b4-e795bbc8a415
+- !<SceneObject/9d8fbb74-8f8d-4dd9-814d-3b87159ea98e>
+  PrefabRemaps:
+    []
+  Name: ContactName
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> c9ed6dac-c8a1-49b0-9ea8-3228b386a183
+    - !<own> fb75d83b-e6d6-4786-9bdc-6f186bb337da
+- !<ScreenTransform/c9ed6dac-c8a1-49b0-9ea8-3228b386a183>
+  PrefabRemaps:
+    []
+  Name: Screen Transform
+  Enabled: true
+  IsAdvanced: false
+  Constraints:
+    pinToLeft: false
+    pinToTop: false
+    pinToRight: false
+    pinToBottom: false
+    fixedWidth: false
+    fixedHeight: false
+    deactivatedFixedSprite: false
+    deactivatedFixedPivot: false
+  Pivot: {x: 0.000000, y: 0.000000}
+  Transform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  RawMode: true
+  ForceBasic: true
+  Anchor:
+    left: -0.500000
+    bottom: 0.000000
+    right: 0.665100
+    top: 0.000000
+  Offset:
+    left: -0.000000
+    bottom: -1.000000
+    right: 0.000000
+    top: 1.000000
+- !<ObjectPrefab/cc6024e3-f387-4f0c-ada7-71dd3de67be8>
+  PackagePath: ""
+  objects:
+    - !<own> 8c085ccb-f606-4e73-8079-fba91ed5123a
+  LazyLoading: false
+  RetainAssets: true
+- !<ObjectPrefabAssetData/f929613b-b16d-4dea-9105-5883fa06c3cb>
+  SourceRemaps:
+    - 2637952c-ab27-4bb2-ae19-21dc534a21d5: 87faab4e-f881-4797-a2b4-e795bbc8a415
+    - 29b745c5-6571-47fe-9c18-4b77cbfa941b: fb75d83b-e6d6-4786-9bdc-6f186bb337da
+    - 4de7a31b-3655-4017-89fb-eaf40365d94f: c9ed6dac-c8a1-49b0-9ea8-3228b386a183
+    - 9581b9a5-e171-46e0-8652-da225f81bf87: 8c085ccb-f606-4e73-8079-fba91ed5123a
+    - a4699af5-f669-4f8d-8a76-5dd8e66fae9c: 9d8fbb74-8f8d-4dd9-814d-3b87159ea98e
+  SourceState: !<own> cc6024e3-f387-4f0c-ada7-71dd3de67be8
+- !<Text/fb75d83b-e6d6-4786-9bdc-6f186bb337da>
+  PrefabRemaps:
+    []
+  Name: Text 2
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Left
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: Nose Cone
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 70
+  Font: !<reference> 711473f0-eaf8-4cdb-8d22-e1d2e07c6345
+  LayoutRect:
+    left: -7.500000
+    bottom: -2.250000
+    right: 7.500000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Overflow
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+    CapitilizationOverride: None
+  DepthTest: false
+  TwoSided: false

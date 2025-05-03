@@ -1,0 +1,62 @@
+- !<AssetImportMetadata/481ec30d-b50e-4350-ac31-e991f7d18f42>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> 27287ef7-f68b-4756-ab9d-f538730c58e8
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> 27287ef7-f68b-4756-ab9d-f538730c58e8
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  AssetDataMap:
+    ObjectPrefab: !<own> 2039f85b-9c36-4b4f-893d-594ce16927bd
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+  ExtraData:
+    {}
+- !<SceneObject/0b882656-7070-47bf-915c-e84ab8991cb9>
+  PrefabRemaps:
+    []
+  Name: Sleek Body Tube
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 11.006973, z: 0.000000}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 0ecab506-a77d-4a71-870e-347cb96b1d2e
+- !<RenderMeshVisual/0ecab506-a77d-4a71-870e-347cb96b1d2e>
+  PrefabRemaps:
+    []
+  Name: component_0
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 1a78da96-73a9-487a-ab05-732cbd6c0def
+  Mesh: !<reference> ee193da7-050e-43fc-aa94-19640a2813c3
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<ObjectPrefabAssetData/2039f85b-9c36-4b4f-893d-594ce16927bd>
+  SourceRemaps:
+    - 0fc26333-e766-4557-b37b-ff086cbfa222: 0ecab506-a77d-4a71-870e-347cb96b1d2e
+    - 495ab2e4-7a83-425b-8af3-40018acff29f: 0b882656-7070-47bf-915c-e84ab8991cb9
+  SourceState: !<own> 99540b21-6aeb-4d98-91c4-23d21f9c4930
+- !<ObjectPrefab/99540b21-6aeb-4d98-91c4-23d21f9c4930>
+  PackagePath: ""
+  objects:
+    - !<own> 0b882656-7070-47bf-915c-e84ab8991cb9
+  LazyLoading: false
+  RetainAssets: true

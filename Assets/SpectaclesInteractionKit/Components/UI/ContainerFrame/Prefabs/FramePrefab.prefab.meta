@@ -1,0 +1,82 @@
+- !<AssetImportMetadata/22e82471-e554-4908-9021-e2f63bd3ec05>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> b8f02a3e-e5b7-4bfa-b840-faa8dc1a32af
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> b8f02a3e-e5b7-4bfa-b840-faa8dc1a32af
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  AssetDataMap:
+    ObjectPrefab: !<own> aabd9541-05d9-42d7-8d48-fb91ea3c7e39
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+  ExtraData:
+    {}
+- !<RenderMeshVisual/0db6a8df-88fa-4619-85d4-4a6375b15eea>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 559a60dc-da00-48cc-90ae-05022df23091
+  Mesh: !<reference> b5a535b3-044d-4b91-9484-a96aeb1a4b1f
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/3a9e9341-3bab-48e0-a148-c24b1dcc593e>
+  PrefabRemaps:
+    []
+  Name: FramePrefab
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 96f54255-abda-4033-a793-c1febb005909
+    - !<own> 0db6a8df-88fa-4619-85d4-4a6375b15eea
+- !<ObjectPrefab/8eab3409-4921-475a-a4c2-bc988c4bfcf7>
+  PackagePath: ""
+  objects:
+    - !<own> 3a9e9341-3bab-48e0-a148-c24b1dcc593e
+  LazyLoading: false
+  RetainAssets: true
+- !<ColliderComponent/96f54255-abda-4033-a793-c1febb005909>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Box>
+    Size: {x: 1.000000, y: 1.000000, z: 0.050000}
+    FitVisual: false
+  ForceCompound: false
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  ShowCollider: false
+  Intangible: false
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+- !<ObjectPrefabAssetData/aabd9541-05d9-42d7-8d48-fb91ea3c7e39>
+  SourceRemaps:
+    - 4ae0ac26-8ac0-4c22-be76-7ed0cfaf9ea4: 0db6a8df-88fa-4619-85d4-4a6375b15eea
+    - 77ee37a1-9dc1-4a04-8750-94d057af6f58: 96f54255-abda-4033-a793-c1febb005909
+    - e7cb30ad-09a6-4baa-89ed-59b7cdb6531c: 3a9e9341-3bab-48e0-a148-c24b1dcc593e
+  SourceState: !<own> 8eab3409-4921-475a-a4c2-bc988c4bfcf7

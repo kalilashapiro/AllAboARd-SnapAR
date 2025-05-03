@@ -1,6 +1,6 @@
 backCameraMultimedia:
   type: string
-  value: ""
+  value: PreviewResources.bundle/Video/World/Beach.mp4
   options: 4
 cameraType:
   type: int
@@ -24,11 +24,11 @@ fullscreenSpectaclesSimulation:
   options: 4
 lastPosition:
   type: vec3
-  value: {x: 0.000000, y: 0.000000, z: 34.699997}
+  value: {x: 18.003174, y: 0.000000, z: -159.211548}
   options: 4
 lastRotation:
   type: vec3
-  value: {x: 0.000000, y: 0.000000, z: 0.000000}
+  value: {x: -55.498566, y: 64.796074, z: 0.000148}
   options: 4
 mirrorHorizontally:
   type: bool
@@ -36,7 +36,7 @@ mirrorHorizontally:
   options: 4
 previewSource:
   type: string
-  value: /Volumes/Lens Studio/Lens Studio.app/Contents/MacOS/../Resources/InteractiveResources.bundle/Scenes/Sunlit Room
+  value: "C:/Program Files/Snap Inc/Lens Studio/InteractiveResources.bundle/Scenes/Colorful Home"
   options: 4
 previewType:
   type: string
