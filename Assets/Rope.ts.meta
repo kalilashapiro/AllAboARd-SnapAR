@@ -1,0 +1,45 @@
+- !<AssetImportMetadata/2b5f5bfa-66a0-47e3-96f1-1bd8fc4c6c5d>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> b8675d64-5a2f-4adc-8758-e0c020f7d5b7
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> b8675d64-5a2f-4adc-8758-e0c020f7d5b7
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> be62a6a4-ff73-488c-be5d-4fffedba1496
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/be62a6a4-ff73-488c-be5d-4fffedba1496>
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 7fe23c2e-7d2e-44d7-9aec-2caa111fbba3
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    boatPrefab: false
+    sphereManipulation1: false
+    sphereManipulation2: false
+  ScriptTypesHidden:
+    {}
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - sphereManipulation1: !<MappingBased.Interactable> 00000000-0000-0000-0000-000000000000
+      sphereManipulation2: !<MappingBased.Interactable> 00000000-0000-0000-0000-000000000000
+      boatPrefab: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input Interactable sphereManipulation1
+    - // @input SceneObject boatPrefab
+    - // @input Interactable sphereManipulation2

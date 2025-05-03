@@ -1,14 +1,60 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 907
+    size: 935
     values:
       - Base.png
       - Box.mesh
+      - Device Camera Texture.deviceCameraTexture
       - Echopark.hdr
+      - Echopark.hdr/Diffuse
+      - Echopark.hdr/Specular
+      - Generative 3D Package
+      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb
+      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/.hidden
+      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/.hidden/default
+      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/068154d1-a877-7f55-8000-594cafc23ee8-model
+      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Materials
+      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Materials/default
+      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Meshes
+      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Meshes/model
+      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Textures
+      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Textures/texture_kd
+      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Textures/texture_pm-texture_pr
+      - Generative 3D Package/package.native
       - MaterialParams.png
       - Normal.png
+      - PBR 2.mat
       - PBR.mat
+      - Paper boat.fbx
+      - Paper boat.fbx/.hidden
+      - Paper boat.fbx/.hidden/Material.001
+      - Paper boat.fbx/.hidden/white
+      - Paper boat.fbx/Materials
+      - Paper boat.fbx/Materials/Material.001
+      - Paper boat.fbx/Materials/Material.002
+      - Paper boat.fbx/Materials/Material.003
+      - Paper boat.fbx/Materials/Material.004
+      - Paper boat.fbx/Materials/twig_8
+      - Paper boat.fbx/Meshes
+      - Paper boat.fbx/Meshes/Circle
+      - Paper boat.fbx/Meshes/Circle.001
+      - Paper boat.fbx/Meshes/Object_4
+      - Paper boat.fbx/Meshes/Plane
+      - Paper boat.fbx/Meshes/Plane.001
+      - Paper boat.fbx/Meshes/Plane.002
+      - Paper boat.fbx/Meshes/Plane.003
+      - Paper boat.fbx/Meshes/Plane.004
+      - Paper boat.fbx/Meshes/Plane.005
+      - Paper boat.fbx/Meshes/twig_8_twig_8_0
+      - Paper boat.fbx/Paper boat
+      - Paper boat.fbx/Textures
+      - Paper boat.fbx/Textures/Blue flag
+      - Paper boat.fbx/Textures/Red flag
+      - Paper boat.fbx/Textures/old-aged-newspaper-texture_303714-23858
+      - Render Target.renderTarget
+      - Rope.ts
+      - Scene.scene
       - SpectaclesSyncKit/Components
       - SpectaclesSyncKit/Components/Instantiator.ts
       - SpectaclesSyncKit/Components/SyncHelpers
@@ -295,12 +341,10 @@ CollapsedEntities:
       - SpectaclesSyncKit/Mapping/src/Utils/ProjectContainer.ts
       - SpectaclesSyncKit/Mapping/src/Utils/SharedFunctions.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Audio
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Audio/HoverAudioTrack.wav
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Audio/TriggerEndAudioTrack.wav
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Audio/TriggerStartAudioTrack.wav
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/BaseHandVisualsMaterials
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/BaseHandVisualsMaterials/FingerHighlightLeft.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/BaseHandVisualsMaterials/FingerHighlightRight.mat
@@ -368,7 +412,6 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/ScaleBasedTargetOutline.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/ScrollBarButton.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/ScrollBarSlider.mat
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/SimplePBRMaterial.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/SliderMat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/SliderMat/PinchButtonDarkDefault.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/SliderMat/PinchButtonOnSelect.mat
@@ -399,7 +442,6 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Meshes/SnapGhost_Mesh.mesh
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Meshes/SphereMesh.mesh
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Meshes/Uncheck.mesh
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/BaseHandVisualsShaders
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/BaseHandVisualsShaders/FingerHighlight.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/BaseHandVisualsShaders/FingerTipGlow.ss_graph
@@ -439,8 +481,6 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/ToggleOff.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/ToggleOn.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/ToggleOnSelect.ss_graph
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/simple_pbr.ss_graph
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/2DBitmojiAvatar.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/Base.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/BaseHandVisualsTextures
@@ -452,19 +492,12 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/BaseHandVisualsTextures/occlusionGradient.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/MaterialParams.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/Normal.png
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/ArrowDown.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/ArrowUp.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/Close.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/FollowIconBlack.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/FollowIconWhite.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/Image.png
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/Mask_simple_reflection_ellipse.png
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/SimpleIdle.jpg
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/SimpleIdle_05.jpg
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/SimpleRefl_02.jpg
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/SimpleRefl_05.jpg
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/SimpleRefl_06.jpg
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/UI_glow.jpg
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/Rectangle-Active.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/Rectangle-Inactive.png
@@ -472,7 +505,6 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/SIKContainerExampleImage.jpg
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/SIKLogo.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/ScrollBarRectangle.png
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Components
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Helpers
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Helpers/ButtonFeedback.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Helpers/CapsuleMeshCustomizer.ts
@@ -524,8 +556,6 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorLineVisual/InteractorLineMaterial.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorLineVisual/InteractorLineRenderer.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorLineVisual/InteractorLineVisual.ts
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/ContainerFrame.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/Materials
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/Materials/FrameMaterial.mat
@@ -559,14 +589,11 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/Textures/reflection-map-1.jpg
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/Textures/soft-reflection.jpg
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/container-ui.png
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/modules
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/modules/CursorHandler.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/modules/ForceContainerParent.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/modules/FrameInputHandler.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/modules/HoverBehavior.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/modules/LabeledPinchButton.ts
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/modules/SimpleLODRenderMeshVisual
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/modules/SimpleLODRenderMeshVisual/SimpleLODRenderMeshVisual.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/modules/SmoothFollow.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/modules/SnappableBehavior.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/PinchButton
@@ -909,5 +936,6 @@ CollapsedEntities:
       - SpectaclesSyncKit/Utils/Unsubscribe.ts
       - SpectaclesSyncKit/VersionNumber.ts
       - SpectaclesSyncKit/package.native
+      - Sphere.mesh
       - pbr.ss_graph
   options: 4
