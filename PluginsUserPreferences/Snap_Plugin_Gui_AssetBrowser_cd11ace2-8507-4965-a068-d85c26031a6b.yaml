@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 935
+    size: 916
     values:
       - Base.png
       - Box.mesh
@@ -22,11 +22,14 @@ CollapsedEntities:
       - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Textures/texture_kd
       - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Textures/texture_pm-texture_pr
       - Generative 3D Package/package.native
+      - HandController_TS.ts
       - MaterialParams.png
+      - Mesh Builder Example - Pipe Between Objects/.hidden
+      - "Mesh Builder Example - Pipe Between Objects/From Asset Library/[Mesh Builder Example] Pipe Between Objects/Scripts/Mesh Builder Pipe.js"
       - Normal.png
       - PBR 2.mat
-      - PBR 3.mat
       - PBR.mat
+      - Paper boat.fbx
       - Paper boat.fbx/.hidden
       - Paper boat.fbx/.hidden/Material.001
       - Paper boat.fbx/.hidden/white
@@ -55,6 +58,9 @@ CollapsedEntities:
       - Render Target.renderTarget
       - Rope.ts
       - Scene.scene
+      - SceneController_TS.ts
+      - Simple PBR.mat
+      - SpectaclesSyncKit
       - SpectaclesSyncKit/Components
       - SpectaclesSyncKit/Components/Instantiator.ts
       - SpectaclesSyncKit/Components/SyncHelpers
@@ -125,8 +131,6 @@ CollapsedEntities:
       - SpectaclesSyncKit/Examples/SyncEntityExample.ts
       - SpectaclesSyncKit/Examples/SyncEntityExampleJavascript.js
       - SpectaclesSyncKit/Location Cloud Storage Module.locationCloudStorageModule
-      - SpectaclesSyncKit/Mapping
-      - SpectaclesSyncKit/Mapping/Assets
       - SpectaclesSyncKit/Mapping/Assets/AnimationMixers
       - SpectaclesSyncKit/Mapping/Assets/AnimationMixers/MappingSuccessCheckmark.animationLayer
       - SpectaclesSyncKit/Mapping/Assets/AnimationMixers/MappingTutorial.animationMixerLayer
@@ -187,12 +191,9 @@ CollapsedEntities:
       - SpectaclesSyncKit/Mapping/Assets/FBX/WindowOccluderBox.fbx/Meshes
       - SpectaclesSyncKit/Mapping/Assets/FBX/WindowOccluderBox.fbx/Meshes/Cube
       - SpectaclesSyncKit/Mapping/Assets/FBX/WindowOccluderBox.fbx/WindowOccluderBox
-      - SpectaclesSyncKit/Mapping/Assets/Materials
       - SpectaclesSyncKit/Mapping/Assets/Materials/AlignUnsuccessNotificationTile.mat
       - SpectaclesSyncKit/Mapping/Assets/Materials/Arrow.mat
       - SpectaclesSyncKit/Mapping/Assets/Materials/BoyTutorialUnlit.mat
-      - SpectaclesSyncKit/Mapping/Assets/Materials/FrustumOutlineTeachingMode.mat
-      - SpectaclesSyncKit/Mapping/Assets/Materials/FrustumOutlineTutorial.mat
       - SpectaclesSyncKit/Mapping/Assets/Materials/FrustumTeachingMode.mat
       - SpectaclesSyncKit/Mapping/Assets/Materials/FrustumTutorial.mat
       - SpectaclesSyncKit/Mapping/Assets/Materials/GirlTutorialUnlit.mat
@@ -210,8 +211,6 @@ CollapsedEntities:
       - SpectaclesSyncKit/Mapping/Assets/Materials/MappingHintBg.mat
       - SpectaclesSyncKit/Mapping/Assets/Materials/MappingSuccessCheckmark.mat
       - SpectaclesSyncKit/Mapping/Assets/Materials/MappingUnsuccessNotificationTile.mat
-      - SpectaclesSyncKit/Mapping/Assets/Materials/OutlineInsideRoomHeadTeachingMode.mat
-      - SpectaclesSyncKit/Mapping/Assets/Materials/OutlineInsideRoomHeadTutorial.mat
       - SpectaclesSyncKit/Mapping/Assets/Materials/ProgressBar.mat
       - SpectaclesSyncKit/Mapping/Assets/Materials/ProgressBarGrey.mat
       - SpectaclesSyncKit/Mapping/Assets/Materials/Spinner.mat
@@ -231,17 +230,14 @@ CollapsedEntities:
       - SpectaclesSyncKit/Mapping/Assets/Meshes/UnsuccessNotificationTile.mesh
       - SpectaclesSyncKit/Mapping/Assets/Scripts
       - SpectaclesSyncKit/Mapping/Assets/Scripts/PinchButton.js
-      - SpectaclesSyncKit/Mapping/Assets/Shaders
       - SpectaclesSyncKit/Mapping/Assets/Shaders/Arrow.ss_graph
       - SpectaclesSyncKit/Mapping/Assets/Shaders/CapsuleButton.ss_graph
       - SpectaclesSyncKit/Mapping/Assets/Shaders/Checkmark.ss_graph
-      - SpectaclesSyncKit/Mapping/Assets/Shaders/FrustumOutline.ss_graph
       - SpectaclesSyncKit/Mapping/Assets/Shaders/FrustumTeachingMode.ss_graph
       - SpectaclesSyncKit/Mapping/Assets/Shaders/FrustumTutorial.ss_graph
       - SpectaclesSyncKit/Mapping/Assets/Shaders/GlassesInner 1.ss_graph
       - SpectaclesSyncKit/Mapping/Assets/Shaders/GlassesInner.ss_graph
       - SpectaclesSyncKit/Mapping/Assets/Shaders/GlassesOccluder.ss_graph
-      - SpectaclesSyncKit/Mapping/Assets/Shaders/GlassesOutline.ss_graph
       - SpectaclesSyncKit/Mapping/Assets/Shaders/LoadingBar.ss_graph
       - SpectaclesSyncKit/Mapping/Assets/Shaders/LoadingBarGrey.ss_graph
       - SpectaclesSyncKit/Mapping/Assets/Shaders/MappingHintBg.ss_graph
@@ -340,7 +336,6 @@ CollapsedEntities:
       - SpectaclesSyncKit/Mapping/src/Utils/JoiningController.ts
       - SpectaclesSyncKit/Mapping/src/Utils/ProjectContainer.ts
       - SpectaclesSyncKit/Mapping/src/Utils/SharedFunctions.ts
-      - SpectaclesSyncKit/SpectaclesInteractionKit
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Audio
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Audio/HoverAudioTrack.wav
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Audio/TriggerEndAudioTrack.wav
@@ -355,7 +350,6 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/BitmojiMaterial.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/ContainerImageMaterial.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/LogoMaterial.mat
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/NormalBasedTargetOutline.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/PinchButtonDarkInactive.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/PinchButtonDarkRadial.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/PinchButtonToggleOffIcon.mat
@@ -409,16 +403,13 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/PlatformUI/SWIS/SWIS/3D resources/Materials/LensExplorer/SWIS/SWIS/3D resources/Materials/LensExplorer/SWIS/SWIS/3D resources/Materials/LensExplorer/LensExp_scroll.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/PlatformUI/SWIS/SWIS/3D resources/Materials/LensExplorer/SWIS/SWIS/3D resources/Materials/LensExplorer/SWIS/SWIS/3D resources/Materials/LensExplorer/LensExp_scroll_bg.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/PlatformUI/Slider_Platform.mat
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/ScaleBasedTargetOutline.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/ScrollBarButton.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/ScrollBarSlider.mat
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/SliderMat
+      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/SimplePBRMaterial.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/SliderMat/PinchButtonDarkDefault.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/SliderMat/PinchButtonOnSelect.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/SliderMat/SliderMat.mat
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/SliderMat/TargetOutlineMaterial.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/SpritePreset.mat
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/TargetOutlineMaterial.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Materials/Text3DDefault.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Meshes
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Meshes/BoxMesh.mesh
@@ -447,7 +438,6 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/BaseHandVisualsShaders/FingerTipGlow.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/BaseHandVisualsShaders/HandOccluder.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/BaseHandVisualsShaders/RadialGradientOcclusion.ss_graph
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/NormalBasedTargetOutline.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/PinchButton-ActiveOrInActive.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/PinchDarkRadial.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/PlatformUI
@@ -470,17 +460,17 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/PlatformUI/Slider_Platform.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/PlatformUI/StateButtonToggledHover.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/PlatformUI/StateButtonToggledPinched.ss_graph
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/ScaleBasedTargetOutline.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/ScrollBarSlider.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/SliderShaders
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/SliderShaders/PinchButton-Default.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/SliderShaders/Slider.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/SpritePreset.ss_graph
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/TargetOutline.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/Text3DDefault.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/ToggleOff.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/ToggleOn.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/ToggleOnSelect.ss_graph
+      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Shaders/simple_pbr.ss_graph
+      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/2DBitmojiAvatar.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/Base.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/BaseHandVisualsTextures
@@ -492,12 +482,19 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/BaseHandVisualsTextures/occlusionGradient.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/MaterialParams.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/Normal.png
+      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/ArrowDown.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/ArrowUp.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/Close.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/FollowIconBlack.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/FollowIconWhite.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/Image.png
+      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/Mask_simple_reflection_ellipse.png
+      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/SimpleIdle.jpg
+      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/SimpleIdle_05.jpg
+      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/SimpleRefl_02.jpg
+      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/SimpleRefl_05.jpg
+      - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/SimpleRefl_06.jpg
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/PlatformUI/UI_glow.jpg
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/Rectangle-Active.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/Rectangle-Inactive.png
@@ -505,18 +502,15 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/SIKContainerExampleImage.jpg
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/SIKLogo.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/ScrollBarRectangle.png
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Helpers
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Helpers/ButtonFeedback.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Helpers/CapsuleMeshCustomizer.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Helpers/InteractableAudioFeedback.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Helpers/InteractableColorFeedback.ts
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Helpers/InteractableOutlineFeedback.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Helpers/InteractableSquishFeedback.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Helpers/ScreenTransformAdapter.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Helpers/ScrollBarFeedback.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Helpers/SliderFeedback.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Helpers/ToggleFeedback.ts
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/Billboard
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/Billboard/Billboard.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/Billboard/BillboardController.ts
@@ -537,25 +531,19 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractableManipulation/InteractableManipulation.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractionPlane
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractionPlane/InteractionPlane.ts
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorCursor
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorCursor/CircleVisual.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorCursor/Cursor.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorCursor/CursorController.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorCursor/CursorMat.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorCursor/CursorViewModel.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorCursor/InteractorCursor.ts
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorCursor/ManipulateLineMat.ss_graph
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorCursor/ManipulateLineMaterial.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorCursor/Plane.mesh
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorCursor/disabled.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorCursor/scale-tl.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorCursor/scale-tr.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorCursor/translate.png
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorLineVisual
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorLineVisual/InteractorLineMat.ss_graph
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorLineVisual/InteractorLineMaterial.mat
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorLineVisual/InteractorLineRenderer.ts
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorLineVisual/InteractorLineVisual.ts
+      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI
+      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/ContainerFrame.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/Materials
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/Materials/FrameMaterial.mat
@@ -589,11 +577,14 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/Textures/reflection-map-1.jpg
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/Textures/soft-reflection.jpg
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/container-ui.png
+      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/modules
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/modules/CursorHandler.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/modules/ForceContainerParent.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/modules/FrameInputHandler.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/modules/HoverBehavior.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/modules/LabeledPinchButton.ts
+      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/modules/SimpleLODRenderMeshVisual
+      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/modules/SimpleLODRenderMeshVisual/SimpleLODRenderMeshVisual.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/modules/SmoothFollow.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ContainerFrame/modules/SnappableBehavior.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/PinchButton
@@ -662,8 +653,6 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Core/MouseInteractor/MouseInteractor.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Decorators
       - SpectaclesSyncKit/SpectaclesInteractionKit/Decorators/Singleton.ts
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Examples
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/Materials
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/Materials/Icons
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/Materials/Icons/ModernBodyTube_icon.mat
@@ -792,17 +781,12 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/Textures/ScrollViewThumbnails/nose-cone_rocket-A.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/Textures/ScrollViewThumbnails/nose-cone_rocket-B.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/Textures/ScrollViewThumbnails/nose-cone_rocket-C.png
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Clouds Landing
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Clouds Landing/Bones_clouds_ANIM_mat_landing.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Clouds Landing/Bones_clouds_material_landing_.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Clouds Landing/CloudsLanding.animationAsset
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Clouds Landing/line1.mesh
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Clouds Start
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Clouds Start/Bones_clouds_ANIM_mat_takeoff.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Clouds Start/Bones_clouds_material_start_.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Clouds Start/CloudsStart.animationAsset
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Clouds Start/line1.mesh
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Custom Mesh Emitter
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Custom Mesh Emitter/Custom Mesh Emitter.prefab
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Custom Mesh Emitter/Rocket_clouds_emit.vfxgraph
@@ -882,7 +866,6 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Providers/TargetProvider/TargetProvider.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Providers/TargetProvider/TargetingData.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/SIK.ts
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Utils
       - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/BistableThreshold.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/Event.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/Filter.ts
@@ -913,10 +896,6 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/notEmpty.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/springAnimate.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/validate.ts
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/views
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/views/LineRenderer
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/views/LineRenderer/LineMeshUtils.ts
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/views/LineRenderer/LineRenderer.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/views/MeshView.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/views/View.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/package.native
@@ -937,5 +916,7 @@ CollapsedEntities:
       - SpectaclesSyncKit/VersionNumber.ts
       - SpectaclesSyncKit/package.native
       - Sphere.mesh
+      - Untitled TypeScript.ts
       - pbr.ss_graph
+      - simple_pbr.ss_graph
   options: 4

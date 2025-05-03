@@ -1,0 +1,51 @@
+- !<AssetImportMetadata/0f6190dc-b3c8-4ab1-8516-8fbdf6af5a49>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> ec0d0252-45d7-4c33-8b4a-e93b3dd72df6
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> ec0d0252-45d7-4c33-8b4a-e93b3dd72df6
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 874763c3-771c-4989-9045-2ba42336144d
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/874763c3-771c-4989-9045-2ba42336144d>
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 1e26d60f-d505-42ed-9918-c30ce5f44f5c
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    leftPaddle: false
+    leftPaddleInteractable: false
+    rightPaddle: false
+    rightPaddleInteractable: false
+    startGameButton: false
+  ScriptTypesHidden:
+    {}
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - leftPaddle: !<MappingBased.HandController_TS> 00000000-0000-0000-0000-000000000000
+      leftPaddleInteractable: !<MappingBased.Interactable> 00000000-0000-0000-0000-000000000000
+      rightPaddle: !<MappingBased.HandController_TS> 00000000-0000-0000-0000-000000000000
+      rightPaddleInteractable: !<MappingBased.Interactable> 00000000-0000-0000-0000-000000000000
+      startGameButton: !<MappingBased.PinchButton> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input HandController_TS leftPaddle
+    - // @input Interactable leftPaddleInteractable
+    - // @input HandController_TS rightPaddle
+    - // @input Interactable rightPaddleInteractable
+    - // @input PinchButton startGameButton

@@ -1,29 +1,39 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 918
+    size: 920
     values:
       - Base.png
       - Box.mesh
-      - Generative 3D Package
-      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb
       - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/.hidden
       - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/.hidden/default
       - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/068154d1-a877-7f55-8000-594cafc23ee8-model
-      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Materials
       - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Materials/default
-      - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Meshes
       - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Meshes/model
       - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Textures
       - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Textures/texture_kd
       - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Textures/texture_pm-texture_pr
       - Generative 3D Package/package.native
+      - HandController_TS.ts
       - MaterialParams.png
+      - Mesh Builder Example - Pipe Between Objects/.hidden
+      - Mesh Builder Example - Pipe Between Objects/.hidden/Textures
+      - Mesh Builder Example - Pipe Between Objects/.hidden/Textures/Base.png
+      - Mesh Builder Example - Pipe Between Objects/.hidden/Textures/Normal.png
+      - Mesh Builder Example - Pipe Between Objects/.hidden/Uber PBR 2.ss_graph
+      - Mesh Builder Example - Pipe Between Objects/.hidden/UberDiffuse.lsmat.mat
+      - Mesh Builder Example - Pipe Between Objects/.hidden/UberDiffuse1.lsmat.ss_graph
+      - "Mesh Builder Example - Pipe Between Objects/From Asset Library/[Mesh Builder Example] Pipe Between Objects/Assets/MaterialParams.png"
+      - "Mesh Builder Example - Pipe Between Objects/From Asset Library/[Mesh Builder Example] Pipe Between Objects/Assets/Pin.mesh"
+      - "Mesh Builder Example - Pipe Between Objects/From Asset Library/[Mesh Builder Example] Pipe Between Objects/Assets/Uber PBR 2.mat"
+      - "Mesh Builder Example - Pipe Between Objects/From Asset Library/[Mesh Builder Example] Pipe Between Objects/Scripts/Mesh Builder Pipe.js"
+      - Mesh Builder Example - Pipe Between Objects/Mesh Builder Example - Pipe Between Objects.prefab
       - Normal.png
       - PBR 2.mat
-      - PBR 3.mat
       - PBR.mat
       - Rope.ts
+      - SceneController_TS.ts
+      - Simple PBR.mat
       - SpectaclesSyncKit/Components
       - SpectaclesSyncKit/Components/Instantiator.ts
       - SpectaclesSyncKit/Components/SyncHelpers
@@ -482,7 +492,6 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/SIKContainerExampleImage.jpg
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/SIKLogo.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Textures/ScrollBarRectangle.png
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Components
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Helpers
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Helpers/ButtonFeedback.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Helpers/CapsuleMeshCustomizer.ts
@@ -494,7 +503,6 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Helpers/ScrollBarFeedback.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Helpers/SliderFeedback.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Helpers/ToggleFeedback.ts
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/Billboard
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/Billboard/Billboard.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/Billboard/BillboardController.ts
@@ -529,7 +537,6 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorCursor/scale-tl.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorCursor/scale-tr.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorCursor/translate.png
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorLineVisual
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorLineVisual/InteractorLineMat.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorLineVisual/InteractorLineMaterial.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/Interaction/InteractorLineVisual/InteractorLineRenderer.ts
@@ -645,8 +652,6 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Core/MouseInteractor/MouseInteractor.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Decorators
       - SpectaclesSyncKit/SpectaclesInteractionKit/Decorators/Singleton.ts
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Examples
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/Materials
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/Materials/Icons
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/Materials/Icons/ModernBodyTube_icon.mat
@@ -775,13 +780,11 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/Textures/ScrollViewThumbnails/nose-cone_rocket-A.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/Textures/ScrollViewThumbnails/nose-cone_rocket-B.png
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/Textures/ScrollViewThumbnails/nose-cone_rocket-C.png
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Clouds Landing
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Clouds Landing/Bones_clouds_ANIM_mat_landing.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Clouds Landing/Bones_clouds_material_landing_.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Clouds Landing/CloudsLanding.animationAsset
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Clouds Landing/line1.mesh
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Clouds Start
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Clouds Start/Bones_clouds_ANIM_mat_takeoff.mat
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Clouds Start/Bones_clouds_material_start_.ss_graph
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Clouds Start/CloudsStart.animationAsset
@@ -865,7 +868,6 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Providers/TargetProvider/TargetProvider.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Providers/TargetProvider/TargetingData.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/SIK.ts
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Utils
       - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/BistableThreshold.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/Event.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/Filter.ts
@@ -896,8 +898,6 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/notEmpty.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/springAnimate.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/validate.ts
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/views
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/views/LineRenderer
       - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/views/LineRenderer/LineMeshUtils.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/views/LineRenderer/LineRenderer.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Utils/views/MeshView.ts
@@ -920,5 +920,7 @@ CollapsedEntities:
       - SpectaclesSyncKit/VersionNumber.ts
       - SpectaclesSyncKit/package.native
       - Sphere.mesh
+      - Untitled TypeScript.ts
       - pbr.ss_graph
+      - simple_pbr.ss_graph
   options: 4

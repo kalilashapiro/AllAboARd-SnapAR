@@ -71,8 +71,6 @@ export class Rope extends BaseScriptComponent {
         })
 
         });
-        
-
 
 
     }

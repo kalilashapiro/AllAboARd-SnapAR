@@ -1,0 +1,363 @@
+- !<AssetImportMetadata/e3700ddb-20ed-45aa-b0b3-8f503510fd81>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> fa952dbe-57d2-4ab0-a5c5-f86966c1a250
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> fa952dbe-57d2-4ab0-a5c5-f86966c1a250
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    AssetLibraryId: 7Emg6Qjej3tcGewIns261f
+  AssetDataMap:
+    ObjectPrefab: !<own> 3e57e9da-6880-4da8-b8f6-226684c022f2
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/08d51a63-813b-4cc8-8c27-db6cbd8a2b4f>
+  PrefabRemaps:
+    []
+  Name: Point of Interests
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: -100.000000, z: -300.000000}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> ff30e8b6-420e-4631-bba7-9b328752cb7e
+    - !<own> 0f569a14-d3bf-4ff5-82fd-ef66febf13f1
+    - !<own> 30d63491-d827-457c-8350-f9225b0115a8
+    - !<own> d661588d-1b63-48ab-9964-d873fd178adb
+  Components:
+    []
+- !<SceneObject/0f569a14-d3bf-4ff5-82fd-ef66febf13f1>
+  PrefabRemaps:
+    []
+  Name: Point of Interest 2
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: -50.000000, y: 0.000000, z: 30.000000}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000001, z: 1.000001}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> da4421e8-dab1-4386-a601-1f31b3f6918c
+- !<SceneObject/30d63491-d827-457c-8350-f9225b0115a8>
+  PrefabRemaps:
+    []
+  Name: Point of Interest 3
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 50.000000, y: 0.000000, z: -30.000000}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000001, z: 1.000001}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> f3eb9378-4201-4071-9b10-27b9354513f5
+- !<ObjectPrefab/3ad22513-b2b2-415c-8991-94d3a7271889>
+  PackagePath: ""
+  objects:
+    - !<own> b32bf329-0775-4081-8849-73a24b9f19ce
+  LazyLoading: false
+  RetainAssets: true
+- !<ObjectPrefabAssetData/3e57e9da-6880-4da8-b8f6-226684c022f2>
+  SourceRemaps:
+    - 1e22620f-9811-441a-92e5-544a3dc14c19: 8f12cfe0-ba9d-4d02-892a-54705cc28402
+    - 259b3f81-9664-4a21-a322-6fc2ac2599f2: f3eb9378-4201-4071-9b10-27b9354513f5
+    - 4a7d2226-8ed9-472a-83e5-f12fb445e93d: da4421e8-dab1-4386-a601-1f31b3f6918c
+    - 4caad73f-1345-4b38-bab5-2f716963e0b7: b32bf329-0775-4081-8849-73a24b9f19ce
+    - 58015e73-5ac1-4c51-98c4-57edb8323026: 7b69d6b9-463c-4387-9afa-ce561fa613c0
+    - 5c4bf499-2ff3-4c08-8776-ad9ccfdc35f2: ff30e8b6-420e-4631-bba7-9b328752cb7e
+    - 66174923-83ce-48d2-a1c6-0403178ed96e: 08d51a63-813b-4cc8-8c27-db6cbd8a2b4f
+    - 7b423d8e-7a4d-4539-b910-58df9466f082: 5358eaa3-2e5a-418d-ae94-4f6d842f446e
+    - 877d00ca-6205-403f-8c52-9875786bc56a: f4e1559a-a4fb-406a-b5f6-78d5f70c9570
+    - a3807b0c-0c44-42fb-bd89-80ae7fc42d1f: 30d63491-d827-457c-8350-f9225b0115a8
+    - b814233e-1919-4964-a6ac-6543bf9b52e9: 0f569a14-d3bf-4ff5-82fd-ef66febf13f1
+    - d627de6b-bf04-443c-9bc4-320afb5873a8: d661588d-1b63-48ab-9964-d873fd178adb
+    - eb3a5f92-b5b2-4dd5-9a30-8b541c9e7ce8: e1ca5632-2842-4ec4-8f44-f8a17dbcae67
+    - fa952dbe-57d2-4ab0-a5c5-f86966c1a250: 3ad22513-b2b2-415c-8991-94d3a7271889
+  SourceState: !<own> 3ad22513-b2b2-415c-8991-94d3a7271889
+- !<RenderMeshVisual/5358eaa3-2e5a-418d-ae94-4f6d842f446e>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 1e1f68a3-d61e-480d-bc2c-f46475d7b8d3
+  Mesh: !<reference> 0249906b-df64-4eba-80bf-75a1ce480fc6
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+  RayTracing: !<RayTracingVisualSettings>
+    Reflections:
+      caster: false
+      receiver: false
+      receiverLayers: 1
+      planar:
+        enabled: true
+        roughHarden: 0.500000
+        roughCurve: 2.000000
+    IndirectDiffuse:
+      caster: false
+      receiver: false
+      receiverLayers: 1
+    AmbientOcclusion:
+      caster: false
+      receiver: false
+      receiverLayers: 1
+    Shadows:
+      caster: false
+      receiver: false
+      receiverLayers: 1
+    Material: !<reference> 00000000-0000-0000-0000-000000000000
+    HideFromCamera: false
+- !<RenderMeshVisual/7b69d6b9-463c-4387-9afa-ce561fa613c0>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 1e1f68a3-d61e-480d-bc2c-f46475d7b8d3
+  Mesh: !<reference> 0249906b-df64-4eba-80bf-75a1ce480fc6
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+  RayTracing: !<RayTracingVisualSettings>
+    Reflections:
+      caster: false
+      receiver: false
+      receiverLayers: 1
+      planar:
+        enabled: true
+        roughHarden: 0.500000
+        roughCurve: 2.000000
+    IndirectDiffuse:
+      caster: false
+      receiver: false
+      receiverLayers: 1
+    AmbientOcclusion:
+      caster: false
+      receiver: false
+      receiverLayers: 1
+    Shadows:
+      caster: false
+      receiver: false
+      receiverLayers: 1
+    Material: !<reference> 00000000-0000-0000-0000-000000000000
+    HideFromCamera: false
+- !<SceneObject/8f12cfe0-ba9d-4d02-892a-54705cc28402>
+  PrefabRemaps:
+    []
+  Name: Display Pipe Between Points
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> f4e1559a-a4fb-406a-b5f6-78d5f70c9570
+- !<SceneObject/b32bf329-0775-4081-8849-73a24b9f19ce>
+  PrefabRemaps:
+    []
+  Name: Mesh_Builder_Pipe_Between_Objects
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> 08d51a63-813b-4cc8-8c27-db6cbd8a2b4f
+    - !<own> e1ca5632-2842-4ec4-8f44-f8a17dbcae67
+  Components:
+    []
+- !<SceneObject/d661588d-1b63-48ab-9964-d873fd178adb>
+  PrefabRemaps:
+    []
+  Name: Point of Interest 4
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 100.000000}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000001, z: 1.000001}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 7b69d6b9-463c-4387-9afa-ce561fa613c0
+- !<RenderMeshVisual/da4421e8-dab1-4386-a601-1f31b3f6918c>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 1e1f68a3-d61e-480d-bc2c-f46475d7b8d3
+  Mesh: !<reference> 0249906b-df64-4eba-80bf-75a1ce480fc6
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+  RayTracing: !<RayTracingVisualSettings>
+    Reflections:
+      caster: false
+      receiver: false
+      receiverLayers: 1
+      planar:
+        enabled: true
+        roughHarden: 0.500000
+        roughCurve: 2.000000
+    IndirectDiffuse:
+      caster: false
+      receiver: false
+      receiverLayers: 1
+    AmbientOcclusion:
+      caster: false
+      receiver: false
+      receiverLayers: 1
+    Shadows:
+      caster: false
+      receiver: false
+      receiverLayers: 1
+    Material: !<reference> 00000000-0000-0000-0000-000000000000
+    HideFromCamera: false
+- !<SceneObject/e1ca5632-2842-4ec4-8f44-f8a17dbcae67>
+  PrefabRemaps:
+    []
+  Name: Controllers
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> 8f12cfe0-ba9d-4d02-892a-54705cc28402
+  Components:
+    []
+- !<RenderMeshVisual/f3eb9378-4201-4071-9b10-27b9354513f5>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 1e1f68a3-d61e-480d-bc2c-f46475d7b8d3
+  Mesh: !<reference> 0249906b-df64-4eba-80bf-75a1ce480fc6
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+  RayTracing: !<RayTracingVisualSettings>
+    Reflections:
+      caster: false
+      receiver: false
+      receiverLayers: 1
+      planar:
+        enabled: true
+        roughHarden: 0.500000
+        roughCurve: 2.000000
+    IndirectDiffuse:
+      caster: false
+      receiver: false
+      receiverLayers: 1
+    AmbientOcclusion:
+      caster: false
+      receiver: false
+      receiverLayers: 1
+    Shadows:
+      caster: false
+      receiver: false
+      receiverLayers: 1
+    Material: !<reference> 00000000-0000-0000-0000-000000000000
+    HideFromCamera: false
+- !<ScriptComponent/f4e1559a-a4fb-406a-b5f6-78d5f70c9570>
+  PrefabRemaps:
+    []
+  Name: Mesh Builder Pipe
+  Enabled: true
+  ScriptAsset: !<reference> e998e02c-d618-4616-973f-4c3ecc81b18a
+  ScriptInputsDefault:
+    renderMeshVisual: true
+    rebuildOnUpdate: true
+    pointOfInterest1: true
+    pointOfInterest2: true
+    pointOfInterest3: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      renderMeshVisual: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
+      material: !<reference.Material> 29a6610e-e46d-4a8a-89a7-2a134d348436
+      parentOfPOIs: !<reference.SceneObject> 08d51a63-813b-4cc8-8c27-db6cbd8a2b4f
+      faceCount: 6
+      radius: 5
+      rebuildOnUpdate: false
+      pointOfInterest1: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      pointOfInterest2: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      pointOfInterest3: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/ff30e8b6-420e-4631-bba7-9b328752cb7e>
+  PrefabRemaps:
+    []
+  Name: Point of Interest 1
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: -100.000000}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 5358eaa3-2e5a-418d-ae94-4f6d842f446e
