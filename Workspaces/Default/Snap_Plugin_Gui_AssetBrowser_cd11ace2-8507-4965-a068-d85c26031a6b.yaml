@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 1558
+    size: 1553
     values:
       - Base.png
       - Box.mesh
@@ -1523,14 +1523,11 @@ CollapsedEntities:
       - WaterMat/WaterShader.ss_graph
       - World Mesh.mat
       - World Mesh.worldmesh
-      - World Query Hit - Spawn On Surface
-      - World Query Hit - Spawn On Surface/Materials
       - World Query Hit - Spawn On Surface/Materials/Plane.mat
       - World Query Hit - Spawn On Surface/Materials/cloud.mat
       - World Query Hit - Spawn On Surface/Materials/house.mat
       - World Query Hit - Spawn On Surface/Materials/statue.mat
       - World Query Hit - Spawn On Surface/Materials/tree.mat
-      - World Query Hit - Spawn On Surface/Meshes
       - World Query Hit - Spawn On Surface/Meshes/Plane.mesh
       - World Query Hit - Spawn On Surface/Meshes/cloud.mesh
       - World Query Hit - Spawn On Surface/Meshes/eyes.mesh
@@ -1541,10 +1538,8 @@ CollapsedEntities:
       - World Query Hit - Spawn On Surface/Meshes/statue.mesh
       - World Query Hit - Spawn On Surface/Meshes/tail.mesh
       - World Query Hit - Spawn On Surface/Meshes/tree.mesh
-      - World Query Hit - Spawn On Surface/Shaders
       - World Query Hit - Spawn On Surface/Shaders/cloud.ss_graph
       - World Query Hit - Spawn On Surface/Shaders/pbr.ss_graph
-      - World Query Hit - Spawn On Surface/Textures
       - World Query Hit - Spawn On Surface/Textures/Tree_base.png
       - World Query Hit - Spawn On Surface/Textures/Tree_normal.png
       - World Query Hit - Spawn On Surface/Textures/Tree_params.png

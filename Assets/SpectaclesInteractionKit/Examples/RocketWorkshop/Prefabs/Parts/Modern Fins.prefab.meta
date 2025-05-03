@@ -108,7 +108,7 @@
   BlendShapesEnabled: true
   BlendNormals: false
   BlendShapes:
-    edit34: 1.000000
+    {}
 - !<SceneObject/433d8d08-a507-4551-8e4c-3d44b47b1e89>
   PrefabRemaps:
     []
@@ -525,7 +525,7 @@
   BlendShapesEnabled: true
   BlendNormals: false
   BlendShapes:
-    edit34: 1.000000
+    {}
 - !<RenderMeshVisual/d85abd09-b3e7-471a-9826-dd7f06205d45>
   PrefabRemaps:
     []
@@ -585,7 +585,7 @@
   BlendShapesEnabled: true
   BlendNormals: false
   BlendShapes:
-    edit34: 1.000000
+    {}
 - !<RenderMeshVisual/e6c39f05-9a6c-4034-b832-30dbf27f9ce9>
   PrefabRemaps:
     []
@@ -695,7 +695,7 @@
   BlendShapesEnabled: true
   BlendNormals: false
   BlendShapes:
-    edit34: 1.000000
+    {}
 - !<SceneObject/fe523155-07ec-4796-ad40-5446828530ab>
   PrefabRemaps:
     []
