@@ -13,14 +13,16 @@ export class NewScript extends BaseScriptComponent {
     private primaryInteractor;
     private hitTestSession: HitTestSession;
     private transform: Transform;
-    @input
-    indexToSpawn: number;
+    // @input
+    // indexToSpawn: number; // Removed indexToSpawn
 
     @input
     targetObject: SceneObject;
 
+    // @input
+    // objectsToSpawn: SceneObject[]; // Replaced with prefabToSpawn
     @input
-    objectsToSpawn: SceneObject[];
+    prefabToSpawn: SceneObject; // Added single prefab input
 
     @input
     filterEnabled: boolean;
@@ -39,7 +41,7 @@ export class NewScript extends BaseScriptComponent {
         this.transform = this.targetObject.getTransform();
         // disable target object when surface is not detected
         this.targetObject.enabled = false;
-        this.setObjectEnabled(this.indexToSpawn)
+        // this.setObjectEnabled(this.indexToSpawn) // Removed call to setObjectEnabled
         // create update event
         this.createEvent("UpdateEvent").bind(this.onUpdate.bind(this));
     }
@@ -97,8 +99,10 @@ export class NewScript extends BaseScriptComponent {
 
 
                 // Copy the plane/axis object
-                let parent = this.objectsToSpawn[this.indexToSpawn].getParent();
-                let newObject = parent.copyWholeHierarchy(this.objectsToSpawn[this.indexToSpawn]);
+                // let parent = this.objectsToSpawn[this.indexToSpawn].getParent(); // Use prefabToSpawn
+                // let newObject = parent.copyWholeHierarchy(this.objectsToSpawn[this.indexToSpawn]); // Use prefabToSpawn
+                let parent = this.prefabToSpawn.getParent();
+                let newObject = parent.copyWholeHierarchy(this.prefabToSpawn);
                 newObject.setParentPreserveWorldTransform(null);
             }
         }
@@ -125,12 +129,12 @@ export class NewScript extends BaseScriptComponent {
         }
     }
 
-    setObjectIndex(i) {
-        this.indexToSpawn = i;
-    }
+    // setObjectIndex(i) { // Removed setObjectIndex method
+    //     this.indexToSpawn = i;
+    // }
 
-    setObjectEnabled(i) {
-        for (let i = 0; i < this.objectsToSpawn.length; i++)
-            this.objectsToSpawn[i].enabled = i == this.indexToSpawn;
-    }
+    // setObjectEnabled(i) { // Removed setObjectEnabled method
+    //     for (let i = 0; i < this.objectsToSpawn.length; i++)
+    //         this.objectsToSpawn[i].enabled = i == this.indexToSpawn;
+    // }
 }
