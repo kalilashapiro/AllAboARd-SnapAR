@@ -1890,7 +1890,7 @@
   PrefabRemaps:
     []
   Name: Render Mesh Visual
-  Enabled: true
+  Enabled: false
   RenderOrder: 0
   StretchMode: Stretch
   VerticalAlignment: Center
@@ -2751,22 +2751,6 @@
     - !<own> e1710fe2-55f5-447f-9378-eaa2a37d72b7
   Components:
     []
-- !<ScriptComponent/1ebc83f5-3806-4173-a9e1-161cb1db0ea0>
-  PrefabRemaps:
-    []
-  Name: PinchDetector
-  Enabled: true
-  ScriptAsset: !<reference> 383d4d26-d603-41d6-bef2-2d24dc61313a
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      {}
-  ScriptTypes:
-    "":
-      {}
 - !<SceneObject/1ed062e0-286b-4d8a-8199-f36b38f9991b>
   PrefabRemaps:
     []
@@ -5418,7 +5402,7 @@
   PrefabRemaps:
     []
   Name: Render Mesh Visual
-  Enabled: true
+  Enabled: false
   RenderOrder: 0
   StretchMode: Stretch
   VerticalAlignment: Center
@@ -11018,11 +11002,11 @@
     - a00bc99e-5c75-4cb5-a70c-013e39764ffa: cb985216-adb5-4797-905c-cf1e857f3a66
     - c57727b8-fe87-4dbf-9697-b79c30d91bfa: c61d3736-a660-40a9-90da-688817b5e723
     - d5f24d87-fc11-4f18-9b76-479ac0ccc90f: ff143d80-2eec-4f0b-8756-9798fb6997fc
-  Name: 068154d1-a877-7f55-8000-594cafc23ee8-model
+  Name: rope-prefab
   Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 200.000000}
+    position: {x: 0.000000, y: 0.000000, z: -200.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     scale: {x: 10.000000, y: 10.000000, z: 10.000000}
     hasSegmentScaleCompensation: false
@@ -11712,7 +11696,6 @@
     - !<own> dd649217-96f6-46b8-bb64-69738fa4a831
     - !<own> 5ddc6048-76b3-45e2-ba3c-1f473d174c45
     - !<own> 47a5558f-3838-4a2f-9899-97852dbd8ed5
-    - !<own> 1ebc83f5-3806-4173-a9e1-161cb1db0ea0
 - !<SceneObject/ab02f633-3df0-449b-9ad8-902f14f125d5>
   PrefabRemaps:
     []
@@ -12378,7 +12361,7 @@
     - ecff6714-1fbe-471b-b198-b68993fcefbe: cdafbb41-6570-405a-acef-9c9143c39cfd
     - f137e478-876b-43ee-b88b-911e13beec08: 453df250-dbbf-4566-9580-f1c61eb5c95e
   Name: Paper boat
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -12914,6 +12897,7 @@
   ScriptInputs:
     "":
       sphereManipulation1: !<MappingBased.Interactable> dd649217-96f6-46b8-bb64-69738fa4a831
+      boatPrefab: !<reference.SceneObject> bceda42d-db0b-4cc9-9dd0-052b2ec400d0
       sphereManipulation2: !<MappingBased.Interactable> a6dea1a6-287f-43f3-b617-9843262ca53e
   ScriptTypes:
     "":

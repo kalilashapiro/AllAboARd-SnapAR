@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 917
+    size: 918
     values:
       - Base.png
       - Box.mesh
@@ -21,6 +21,7 @@ CollapsedEntities:
       - MaterialParams.png
       - Normal.png
       - PBR 2.mat
+      - PBR 3.mat
       - PBR.mat
       - Rope.ts
       - SpectaclesSyncKit/Components

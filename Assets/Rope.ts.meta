@@ -27,6 +27,7 @@
   MaxVisibility: Editable
   ScriptInputsHidden:
     boatPrefab: false
+    movementSpeed: false
     sphereManipulation1: false
     sphereManipulation2: false
   ScriptTypesHidden:
@@ -36,6 +37,7 @@
     - sphereManipulation1: !<MappingBased.Interactable> 00000000-0000-0000-0000-000000000000
       sphereManipulation2: !<MappingBased.Interactable> 00000000-0000-0000-0000-000000000000
       boatPrefab: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      movementSpeed: 0.010000
   ScriptTypes:
     -
       {}
@@ -43,3 +45,4 @@
     - // @input Interactable sphereManipulation1
     - // @input SceneObject boatPrefab
     - // @input Interactable sphereManipulation2
+    - // @input float movementSpeed = 0.01
