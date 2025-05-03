@@ -173,6 +173,7 @@ export class RiverPathController extends BaseScriptComponent {
             if (distSqToFirst < thresholdSq) {
                 print(`RiverPathController: Click too close to first point (${firstPoint.toString()}). Closing loop.`);
                 this.isLoop = true;
+                print("RiverPathController: Loop closed.");
                 this.regenerateMesh();
                 return; // Don't add the point that triggered the loop closure
             }
