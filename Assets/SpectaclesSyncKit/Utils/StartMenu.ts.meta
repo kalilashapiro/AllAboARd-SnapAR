@@ -27,6 +27,7 @@
   MaxVisibility: Editable
   ScriptInputsHidden:
     enableOnSingleplayerNodes: false
+    finalizeTrackScript: false
     multiPlayerButton: false
     singlePlayerButton: false
     singlePlayerType: false
@@ -40,6 +41,7 @@
       singlePlayerType: manual
       enableOnSingleplayerNodes: !<reference.SceneObject[]>
         []
+      finalizeTrackScript: !<MappingBased.FinalizeTrackAndSetupControls> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
@@ -49,4 +51,5 @@
     - '// @input float startMenuDistanceFromUser = "150.0"'
     - '// @input string singlePlayerType = "manual" {"widget":"combobox", "values":[{"label":"Manual", "value":"manual"}, {"label":"Mocked Online (Automatic)", "value":"mocked_online"}]}'
     - "// @input SceneObject[] enableOnSingleplayerNodes"
+    - // @input FinalizeTrackAndSetupControls finalizeTrackScript
   DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000

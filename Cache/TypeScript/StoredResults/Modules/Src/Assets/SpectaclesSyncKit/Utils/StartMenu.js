@@ -84,7 +84,23 @@ let StartMenu = class StartMenu extends BaseScriptComponent {
             .normalize()
             .uniformScale(-this.startMenuDistanceFromUser);
         this.startMenuTransform.setWorldPosition(head.add(pos));
-        this.startMenuTransform.setWorldRotation(quat.lookAt(pos.uniformScale(-1), vec3.up()));
+    }
+    onUpdate() {
+        if (!this.sceneObject.enabled) {
+            return; // Don't update rotation if the menu is hidden
+        }
+        const cameraPos = this.worldCamera.getTransform().getWorldPosition();
+        const menuPos = this.startMenuTransform.getWorldPosition();
+        // Ensure the menu doesn't rotate if camera and menu are at the same spot
+        if (cameraPos.distance(menuPos) < 0.01) {
+            return;
+        }
+        // Calculate the direction the menu should face (towards the camera)
+        const lookDirection = cameraPos.sub(menuPos).normalize();
+        // Calculate the rotation needed to look in that direction, keeping 'up' aligned with world up
+        const lookRotation = quat.lookAt(lookDirection, vec3.up());
+        // Apply the rotation
+        this.startMenuTransform.setWorldRotation(lookRotation);
     }
     __initialize() {
         super.__initialize();
@@ -92,6 +108,7 @@ let StartMenu = class StartMenu extends BaseScriptComponent {
         this.worldCamera = WorldCameraFinderProvider_1.default.getInstance();
         this.startMenuTransform = this.sceneObject.getTransform();
         this.createEvent("OnStartEvent").bind(() => this.onStart());
+        this.createEvent("UpdateEvent").bind(() => this.onUpdate());
     }
 };
 exports.StartMenu = StartMenu;
