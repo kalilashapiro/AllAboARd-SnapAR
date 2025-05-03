@@ -121,8 +121,7 @@
   BlendShapesEnabled: true
   BlendNormals: false
   BlendShapes:
-    Pinch: 0.000000
-    Z depth: 0.000000
+    {}
 - !<ColliderComponent/31f660c4-8eee-4136-baf8-3ff1ca9b4670>
   PrefabRemaps:
     []

@@ -91,6 +91,7 @@ let StartMenu = class StartMenu extends BaseScriptComponent {
         if (!this.sceneObject.enabled) {
             return; // Don't update rotation if the menu is hidden
         }
+        // Calculate the direction the menu should face (towards the camera)
         const cameraPos = this.worldCamera.getTransform().getWorldPosition();
         const menuPos = this.startMenuTransform.getWorldPosition();
         // Ensure the menu doesn't rotate if camera and menu are at the same spot
@@ -103,6 +104,31 @@ let StartMenu = class StartMenu extends BaseScriptComponent {
         const lookRotation = quat.lookAt(lookDirection, vec3.up());
         // Apply the rotation
         this.startMenuTransform.setWorldRotation(lookRotation);
+        // --- Broadcast Button Positions --- 
+        if (this.finalizeTrackScript && this.singlePlayerButton && this.multiPlayerButton) {
+            try { // Add try-catch for safety, e.g., if buttons are destroyed unexpectedly
+                const singlePlayerObj = this.singlePlayerButton.getSceneObject();
+                const multiPlayerObj = this.multiPlayerButton.getSceneObject();
+                if (singlePlayerObj && multiPlayerObj) {
+                    const singlePlayerPos = singlePlayerObj.getTransform().getWorldPosition();
+                    const multiPlayerPos = multiPlayerObj.getTransform().getWorldPosition();
+                    this.finalizeTrackScript.updateButtonTargetPositions(singlePlayerPos, multiPlayerPos);
+                }
+                else {
+                    // Log sparingly if objects are missing
+                    // this.log.w("Button SceneObject not found in onUpdate"); 
+                }
+            }
+            catch (e) {
+                this.log.e("Error getting button positions: " + e);
+            }
+        }
+        else {
+            // Log sparingly if scripts/buttons aren't set
+            // if (!this.finalizeTrackScript) this.log.w("FinalizeTrackScript not set for broadcasting positions");
+            // if (!this.singlePlayerButton || !this.multiPlayerButton) this.log.w("StartMenu buttons not set for broadcasting positions");
+        }
+        // --- End Broadcast --- 
     }
     __initialize() {
         super.__initialize();

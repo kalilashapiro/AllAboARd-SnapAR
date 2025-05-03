@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 1536
+    size: 1535
     values:
       - Base.png
       - Box.mesh
@@ -35,7 +35,6 @@ CollapsedEntities:
       - Paper boat.fbx/Textures/Blue flag
       - Paper boat.fbx/Textures/Red flag
       - Paper boat.fbx/Textures/old-aged-newspaper-texture_303714-23858
-      - RiverGeneration
       - RiverGeneration/RiverMeshGenerator.ts
       - RiverGeneration/RiverPathController.ts
       - Scene.scene
