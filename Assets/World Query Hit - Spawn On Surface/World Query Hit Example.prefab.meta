@@ -160,23 +160,19 @@
 - !<ScriptComponent/8c1e1b80-b014-41ae-a74c-b1e1dd4c223d>
   PrefabRemaps:
     []
-  Name: WorldQueryHitExample
+  Name: WorldQueryAddToTrack
   Enabled: true
   ScriptAsset: !<reference> 4af91f0b-dfd5-4e60-9ae1-e13c6ac3c8f7
   ScriptInputsDefault:
+    prefabToSpawn: true
     filterEnabled: true
     riverController: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      indexToSpawn: !<float> 2.000000
       targetObject: !<reference.SceneObject> 9762a85a-8dbd-4697-a7dd-e9d42658a6c2
-      objectsToSpawn: !<reference.SceneObject[]>
-        - !<reference> b26a22e9-5374-40ad-8dcc-c428c004d10f
-        - !<reference> 1ca71665-b12e-41a5-a6a3-473ee34cea88
-        - !<reference> 42b48979-31cc-478e-8fe3-0f3141b128b0
-        - !<reference> 990751e8-984a-4d3f-9bf9-8315a0a64d70
+      prefabToSpawn: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       filterEnabled: false
       riverController: !<MappingBased.RiverPathController> 00000000-0000-0000-0000-000000000000
   ScriptTypes:

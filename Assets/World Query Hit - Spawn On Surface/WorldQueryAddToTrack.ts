@@ -35,7 +35,7 @@ export class NewScript extends BaseScriptComponent {
         // create new hit session
         this.hitTestSession = this.createHitTestSession(this.filterEnabled);
         if (!this.sceneObject) {
-            print("Please set Target Object input");
+            // print("Please set Target Object input");
             return;
         }
         this.transform = this.targetObject.getTransform();
@@ -60,10 +60,25 @@ export class NewScript extends BaseScriptComponent {
         if (results === null) {
             this.targetObject.enabled = false;
         } else {
-            this.targetObject.enabled = true;
-            // get hit information
-            const hitPosition = results.position;
             const hitNormal = results.normal;
+
+            // --- Check if the surface is horizontal enough ---
+            const upDot = hitNormal.normalize().dot(vec3.up());
+            const horizontalThreshold = 0.9; // Adjust this value (closer to 1 means more strictly horizontal)
+
+            if (upDot < horizontalThreshold) {
+                // Surface is too vertical, ignore this hit and disable the target object
+                this.targetObject.enabled = false;
+                // print("WorldQueryAddToTrack: Hit ignored - surface too vertical (Normal: " + hitNormal.toString() + ", Dot: " + upDot + ")");
+                return; // Stop processing this hit result
+            }
+            // --- End surface check ---
+
+            // If we reach here, the surface is horizontal enough
+            this.targetObject.enabled = true;
+
+            //get hit information
+            const hitPosition = results.position;
 
             //identifying the direction the object should look at based on the normal of the hit location.
 
@@ -87,13 +102,14 @@ export class NewScript extends BaseScriptComponent {
                 this.primaryInteractor.currentTrigger === InteractorTriggerType.None
             ) {
                 // Called when a trigger ends
+                // print("WorldQueryAddToTrack: Trigger detected (pinch/click release)");
 
                 // --- Call River Path Controller Directly ---
                 if (this.riverController) {
-                    print("WorldQueryHitExample: Calling riverController.addPoint directly.");
+                    // print("WorldQueryHitExample: Calling riverController.addPoint directly.");
                     this.riverController.addPoint(hitPosition);
                 } else {
-                    print("WorldQueryHitExample: Error - RiverController input is not set in the Inspector!");
+                    // print("WorldQueryHitExample: Error - RiverController input is not set in the Inspector!");
                 }
                 // --- End direct call ---
 
@@ -121,11 +137,17 @@ export class NewScript extends BaseScriptComponent {
             const rayStart = rayStartOffset;
             const rayEnd = this.primaryInteractor.endPoint;
 
+            // --- Add detailed interactor logging --- 
+            // print(`WorldQueryAddToTrack: Interactor Update - Active: ${this.primaryInteractor.isActive()}, Targeting: ${this.primaryInteractor.isTargeting()}`);
+            // print(`WorldQueryAddToTrack: Interactor Update - StartPoint: ${this.primaryInteractor.startPoint.toString()}, EndPoint: ${this.primaryInteractor.endPoint.toString()}`);
+            // print(`WorldQueryAddToTrack: Interactor Update - RayStart: ${rayStart.toString()}, RayEnd: ${rayEnd.toString()}`);
+            // // --- End detailed logging ---
 
             this.hitTestSession.hitTest(rayStart, rayEnd, this.onHitTestResult.bind(this));
 
         } else {
             this.targetObject.enabled = false;
+            // print("WorldQueryAddToTrack: Interactor inactive - Hit test paused");
         }
     }
 

@@ -14255,6 +14255,7 @@
   ScriptAsset: !<reference> 8714428c-8392-4bf9-bb2c-2bc05aea836d
   ScriptInputsDefault:
     startMenuDistanceFromUser: true
+    finalizeTrackScript: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -14265,6 +14266,7 @@
       singlePlayerType: mocked_online
       enableOnSingleplayerNodes: !<reference.SceneObject[]>
         - !<reference> 0024c58f-b51b-4382-9727-6e3eb2330a11
+      finalizeTrackScript: !<MappingBased.FinalizeTrackAndSetupControls> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     "":
       {}

@@ -165,7 +165,7 @@
   BlendShapesEnabled: true
   BlendNormals: false
   BlendShapes:
-    {}
+    edit34: 1.000000
 - !<LookAtComponent/7ed04047-1aff-4d8d-801d-6a745fc00c91>
   PrefabRemaps:
     []

@@ -27,26 +27,22 @@
   MaxVisibility: Editable
   ScriptInputsHidden:
     filterEnabled: false
-    indexToSpawn: false
-    objectsToSpawn: false
+    prefabToSpawn: false
     riverController: false
     targetObject: false
   ScriptTypesHidden:
     {}
   DefaultScriptInputs:
-    - indexToSpawn: !<float> 0.000000
-      targetObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
-      objectsToSpawn: !<reference.SceneObject[]>
-        []
+    - targetObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       filterEnabled: false
       riverController: !<MappingBased.RiverPathController> 00000000-0000-0000-0000-000000000000
+      prefabToSpawn: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
-    - // @input float indexToSpawn
     - // @input SceneObject targetObject
-    - "// @input SceneObject[] objectsToSpawn"
+    - // @input SceneObject prefabToSpawn
     - // @input bool filterEnabled
     - // @input RiverPathController riverController
   DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000

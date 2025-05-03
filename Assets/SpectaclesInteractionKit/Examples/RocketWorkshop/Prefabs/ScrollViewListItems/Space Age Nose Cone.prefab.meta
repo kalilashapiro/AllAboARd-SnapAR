@@ -578,7 +578,8 @@
   BlendShapesEnabled: true
   BlendNormals: false
   BlendShapes:
-    {}
+    Pinch: 0.000000
+    Z depth: 0.000000
 - !<ObjectPrefab/97ef8f43-f6c9-4e0a-ac94-86e96d26eaba>
   PackagePath: ""
   objects:

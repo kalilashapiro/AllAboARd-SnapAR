@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 1560
+    size: 1536
     values:
       - Base.png
       - Box.mesh
@@ -1521,46 +1521,22 @@ CollapsedEntities:
       - SpectaclesSyncKit/Utils/Unsubscribe.ts
       - SpectaclesSyncKit/VersionNumber.ts
       - SpectaclesSyncKit/package.native
+      - TrackFinalizerGameBeginHandlers/FinalizeTrackAndSetupControls.ts
       - WaterMat/WaterMat.mat
       - WaterMat/WaterShader.ss_graph
       - World Mesh.mat
       - World Mesh.worldmesh
       - World Query Hit - Spawn On Surface
-      - World Query Hit - Spawn On Surface/Materials
-      - World Query Hit - Spawn On Surface/Materials/Plane.mat
-      - World Query Hit - Spawn On Surface/Materials/cloud.mat
-      - World Query Hit - Spawn On Surface/Materials/house.mat
-      - World Query Hit - Spawn On Surface/Materials/statue.mat
       - World Query Hit - Spawn On Surface/Materials/tree.mat
-      - World Query Hit - Spawn On Surface/Meshes
-      - World Query Hit - Spawn On Surface/Meshes/Plane.mesh
-      - World Query Hit - Spawn On Surface/Meshes/cloud.mesh
-      - World Query Hit - Spawn On Surface/Meshes/eyes.mesh
-      - World Query Hit - Spawn On Surface/Meshes/mouth_open.mesh
-      - World Query Hit - Spawn On Surface/Meshes/mouth_smile.mesh
-      - World Query Hit - Spawn On Surface/Meshes/sit.mesh
-      - World Query Hit - Spawn On Surface/Meshes/stand.mesh
-      - World Query Hit - Spawn On Surface/Meshes/statue.mesh
-      - World Query Hit - Spawn On Surface/Meshes/tail.mesh
       - World Query Hit - Spawn On Surface/Meshes/tree.mesh
-      - World Query Hit - Spawn On Surface/Shaders
       - World Query Hit - Spawn On Surface/Shaders/cloud.ss_graph
       - World Query Hit - Spawn On Surface/Shaders/pbr.ss_graph
       - World Query Hit - Spawn On Surface/Textures
       - World Query Hit - Spawn On Surface/Textures/Tree_base.png
       - World Query Hit - Spawn On Surface/Textures/Tree_normal.png
       - World Query Hit - Spawn On Surface/Textures/Tree_params.png
-      - World Query Hit - Spawn On Surface/Textures/cloud_base.png
-      - World Query Hit - Spawn On Surface/Textures/cloud_normal.png
-      - World Query Hit - Spawn On Surface/Textures/cloud_params.png
-      - World Query Hit - Spawn On Surface/Textures/house_base.png
-      - World Query Hit - Spawn On Surface/Textures/house_normal.png
-      - World Query Hit - Spawn On Surface/Textures/house_params.png
-      - World Query Hit - Spawn On Surface/Textures/statue_base.png
-      - World Query Hit - Spawn On Surface/Textures/statue_normal.png
-      - World Query Hit - Spawn On Surface/Textures/statue_params.png
       - World Query Hit - Spawn On Surface/World Query Hit Example.prefab
-      - World Query Hit - Spawn On Surface/WorldQueryHitExample.ts
+      - World Query Hit - Spawn On Surface/WorldQueryAddToTrack.ts
       - pbr.ss_graph
       - world_mesh.ss_graph
   options: 4

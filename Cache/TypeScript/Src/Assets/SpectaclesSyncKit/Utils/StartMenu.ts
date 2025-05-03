@@ -83,6 +83,7 @@ export class StartMenu extends BaseScriptComponent {
    * Start the game in single player mode by hiding this menu.
    */
   private onSinglePlayerPress() {
+    this.log.i("Single Player button pressed");
     switch (this.singlePlayerType) {
       case "manual":
       default:
@@ -109,6 +110,7 @@ export class StartMenu extends BaseScriptComponent {
    * Handles the multi-player button press or direct multiplayer start.
    */
   private onMultiPlayerPress() {
+    this.log.i("Multi Player button pressed or direct launch");
     this.log.i("Starting multiplayer flow");
     this.getSceneObject().enabled = false;
     SessionController.getInstance().init();
