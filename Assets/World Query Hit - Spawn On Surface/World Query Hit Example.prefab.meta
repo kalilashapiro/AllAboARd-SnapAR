@@ -167,6 +167,7 @@
     prefabToSpawn: true
     filterEnabled: true
     riverController: true
+    worldMeshObject: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -175,6 +176,7 @@
       prefabToSpawn: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       filterEnabled: false
       riverController: !<MappingBased.RiverPathController> 00000000-0000-0000-0000-000000000000
+      worldMeshObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     "":
       {}

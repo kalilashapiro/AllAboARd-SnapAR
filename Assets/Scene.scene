@@ -1796,12 +1796,14 @@
   Enabled: true
   ScriptAsset: !<reference> 84c1aa81-4763-43b3-ba76-ea91fcecff16
   ScriptInputsDefault:
-    {}
+    singlePlayerTargetCube: true
+    multiPlayerTargetCube: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      {}
+      singlePlayerTargetCube: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      multiPlayerTargetCube: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     "":
       {}
@@ -5312,6 +5314,7 @@
       prefabToSpawn: !<reference.SceneObject> cf647bf2-2c97-45a8-a0eb-8eb514e782d0
       filterEnabled: false
       riverController: !<MappingBased.RiverPathController> ff16fdd5-0cb2-495b-9a44-db0250c44c5c
+      worldMeshObject: !<reference.SceneObject> 0baa539d-bc92-4bc5-a81e-7c8e0c2acb20
   ScriptTypes:
     "":
       {}
