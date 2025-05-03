@@ -31,6 +31,10 @@ export class NewScript extends BaseScriptComponent {
     @input
     riverController: RiverPathController;
 
+    // Input for the World Mesh object to disable
+    @input
+    worldMeshObject: SceneObject;
+
     onAwake() {
         // create new hit session
         this.hitTestSession = this.createHitTestSession(this.filterEnabled);
@@ -107,6 +111,17 @@ export class NewScript extends BaseScriptComponent {
                 if (currentUpDot < horizontalThreshold) {
                     // Triggered on a Wall or non-horizontal surface
                     print("Wall pressed!"); // User requested print statement
+                    
+                    // Deactivate World Mesh if assigned
+                    if (this.worldMeshObject) {
+                        print("Deactivating World Mesh Object: " + this.worldMeshObject.name);
+                        this.worldMeshObject.enabled = false;
+                    }
+
+                    // Deactivate this script's object
+                    print("Deactivating World Query Object: " + this.getSceneObject().name);
+                    this.getSceneObject().enabled = false;
+                    
                     // Do NOT add point or spawn object
                 } else {
                     // Triggered on a horizontal surface - Perform normal action
