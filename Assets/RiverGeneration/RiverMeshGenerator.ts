@@ -16,9 +16,10 @@ export namespace RiverMeshGenerator {
      * @param riverWidth The total width of the river bed (excluding lips).
      * @param lipHeight The vertical height of the lips.
      * @param lipWidth The horizontal width of the lips extending outwards.
+     * @param isLoop (Optional) Whether the path forms a closed loop. Defaults to false.
      * @returns A RenderMesh representing the generated river geometry.
      */
-    export function buildRiverMesh(points: vec3[], riverWidth: number, lipHeight: number, lipWidth: number): RenderMesh | null {
+    export function buildRiverMesh(points: vec3[], riverWidth: number, lipHeight: number, lipWidth: number, isLoop: boolean = false): RenderMesh | null {
         if (points.length < 2 || riverWidth <= 0 || lipHeight < 0 || lipWidth < 0) {
             print("RiverMeshGenerator: Invalid input parameters.");
             return null; // Not enough points or invalid dimensions
@@ -190,39 +191,45 @@ export namespace RiverMeshGenerator {
 
         // --- 3. Generate Indices (Simple 8-vertex segments) --- 
         const indices: number[] = [];
-        for (let i = 0; i < points.length - 1; i++) {
-            const idx = i * vertexCountPerSegment; // Now 8
-            const nextIdx = (i + 1) * vertexCountPerSegment; // Now 8
+        const numSegments = isLoop ? points.length : points.length - 1;
 
-            // Apply consistent CCW winding (ca, nb, na) / (nb, ca, cb) to all faces
+        if (numSegments <= 0 && points.length >= 2) {
+             print("Warning: Not enough segments to generate indices, but points exist."); // Should not happen with points.length >= 2
+        } else {
+            for (let i = 0; i < numSegments; i++) {
+                const idx = i * vertexCountPerSegment; // Now 8
+                const nextIdx = ((i + 1) % points.length) * vertexCountPerSegment; // Use modulo for wrap-around
 
-            // Outer Left Wall (P0, P1)
-            indices.push(idx + 0, nextIdx + 1, nextIdx + 0); // Tri 1: ca, nb, na
-            indices.push(nextIdx + 1, idx + 0, idx + 1);     // Tri 2: nb, ca, cb
+                // Apply consistent CCW winding (ca, nb, na) / (nb, ca, cb) to all faces
 
-            // Left Lip Top (P1, P2)
-            indices.push(idx + 1, nextIdx + 2, nextIdx + 1); // Tri 1: ca, nb, na
-            indices.push(nextIdx + 2, idx + 1, idx + 2);     // Tri 2: nb, ca, cb
+                // Outer Left Wall (P0, P1)
+                indices.push(idx + 0, nextIdx + 1, nextIdx + 0); // Tri 1: ca, nb, na
+                indices.push(nextIdx + 1, idx + 0, idx + 1);     // Tri 2: nb, ca, cb
 
-            // Inner Left Wall (P2, P3)
-            indices.push(idx + 2, nextIdx + 3, nextIdx + 2); // Tri 1: ca, nb, na
-            indices.push(nextIdx + 3, idx + 2, idx + 3);     // Tri 2: nb, ca, cb
+                // Left Lip Top (P1, P2)
+                indices.push(idx + 1, nextIdx + 2, nextIdx + 1); // Tri 1: ca, nb, na
+                indices.push(nextIdx + 2, idx + 1, idx + 2);     // Tri 2: nb, ca, cb
 
-            // River Bed (P3, P4)
-            indices.push(idx + 3, nextIdx + 4, nextIdx + 3); // Tri 1: ca, nb, na
-            indices.push(nextIdx + 4, idx + 3, idx + 4);     // Tri 2: nb, ca, cb
+                // Inner Left Wall (P2, P3)
+                indices.push(idx + 2, nextIdx + 3, nextIdx + 2); // Tri 1: ca, nb, na
+                indices.push(nextIdx + 3, idx + 2, idx + 3);     // Tri 2: nb, ca, cb
 
-            // Inner Right Wall (P4, P5)
-            indices.push(idx + 4, nextIdx + 5, nextIdx + 4); // Tri 1: ca, nb, na
-            indices.push(nextIdx + 5, idx + 4, idx + 5);     // Tri 2: nb, ca, cb
+                // River Bed (P3, P4)
+                indices.push(idx + 3, nextIdx + 4, nextIdx + 3); // Tri 1: ca, nb, na
+                indices.push(nextIdx + 4, idx + 3, idx + 4);     // Tri 2: nb, ca, cb
 
-            // Right Lip Top (P5, P6)
-            indices.push(idx + 5, nextIdx + 6, nextIdx + 5); // Tri 1: ca, nb, na
-            indices.push(nextIdx + 6, idx + 5, idx + 6);     // Tri 2: nb, ca, cb
+                // Inner Right Wall (P4, P5)
+                indices.push(idx + 4, nextIdx + 5, nextIdx + 4); // Tri 1: ca, nb, na
+                indices.push(nextIdx + 5, idx + 4, idx + 5);     // Tri 2: nb, ca, cb
 
-            // Outer Right Wall (P6, P7)
-            indices.push(idx + 6, nextIdx + 7, nextIdx + 6); // Tri 1: ca, nb, na
-            indices.push(nextIdx + 7, idx + 6, idx + 7);     // Tri 2: nb, ca, cb
+                // Right Lip Top (P5, P6)
+                indices.push(idx + 5, nextIdx + 6, nextIdx + 5); // Tri 1: ca, nb, na
+                indices.push(nextIdx + 6, idx + 5, idx + 6);     // Tri 2: nb, ca, cb
+
+                // Outer Right Wall (P6, P7)
+                indices.push(idx + 6, nextIdx + 7, nextIdx + 6); // Tri 1: ca, nb, na
+                indices.push(nextIdx + 7, idx + 6, idx + 7);     // Tri 2: nb, ca, cb
+            }
         }
 
         builder.appendIndices(indices);

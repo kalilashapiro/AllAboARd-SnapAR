@@ -26,9 +26,10 @@
   CurrentVisibility: Editable
   MaxVisibility: Editable
   ScriptInputsHidden:
+    clickDistanceThreshold: false
     lipHeight: false
     lipWidth: false
-    maxZDifferenceFromStart: false
+    maxYDifferenceFromStart: false
     riverMeshVisual: false
     riverWidth: false
     subdivisionCount: false
@@ -41,7 +42,8 @@
       lipHeight: !<float> 5.000000
       lipWidth: !<float> 10.000000
       subdivisionCount: !<float> 8.000000
-      maxZDifferenceFromStart: !<float> -1.000000
+      maxYDifferenceFromStart: !<float> -1.000000
+      clickDistanceThreshold: !<float> 15.000000
   ScriptTypes:
     -
       {}
@@ -51,4 +53,5 @@
     - // @input float lipHeight = 5
     - // @input float lipWidth = 10
     - // @input float subdivisionCount = 8
-    - // @input float maxZDifferenceFromStart = -1
+    - // @input float maxYDifferenceFromStart = -1
+    - // @input float clickDistanceThreshold = 15

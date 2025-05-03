@@ -28,13 +28,15 @@ export class RiverPathController extends BaseScriptComponent {
     @input
     maxYDifferenceFromStart: number = -1; // Max allowed Y diff (height) from first point. <= 0 means disabled.
 
+    @input
+    clickDistanceThreshold: number = 15.0; // Distance to trigger delete last or close loop.
+
     // Optional: Use world tracking for placing points
     // @input
     // worldTrackingComponent: WorldTrackingComponent;
 
     private pathPoints: vec3[] = [];
-    // Removed touchStarted flag
-    // private touchStarted: boolean = false;
+    private isLoop: boolean = false; // Flag to indicate if the path should loop
 
     start() {
         // Initialize with a simple default path for testing
@@ -122,20 +124,53 @@ export class RiverPathController extends BaseScriptComponent {
      * @param point The world space coordinate to add.
      */
     public addPoint(point: vec3): void {
-        // Check Y difference constraint if enabled and not the first point
+        // 1. Check Height Constraint
         if (this.pathPoints.length > 0 && this.maxYDifferenceFromStart > 0) {
             const firstPointY = this.pathPoints[0].y;
             const newPointY = point.y;
             const yDifference = Math.abs(newPointY - firstPointY);
-
             if (yDifference > this.maxYDifferenceFromStart) {
                 print(`RiverPathController: Point Y (${newPointY.toFixed(2)}) too different from start Y (${firstPointY.toFixed(2)}). Max diff: ${this.maxYDifferenceFromStart.toFixed(2)}. Point not added.`);
                 return; // Stop here, don't add the point
             }
         }
 
-        // If constraint passed or doesn't apply, add the point
+        const numPoints = this.pathPoints.length;
+        const thresholdSq = this.clickDistanceThreshold * this.clickDistanceThreshold; // Use squared distance for efficiency
+
+        // 2. Check for Deleting Last Point
+        if (numPoints > 0) {
+            const lastPoint = this.pathPoints[numPoints - 1];
+            const distSqToLast = point.distanceSquared(lastPoint);
+            if (distSqToLast < thresholdSq) {
+                print(`RiverPathController: Click too close to last point (${lastPoint.toString()}). Deleting last point.`);
+                this.pathPoints.pop();
+                this.isLoop = false; // Deleting breaks loop
+                this.regenerateMesh();
+                return;
+            }
+        }
+
+        // 3. Check for Closing Loop
+        if (numPoints >= 3 && !this.isLoop) { // Can only close if >= 3 points and not already a loop
+            const firstPoint = this.pathPoints[0];
+            const distSqToFirst = point.distanceSquared(firstPoint);
+            if (distSqToFirst < thresholdSq) {
+                print(`RiverPathController: Click too close to first point (${firstPoint.toString()}). Closing loop.`);
+                this.isLoop = true;
+                this.regenerateMesh();
+                return; // Don't add the point that triggered the loop closure
+            }
+        }
+
+        // 4. Add Point Normally
+        print(`RiverPathController: Adding point ${point.toString()}`);
         this.pathPoints.push(point);
+        // Adding a new point always breaks the loop unless it's the point triggering the closure (handled above)
+        if (this.isLoop) {
+             print("RiverPathController: Adding point broke the loop.");
+             this.isLoop = false;
+        }
         this.regenerateMesh();
     }
 
@@ -144,7 +179,8 @@ export class RiverPathController extends BaseScriptComponent {
      */
     public clearPoints(): void {
         this.pathPoints = [];
-        this.regenerateMesh();
+        this.isLoop = false; // Reset loop flag
+        this.regenerateMesh(); // Regenerate will clear the mesh visual
         print("RiverPathController: Path points cleared.");
     }
 
@@ -169,35 +205,42 @@ export class RiverPathController extends BaseScriptComponent {
 
         const subdivisions = Math.max(1, this.subdivisionCount); // Ensure at least 1 subdivision
 
-        if (numPoints < 2) { // Redundant check, but safe
-            this.riverMeshVisual.mesh = null;
-            return;
-        } else if (numPoints < 4) { // Not enough points for Catmull-Rom, use original points as straight segments
-            print(`RiverPathController: Using ${numPoints} original points (not enough for Catmull-Rom).`);
-            pointsToUse.push(...this.pathPoints);
-        } else { // Enough points for Catmull-Rom
-            print(`RiverPathController: Generating spline from ${numPoints} points with ${subdivisions} subdivisions.`);
-            // Loop through the segments where Catmull-Rom can be calculated.
-            // The curve segment is generated between p1 and p2.
-            // i is the index of p1.
-            for (let i = 0; i < numPoints - 1; i++) {
-                // Determine control points, duplicating endpoints as necessary
-                const p0 = (i === 0) ? this.pathPoints[0] : this.pathPoints[i - 1];
-                const p1 = this.pathPoints[i];
-                const p2 = this.pathPoints[i + 1];
-                const p3 = (i + 2 >= numPoints) ? this.pathPoints[numPoints - 1] : this.pathPoints[i + 2];
+        // Removed check for numPoints < 4. Always generate spline if points >= 2.
+        // The CatmullRom logic with endpoint duplication handles fewer points.
+        print(`RiverPathController: Generating spline from ${numPoints} points. Loop: ${this.isLoop}. Subdivisions: ${subdivisions}.`);
 
-                // Add p1 (start of segment) only for the first segment
+        const numSegments = this.isLoop ? numPoints : numPoints - 1;
+        if (numSegments <= 0) { // Need at least one segment
+             pointsToUse.push(...this.pathPoints); // Fallback for safety, though numPoints<2 handled above
+        } else {
+             // Loop through the segments that define the curve.
+            for (let i = 0; i < numSegments; i++) {
+                // Determine control points p0, p1, p2, p3
+                let p0, p1, p2, p3;
+                if (this.isLoop) {
+                    // Use modulo arithmetic for seamless looping
+                    p0 = this.pathPoints[(i - 1 + numPoints) % numPoints];
+                    p1 = this.pathPoints[i % numPoints];
+                    p2 = this.pathPoints[(i + 1) % numPoints];
+                    p3 = this.pathPoints[(i + 2) % numPoints];
+                } else {
+                    // Duplicate endpoints for non-looping spline
+                    p0 = (i === 0) ? this.pathPoints[0] : this.pathPoints[i - 1];
+                    p1 = this.pathPoints[i];
+                    p2 = this.pathPoints[i + 1];
+                    p3 = (i + 2 >= numPoints) ? this.pathPoints[numPoints - 1] : this.pathPoints[i + 2];
+                }
+
+                // Add the starting point of the segment (p1) only once at the beginning
                 if (i === 0) {
                     pointsToUse.push(p1);
                 }
 
-                 // Subdivide the curve segment between p1 and p2
-                 // Starts from j=1 because t=0 corresponds to p1
+                // Subdivide the curve segment between p1 and p2
                 for (let j = 1; j <= subdivisions; j++) {
-                     const t = j / subdivisions;
-                     const point = this.catmullRom(p0, p1, p2, p3, t);
-                     pointsToUse.push(point); // Add the interpolated point
+                    const t = j / subdivisions;
+                    const point = this.catmullRom(p0, p1, p2, p3, t);
+                    pointsToUse.push(point);
                 }
             }
         }
@@ -213,7 +256,8 @@ export class RiverPathController extends BaseScriptComponent {
             pointsToUse,
             this.riverWidth,
             this.lipHeight,
-            this.lipWidth
+            this.lipWidth,
+            this.isLoop
         );
 
         if (newMesh) {
