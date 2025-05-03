@@ -30,9 +30,14 @@
     lipHeight: false
     lipWidth: false
     maxYDifferenceFromStart: false
+    relaxationFactor: false
+    relaxationIterations: false
     riverMeshVisual: false
     riverWidth: false
     subdivisionCount: false
+    waterLevelOffset: false
+    waterMeshVisual: false
+    waterWidthExpansion: false
   ScriptTypesHidden:
     {}
   DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
@@ -44,6 +49,11 @@
       subdivisionCount: !<float> 8.000000
       maxYDifferenceFromStart: !<float> -1.000000
       clickDistanceThreshold: !<float> 15.000000
+      relaxationIterations: !<float> 2.000000
+      relaxationFactor: 0.500000
+      waterMeshVisual: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
+      waterLevelOffset: !<float> 1.000000
+      waterWidthExpansion: 0.500000
   ScriptTypes:
     -
       {}
@@ -55,3 +65,8 @@
     - // @input float subdivisionCount = 8
     - // @input float maxYDifferenceFromStart = -1
     - // @input float clickDistanceThreshold = 15
+    - // @input float relaxationIterations = 2
+    - // @input float relaxationFactor = 0.5
+    - // @input Component.RenderMeshVisual waterMeshVisual
+    - // @input float waterLevelOffset = 1
+    - // @input float waterWidthExpansion = 0.5

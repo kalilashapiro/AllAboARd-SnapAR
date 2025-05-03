@@ -37,6 +37,15 @@ export class RiverPathController extends BaseScriptComponent {
     @input
     relaxationFactor: number = 0.5; // Strength of silhouette smoothing (0 to 1).
 
+    @input
+    waterMeshVisual: RenderMeshVisual; // Visual component for the water surface
+
+    @input
+    waterLevelOffset: number = 1.0; // How high water sits above river bed
+
+    @input
+    waterWidthExpansion: number = 0.5; // How much water extends into banks
+
     // Optional: Use world tracking for placing points
     // @input
     // worldTrackingComponent: WorldTrackingComponent;
@@ -258,22 +267,43 @@ export class RiverPathController extends BaseScriptComponent {
         }
 
         // Generate mesh with the (potentially) interpolated points
-        const newMesh = RiverMeshGenerator.buildRiverMesh(
+        const meshResults = RiverMeshGenerator.buildRiverMesh(
             pointsToUse,
             this.riverWidth,
             this.lipHeight,
             this.lipWidth,
             this.isLoop,
             this.relaxationIterations,
-            this.relaxationFactor
+            this.relaxationFactor,
+            this.waterLevelOffset,
+            this.waterWidthExpansion
         );
 
-        if (newMesh) {
-            this.riverMeshVisual.mesh = newMesh;
-            print(`RiverPathController: Mesh regenerated with ${pointsToUse.length} interpolated points.`);
+        // buildRiverMesh now returns an array: [riverMesh, waterMesh]
+        const riverMesh = meshResults[0];
+        const waterMesh = meshResults[1];
+
+        if (riverMesh) {
+            this.riverMeshVisual.mesh = riverMesh;
+            print(`RiverPathController: River mesh regenerated with ${pointsToUse.length} interpolated points.`);
         } else {
             this.riverMeshVisual.mesh = null; // Clear mesh if generation failed
-            print("RiverPathController: Mesh generation failed after interpolation, clearing visual.");
+            print("RiverPathController: River mesh generation failed after interpolation, clearing visual.");
+        }
+
+        // Assign the water mesh
+        if (this.waterMeshVisual) {
+            if (waterMesh) {
+                this.waterMeshVisual.mesh = waterMesh;
+                print(`RiverPathController: Water mesh regenerated.`);
+            } else {
+                this.waterMeshVisual.mesh = null;
+                print("RiverPathController: Water mesh generation failed or not applicable, clearing visual.");
+            }
+        } else {
+             if (waterMesh) {
+                 print("RiverPathController: Water mesh generated but waterMeshVisual input not set.");
+             }
         }
     }
 

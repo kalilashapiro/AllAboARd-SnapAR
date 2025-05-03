@@ -1,6 +1,6 @@
 - !<AssetCache>
   AssetFiles:
-    aac18ae6-ee74-477b-9bcb-2832d2dc52a8: 6291f69a-2176-4d01-89ab-91b0a966b7b8/67c8d7777176076fcff9c3afbd327c70/Data/pbr.ss_graph
+    aac18ae6-ee74-477b-9bcb-2832d2dc52a8: 6291f69a-2176-4d01-89ab-91b0a966b7b8/3573b676775950d815c1978e002a9341/Data/pbr.ss_graph
   Assets:
     - !<ShaderGraphPass/aac18ae6-ee74-477b-9bcb-2832d2dc52a8>
       PackagePath: ""
@@ -46,6 +46,12 @@
         Port_SpecularAO_N006:
           typeIdx: 4
           value: {x: 1.000000, y: 1.000000, z: 1.000000}
+        Port_Value3_N010:
+          typeIdx: 1
+          value: 0.000000
+        Port_Value4_N010:
+          typeIdx: 1
+          value: 0.000000
         Port_WorldNormal_N004:
           typeIdx: 4
           value: {x: 0.000000, y: 1.000000, z: 0.000000}
@@ -140,7 +146,7 @@
             mDefaultVal: 0.500000
             mValues:
               []
-      ShaderPath: 6291f69a-2176-4d01-89ab-91b0a966b7b8/67c8d7777176076fcff9c3afbd327c70/Data/cfd37fa/pbr.glsl
+      ShaderPath: 6291f69a-2176-4d01-89ab-91b0a966b7b8/3573b676775950d815c1978e002a9341/Data/cfd37fa/pbr.glsl
       Defines:
         []
       Properties:

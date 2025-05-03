@@ -19,15 +19,24 @@ export namespace RiverMeshGenerator {
      * @param isLoop (Optional) Whether the path forms a closed loop. Defaults to false.
      * @param relaxationIterations (Optional) Number of smoothing iterations for silhouette banks.
      * @param relaxationFactor (Optional) Strength of smoothing (0-1).
-     * @returns A RenderMesh representing the generated river geometry.
+     * @param waterLevelOffset (Optional) Vertical offset of water surface from river bed.
+     * @param waterWidthExpansion (Optional) Horizontal expansion of water surface into banks.
+     * @returns A tuple [RenderMesh | null, RenderMesh | null] for [river, water].
      */
     export function buildRiverMesh(points: vec3[], riverWidth: number, lipHeight: number, lipWidth: number, 
                                  isLoop: boolean = false, 
                                  relaxationIterations: number = 0, 
-                                 relaxationFactor: number = 0.5): RenderMesh | null {
+                                 relaxationFactor: number = 0.5,
+                                 waterLevelOffset: number = 0.0, 
+                                 waterWidthExpansion: number = 0.0): [RenderMesh | null, RenderMesh | null] {
+        
+        // --- Debug: Print received parameters --- 
+        print(`RiverMeshGenerator: Received params - waterLevelOffset: ${waterLevelOffset}, waterWidthExpansion: ${waterWidthExpansion}`);
+        // --- End Debug --- 
+        
         if (points.length < 2 || riverWidth <= 0 || lipHeight < 0 || lipWidth < 0) {
             print("RiverMeshGenerator: Invalid input parameters.");
-            return null; // Not enough points or invalid dimensions
+            return [null, null]; // Not enough points or invalid dimensions
         }
 
         let builder = new MeshBuilder([
@@ -113,6 +122,7 @@ export namespace RiverMeshGenerator {
         const numPoints = points.length;
         // Store initial positions per bank [bankIndex][pointIndex]
         const initialBankPositions: vec3[][] = [[], [], [], [], [], [], [], []]; 
+        const initialBankVCoords: number[][] = [[], [], [], [], [], [], [], []]; // Store V coords per bank
         const vertexCountPerSegment = 8; // Still 8 conceptual points per cross-section
 
         // Pre-calculate segment directions for curvature estimation (used for width scaling)
@@ -169,7 +179,38 @@ export namespace RiverMeshGenerator {
             initialBankPositions[5].push(p5);
             initialBankPositions[6].push(p6);
             initialBankPositions[7].push(p7);
+
+            // Calculate initial V coordinates based on distance along each bank
+            if (i === 0) {
+                for (let bankIdx = 0; bankIdx < 8; bankIdx++) {
+                    initialBankVCoords[bankIdx].push(0);
+                }
+            } else {
+                for (let bankIdx = 0; bankIdx < 8; bankIdx++) {
+                    const currentPos = initialBankPositions[bankIdx][i];
+                    const prevPos = initialBankPositions[bankIdx][i-1];
+                    const prevV = initialBankVCoords[bankIdx][i-1];
+                    initialBankVCoords[bankIdx].push(prevV + currentPos.distance(prevPos));
+                }
+            }
         }
+
+        // --- Normalize V Coordinates --- (Optional but Recommended)
+        let maxV = 0;
+        if (numPoints > 0) {
+             for (let bankIdx = 0; bankIdx < 8; bankIdx++) {
+                maxV = Math.max(maxV, initialBankVCoords[bankIdx][numPoints - 1]);
+            }
+        }
+        if (maxV > 0) {
+            print(`Normalizing V coordinates by max distance: ${maxV.toFixed(2)}`);
+            for (let bankIdx = 0; bankIdx < 8; bankIdx++) {
+                for (let i = 0; i < numPoints; i++) {
+                    initialBankVCoords[bankIdx][i] /= maxV;
+                }
+            }
+        }
+        // --- End Normalize V --- 
 
         // --- 3. Perform Relaxation Smoothing on Silhouette --- 
         let relaxedBankPositions = initialBankPositions; // Start with initial
@@ -214,7 +255,7 @@ export namespace RiverMeshGenerator {
         }
 
         // --- 4. Generate Final Vertices using Relaxed Positions --- 
-        const vertices: number[] = [];
+        const riverVertices: number[] = [];
         for (let i = 0; i < numPoints; i++) {
              const p0 = relaxedBankPositions[0][i];
              const p1 = relaxedBankPositions[1][i];
@@ -225,24 +266,27 @@ export namespace RiverMeshGenerator {
              const p6 = relaxedBankPositions[6][i];
              const p7 = relaxedBankPositions[7][i];
 
-             // Re-calculate frame vectors based on relaxed positions? Or use original pathSegmentsData?
-             // Using original pathSegmentsData is simpler and keeps normal orientation aligned with path intent.
+             // Get V coords from the pre-calculated initial (and normalized) bank V arrays
+             const v0 = initialBankVCoords[0][i];
+             const v1 = initialBankVCoords[1][i];
+             const v2 = initialBankVCoords[2][i];
+             const v3 = initialBankVCoords[3][i];
+             const v4 = initialBankVCoords[4][i];
+             const v5 = initialBankVCoords[5][i];
+             const v6 = initialBankVCoords[6][i];
+             const v7 = initialBankVCoords[7][i];
+
+             // Using original pathSegmentsData for normals
              const segment_i = pathSegmentsData[i];
              const right_i = segment_i.right;
              const up_i = segment_i.up;
-             const v_i = totalPathLength > 0 ? segment_i.length / totalPathLength : 0;
-
-             // Get next frame for normal averaging
-             const segment_i1 = (i < numPoints - 1) ? pathSegmentsData[i + 1] : segment_i;
-             const right_i1 = segment_i1.right;
-             const up_i1 = segment_i1.up;
 
              // Estimate face normals by averaging adjacent segment frames
-             const avgNormOuterLeft = averageVec3(right_i, right_i1).uniformScale(-1.0).normalize();
-             const avgNormInnerLeft = averageVec3(right_i, right_i1).normalize();
-             const avgNormTop = averageVec3(up_i, up_i1).normalize(); 
-             const avgNormInnerRight = averageVec3(right_i, right_i1).uniformScale(-1.0).normalize();
-             const avgNormOuterRight = averageVec3(right_i, right_i1).normalize();
+             const avgNormOuterLeft = averageVec3(right_i, right_i).uniformScale(-1.0).normalize();
+             const avgNormInnerLeft = averageVec3(right_i, right_i).normalize();
+             const avgNormTop = averageVec3(up_i, up_i).normalize(); 
+             const avgNormInnerRight = averageVec3(right_i, right_i).uniformScale(-1.0).normalize();
+             const avgNormOuterRight = averageVec3(right_i, right_i).normalize();
 
              // Calculate vertex normals by averaging face normals
              const n0 = avgNormOuterLeft;
@@ -254,21 +298,21 @@ export namespace RiverMeshGenerator {
              const n6 = avgNormTop.add(avgNormOuterRight).normalize();
              const n7 = avgNormOuterRight;
 
-             // Append 8 vertices (RELAXED pos, avg_norm, uv)
-            vertices.push(p0.x, p0.y, p0.z, n0.x, n0.y, n0.z, 0, v_i);
-            vertices.push(p1.x, p1.y, p1.z, n1.x, n1.y, n1.z, 0, v_i);
-            vertices.push(p2.x, p2.y, p2.z, n2.x, n2.y, n2.z, uLip, v_i);
-            vertices.push(p3.x, p3.y, p3.z, n3.x, n3.y, n3.z, uLip, v_i);
-            vertices.push(p4.x, p4.y, p4.z, n4.x, n4.y, n4.z, uRiver, v_i);
-            vertices.push(p5.x, p5.y, p5.z, n5.x, n5.y, n5.z, uRiver, v_i);
-            vertices.push(p6.x, p6.y, p6.z, n6.x, n6.y, n6.z, 1, v_i);
-            vertices.push(p7.x, p7.y, p7.z, n7.x, n7.y, n7.z, 1, v_i);
+             // Append 8 vertices (RELAXED pos, avg_norm, BANK-SPECIFIC uv)
+            riverVertices.push(p0.x, p0.y, p0.z, n0.x, n0.y, n0.z, 0, v0);       // P0 U=0, V=v0
+            riverVertices.push(p1.x, p1.y, p1.z, n1.x, n1.y, n1.z, 0, v1);       // P1 U=0, V=v1
+            riverVertices.push(p2.x, p2.y, p2.z, n2.x, n2.y, n2.z, uLip, v2);    // P2 U=uLip, V=v2
+            riverVertices.push(p3.x, p3.y, p3.z, n3.x, n3.y, n3.z, uLip, v3);    // P3 U=uLip, V=v3
+            riverVertices.push(p4.x, p4.y, p4.z, n4.x, n4.y, n4.z, uRiver, v4);  // P4 U=uRiver, V=v4
+            riverVertices.push(p5.x, p5.y, p5.z, n5.x, n5.y, n5.z, uRiver, v5);  // P5 U=uRiver, V=v5
+            riverVertices.push(p6.x, p6.y, p6.z, n6.x, n6.y, n6.z, 1, v6);       // P6 U=1, V=v6
+            riverVertices.push(p7.x, p7.y, p7.z, n7.x, n7.y, n7.z, 1, v7);       // P7 U=1, V=v7
          }
 
-        builder.appendVerticesInterleaved(vertices);
+        builder.appendVerticesInterleaved(riverVertices);
 
-        // --- 5. Generate Indices (Same as before) ---
-        const indices: number[] = [];
+        // --- 5. Generate River Indices (Same as before) ---
+        const riverIndices: number[] = [];
         const numSegments = isLoop ? numPoints : numPoints - 1;
         if (numSegments > 0) {
              for (let i = 0; i < numSegments; i++) {
@@ -276,25 +320,88 @@ export namespace RiverMeshGenerator {
                  const nextIdx = ((i + 1) % numPoints) * vertexCountPerSegment;
 
                  // CCW winding
-                 indices.push(idx + 0, nextIdx + 1, nextIdx + 0); indices.push(nextIdx + 1, idx + 0, idx + 1); 
-                 indices.push(idx + 1, nextIdx + 2, nextIdx + 1); indices.push(nextIdx + 2, idx + 1, idx + 2); 
-                 indices.push(idx + 2, nextIdx + 3, nextIdx + 2); indices.push(nextIdx + 3, idx + 2, idx + 3); 
-                 indices.push(idx + 3, nextIdx + 4, nextIdx + 3); indices.push(nextIdx + 4, idx + 3, idx + 4); 
-                 indices.push(idx + 4, nextIdx + 5, nextIdx + 4); indices.push(nextIdx + 5, idx + 4, idx + 5); 
-                 indices.push(idx + 5, nextIdx + 6, nextIdx + 5); indices.push(nextIdx + 6, idx + 5, idx + 6); 
-                 indices.push(idx + 6, nextIdx + 7, nextIdx + 6); indices.push(nextIdx + 7, idx + 6, idx + 7); 
+                 riverIndices.push(idx + 0, nextIdx + 1, nextIdx + 0); riverIndices.push(nextIdx + 1, idx + 0, idx + 1); 
+                 riverIndices.push(idx + 1, nextIdx + 2, nextIdx + 1); riverIndices.push(nextIdx + 2, idx + 1, idx + 2); 
+                 riverIndices.push(idx + 2, nextIdx + 3, nextIdx + 2); riverIndices.push(nextIdx + 3, idx + 2, idx + 3); 
+                 riverIndices.push(idx + 3, nextIdx + 4, nextIdx + 3); riverIndices.push(nextIdx + 4, idx + 3, idx + 4); 
+                 riverIndices.push(idx + 4, nextIdx + 5, nextIdx + 4); riverIndices.push(nextIdx + 5, idx + 4, idx + 5); 
+                 riverIndices.push(idx + 5, nextIdx + 6, nextIdx + 5); riverIndices.push(nextIdx + 6, idx + 5, idx + 6); 
+                 riverIndices.push(idx + 6, nextIdx + 7, nextIdx + 6); riverIndices.push(nextIdx + 7, idx + 6, idx + 7); 
              }
          }
-        builder.appendIndices(indices);
+        builder.appendIndices(riverIndices);
 
-        // --- 6. Finalize Mesh ---
+        // --- Generate Water Mesh ---
+        let waterMesh: RenderMesh | null = null;
+        if (numPoints >= 2 && totalPathLength > 0) {
+             print("Generating water surface mesh...");
+             let waterBuilder = new MeshBuilder([
+                 { name: "position", components: 3 },
+                 { name: "normal", components: 3, normalized: true },
+                 { name: "texture0", components: 2 }
+             ]);
+             waterBuilder.topology = MeshTopology.Triangles;
+             waterBuilder.indexType = MeshIndexType.UInt16;
+
+            const waterVertices: number[] = [];
+             for (let i = 0; i < numPoints; i++) {
+                 const p3 = relaxedBankPositions[3][i]; // Inner Left Base
+                 const p4 = relaxedBankPositions[4][i]; // Inner Right Base
+                 const segment_i = pathSegmentsData[i];
+                 const up_i = segment_i.up;
+                 const right_i = segment_i.right;
+                 const v_water = totalPathLength > 0 ? segment_i.length / totalPathLength : 0;
+                 const normWater = up_i; // Water surface normal is up
+
+                 const waterP3 = p3.add(up_i.uniformScale(waterLevelOffset)).add(right_i.uniformScale(-waterWidthExpansion));
+                 const waterP4 = p4.add(up_i.uniformScale(waterLevelOffset)).add(right_i.uniformScale(waterWidthExpansion));
+
+                 // --- Debug: Print water vertex calculation ---
+                 if (i === 0) { // Print only for the first point to avoid spam
+                     print(`  Water Calc (i=0): p3.y=${p3.y.toFixed(2)}, waterLevelOffset=${waterLevelOffset.toFixed(2)}, up_i.y=${up_i.y.toFixed(2)}, waterP3.y=${waterP3.y.toFixed(2)}`);
+                 }
+                 // --- End Debug ---
+
+                 // Append 2 vertices per point (pos, norm, uv)
+                 waterVertices.push(waterP3.x, waterP3.y, waterP3.z, normWater.x, normWater.y, normWater.z, 0, v_water); // U = 0
+                 waterVertices.push(waterP4.x, waterP4.y, waterP4.z, normWater.x, normWater.y, normWater.z, 1, v_water); // U = 1
+             }
+             waterBuilder.appendVerticesInterleaved(waterVertices);
+
+            const waterIndices: number[] = [];
+             const waterVertexCountPerSegment = 2;
+             if (numSegments > 0) {
+                 for (let i = 0; i < numSegments; i++) {
+                     const idx = i * waterVertexCountPerSegment;
+                     const nextIdx = ((i + 1) % numPoints) * waterVertexCountPerSegment;
+                     // CCW winding for quad (P3_i, P4_i, P3_i1, P4_i1)
+                     waterIndices.push(idx + 0, nextIdx + 1, nextIdx + 0); // Tri 1: ca(0), nb(1'), na(0')
+                     waterIndices.push(nextIdx + 1, idx + 0, idx + 1);     // Tri 2: nb(1'), ca(0), cb(1)
+                 }
+             }
+             waterBuilder.appendIndices(waterIndices);
+
+            if (!waterBuilder.isValid()) {
+                 print("RiverMeshGenerator: Water MeshBuilder state is invalid.");
+             } else {
+                 waterBuilder.updateMesh();
+                 waterMesh = waterBuilder.getMesh();
+                 print(`RiverMeshGenerator: Generated water mesh with ${waterVertices.length / (3+3+2)} vertices and ${waterIndices.length / 3} triangles.`);
+             }
+         }
+        // --- End Water Mesh ---
+
+        // --- Finalize River Mesh --- 
+        let riverMesh: RenderMesh | null = null;
         if (!builder.isValid()) {
-            print("RiverMeshGenerator: MeshBuilder state is invalid before finalizing.");
-            return null;
+            print("RiverMeshGenerator: River MeshBuilder state is invalid before finalizing.");
+        } else {
+             builder.updateMesh();
+             riverMesh = builder.getMesh();
+             print(`RiverMeshGenerator: Generated relaxed river mesh (${numRelaxIterations} iterations) with ${riverVertices.length / (3+3+2)} vertices and ${riverIndices.length / 3} triangles.`);
         }
-        builder.updateMesh();
-        print(`RiverMeshGenerator: Generated relaxed mesh (${numRelaxIterations} iterations) with ${vertices.length / (3+3+2)} vertices and ${indices.length / 3} triangles.`);
-        return builder.getMesh();
+        
+        return [riverMesh, waterMesh];
     }
 
 } 

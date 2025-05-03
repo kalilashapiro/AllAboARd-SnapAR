@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 1556
+    size: 1558
     values:
       - Base.png
       - Box.mesh
@@ -1519,6 +1519,8 @@ CollapsedEntities:
       - SpectaclesSyncKit/Utils/Unsubscribe.ts
       - SpectaclesSyncKit/VersionNumber.ts
       - SpectaclesSyncKit/package.native
+      - WaterMat/WaterMat.mat
+      - WaterMat/WaterShader.ss_graph
       - World Mesh.mat
       - World Mesh.worldmesh
       - World Query Hit - Spawn On Surface

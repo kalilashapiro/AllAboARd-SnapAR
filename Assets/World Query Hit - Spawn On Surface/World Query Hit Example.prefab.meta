@@ -165,6 +165,7 @@
   ScriptAsset: !<reference> 4af91f0b-dfd5-4e60-9ae1-e13c6ac3c8f7
   ScriptInputsDefault:
     filterEnabled: true
+    riverController: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -177,6 +178,7 @@
         - !<reference> 42b48979-31cc-478e-8fe3-0f3141b128b0
         - !<reference> 990751e8-984a-4d3f-9bf9-8315a0a64d70
       filterEnabled: false
+      riverController: !<MappingBased.RiverPathController> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     "":
       {}

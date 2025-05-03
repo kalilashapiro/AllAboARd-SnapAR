@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 1557
+    size: 1560
     values:
       - Base.png
       - Box.mesh
@@ -39,6 +39,7 @@ CollapsedEntities:
       - RiverGeneration/RiverMeshGenerator.ts
       - RiverGeneration/RiverPathController.ts
       - Scene.scene
+      - SpectaclesInteractionKit
       - SpectaclesInteractionKit/Assets
       - SpectaclesInteractionKit/Assets/Audio
       - SpectaclesInteractionKit/Assets/Audio/HoverAudioTrack.wav
@@ -1520,6 +1521,8 @@ CollapsedEntities:
       - SpectaclesSyncKit/Utils/Unsubscribe.ts
       - SpectaclesSyncKit/VersionNumber.ts
       - SpectaclesSyncKit/package.native
+      - WaterMat/WaterMat.mat
+      - WaterMat/WaterShader.ss_graph
       - World Mesh.mat
       - World Mesh.worldmesh
       - World Query Hit - Spawn On Surface

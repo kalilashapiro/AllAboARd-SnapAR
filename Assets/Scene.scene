@@ -6,6 +6,7 @@
     - !<own> 04724480-e7d6-4c15-9941-264d016804ca
     - !<own> 85b91c5b-1af3-4ab9-9675-c1c3d7ca23dd
     - !<own> 11394019-21b5-4fe3-8018-2a3d708a46ea
+    - !<own> d3991ac0-f60b-436b-90be-39e7454f6b8c
     - !<own> c177bf16-7fa4-4e4f-b4eb-e029f1b7781e
     - !<own> 0baa539d-bc92-4bc5-a81e-7c8e0c2acb20
     - !<own> effd9e36-975e-457a-a6c5-6618d612d49a
@@ -1989,7 +1990,7 @@
 - !<SceneObject/11394019-21b5-4fe3-8018-2a3d708a46ea>
   PrefabRemaps:
     []
-  Name: RiverRenderer
+  Name: BoardwalkRenderer
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -5193,6 +5194,7 @@
         - !<reference> cf647bf2-2c97-45a8-a0eb-8eb514e782d0
         - !<reference> aee084ab-9064-400b-bf94-33ee707a9406
       filterEnabled: false
+      riverController: !<MappingBased.RiverPathController> ff16fdd5-0cb2-495b-9a44-db0250c44c5c
   ScriptTypes:
     "":
       {}
@@ -11335,7 +11337,7 @@
 - !<SceneObject/960a28dd-a4fa-4e06-9711-6da45218d89e>
   PrefabRemaps:
     []
-  Name: "3. World Query Example [EDIT ME]"
+  Name: QueryScript
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -15436,6 +15438,21 @@
     - !<own> a21026cd-7a44-42dc-9041-15d136f0d420
   Components:
     []
+- !<SceneObject/d3991ac0-f60b-436b-90be-39e7454f6b8c>
+  PrefabRemaps:
+    []
+  Name: WaterRenderer
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> ea5ea4ac-a178-4c77-89b4-bb756fa9889b
 - !<SceneObject/d3f46e1d-38e5-4117-a94b-97749db52855>
   PrefabRemaps:
     []
@@ -15592,7 +15609,7 @@
 - !<SceneObject/d6396109-2157-4317-b43a-d952cccb6258>
   PrefabRemaps:
     []
-  Name: 2. Add Spectacles Interaction Kit to project
+  Name: Disable SpectacleInteractionKit in SyncKit ^ and add external
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -17043,6 +17060,26 @@
     []
   Components:
     []
+- !<RenderMeshVisual/ea5ea4ac-a178-4c77-89b4-bb756fa9889b>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 18e484c9-ff83-4f3b-8584-5bdf8a2e9aac
+  Mesh: !<reference> 00000000-0000-0000-0000-000000000000
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
 - !<ScriptComponent/ea7966ad-e320-4d0a-80b6-0f370ec2bc95>
   PrefabRemaps:
     []
@@ -17538,7 +17575,7 @@
     - e4bf3588-5df6-4ce5-9bc9-ace969e47a77: 5bcba7d3-d033-4fe1-b702-28b2c329d5b7
     - e576a0ab-7b4d-4bc9-b9d3-26549a617032: e3ddb21b-a5c4-47e5-94c1-2573bc833b7d
     - effd9e36-975e-457a-a6c5-6618d612d49a: c34ef930-7872-485d-98fb-0d1f2a526ee1
-  Name: World Query Hit Example
+  Name: WorldQuery
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -18844,6 +18881,9 @@
     riverWidth: true
     lipHeight: true
     lipWidth: true
+    subdivisionCount: true
+    clickDistanceThreshold: true
+    waterWidthExpansion: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -18852,6 +18892,14 @@
       riverWidth: !<float> 30.000000
       lipHeight: !<float> 5.000000
       lipWidth: !<float> 10.000000
+      subdivisionCount: !<float> 8.000000
+      maxYDifferenceFromStart: !<float> 10.000000
+      clickDistanceThreshold: !<float> 15.000000
+      relaxationIterations: !<float> 4.000000
+      relaxationFactor: 0.700000
+      waterMeshVisual: !<reference.RenderMeshVisual> ea5ea4ac-a178-4c77-89b4-bb756fa9889b
+      waterLevelOffset: 3.500000
+      waterWidthExpansion: 0.500000
   ScriptTypes:
     "":
       {}

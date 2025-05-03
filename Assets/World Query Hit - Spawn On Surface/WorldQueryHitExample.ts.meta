@@ -29,6 +29,7 @@
     filterEnabled: false
     indexToSpawn: false
     objectsToSpawn: false
+    riverController: false
     targetObject: false
   ScriptTypesHidden:
     {}
@@ -38,6 +39,7 @@
       objectsToSpawn: !<reference.SceneObject[]>
         []
       filterEnabled: false
+      riverController: !<MappingBased.RiverPathController> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
@@ -46,4 +48,5 @@
     - // @input SceneObject targetObject
     - "// @input SceneObject[] objectsToSpawn"
     - // @input bool filterEnabled
+    - // @input RiverPathController riverController
   DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
