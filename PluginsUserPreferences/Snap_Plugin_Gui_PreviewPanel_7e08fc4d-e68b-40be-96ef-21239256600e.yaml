@@ -24,11 +24,11 @@ fullscreenSpectaclesSimulation:
   options: 4
 lastPosition:
   type: vec3
-  value: {x: 68.010437, y: 29.485285, z: -201.974945}
+  value: {x: -369.303589, y: 208.492599, z: 274.838287}
   options: 4
 lastRotation:
   type: vec3
-  value: {x: -26.772161, y: 59.250210, z: 0.435798}
+  value: {x: -39.600216, y: -52.649979, z: -0.000023}
   options: 4
 mirrorHorizontally:
   type: bool
@@ -36,7 +36,7 @@ mirrorHorizontally:
   options: 4
 previewSource:
   type: string
-  value: "C:/Program Files/Snap Inc/Lens Studio/InteractiveResources.bundle/Scenes/Sunlit Room"
+  value: "C:/Program Files/Snap Inc/Lens Studio/InteractiveResources.bundle/Scenes/Plane"
   options: 4
 previewType:
   type: string

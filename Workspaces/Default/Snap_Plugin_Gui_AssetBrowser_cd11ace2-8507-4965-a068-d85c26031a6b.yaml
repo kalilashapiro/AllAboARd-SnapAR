@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 1521
+    size: 1523
     values:
       - Base.png
       - Box.mesh
@@ -1508,9 +1508,11 @@ CollapsedEntities:
       - SpectaclesSyncKit/package.native
       - TrackFinalizerGameBeginHandlers
       - TrackFinalizerGameBeginHandlers/FinalizeTrackAndSetupControls.ts
+      - WaterMat/BoardWalkMat.mat
       - WaterMat/BoardWalkShader.ss_graph
       - WaterMat/WaterMat.mat
       - WaterMat/WaterShader.ss_graph
+      - WaterMat/sandy_gravel_02_diff_1k.jpg
       - World Mesh.mat
       - World Mesh.worldmesh
       - World Query Hit - Spawn On Surface/Materials/tree.mat
