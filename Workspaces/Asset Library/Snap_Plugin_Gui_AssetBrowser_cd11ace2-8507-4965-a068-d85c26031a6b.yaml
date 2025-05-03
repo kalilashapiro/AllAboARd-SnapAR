@@ -1,10 +1,11 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 916
+    size: 1029
     values:
       - Base.png
       - Box.mesh
+      - ConnectionController.ts
       - Device Camera Texture.deviceCameraTexture
       - Echopark.hdr
       - Echopark.hdr/Diffuse
@@ -23,11 +24,29 @@ CollapsedEntities:
       - Generative 3D Package/068154d1-a877-7f55-8000-594cafc23ee8-model.glb/Textures/texture_pm-texture_pr
       - Generative 3D Package/package.native
       - HandController_TS.ts
+      - HandObjectSync.ts
       - MaterialParams.png
+      - Mesh Builder Example - Pipe Between Objects
       - Mesh Builder Example - Pipe Between Objects/.hidden
+      - Mesh Builder Example - Pipe Between Objects/.hidden/Textures
+      - Mesh Builder Example - Pipe Between Objects/.hidden/Textures/Base.png
+      - Mesh Builder Example - Pipe Between Objects/.hidden/Textures/Normal.png
+      - Mesh Builder Example - Pipe Between Objects/.hidden/Uber PBR 2.ss_graph
+      - Mesh Builder Example - Pipe Between Objects/.hidden/UberDiffuse.lsmat.mat
+      - Mesh Builder Example - Pipe Between Objects/.hidden/UberDiffuse1.lsmat.ss_graph
+      - Mesh Builder Example - Pipe Between Objects/From Asset Library
+      - "Mesh Builder Example - Pipe Between Objects/From Asset Library/[Mesh Builder Example] Pipe Between Objects"
+      - "Mesh Builder Example - Pipe Between Objects/From Asset Library/[Mesh Builder Example] Pipe Between Objects/Assets"
+      - "Mesh Builder Example - Pipe Between Objects/From Asset Library/[Mesh Builder Example] Pipe Between Objects/Assets/MaterialParams.png"
+      - "Mesh Builder Example - Pipe Between Objects/From Asset Library/[Mesh Builder Example] Pipe Between Objects/Assets/Pin.mesh"
+      - "Mesh Builder Example - Pipe Between Objects/From Asset Library/[Mesh Builder Example] Pipe Between Objects/Assets/Uber PBR 2.mat"
+      - "Mesh Builder Example - Pipe Between Objects/From Asset Library/[Mesh Builder Example] Pipe Between Objects/Scripts"
       - "Mesh Builder Example - Pipe Between Objects/From Asset Library/[Mesh Builder Example] Pipe Between Objects/Scripts/Mesh Builder Pipe.js"
+      - Mesh Builder Example - Pipe Between Objects/Mesh Builder Example - Pipe Between Objects.prefab
       - Normal.png
       - PBR 2.mat
+      - PBR 3.mat
+      - PBR 4.mat
       - PBR.mat
       - Paper boat.fbx
       - Paper boat.fbx/.hidden
@@ -56,11 +75,94 @@ CollapsedEntities:
       - Paper boat.fbx/Textures/Red flag
       - Paper boat.fbx/Textures/old-aged-newspaper-texture_303714-23858
       - Render Target.renderTarget
+      - RiverGeneration
       - Rope.ts
       - Scene.scene
       - SceneController_TS.ts
       - Simple PBR.mat
-      - SpectaclesSyncKit
+      - SpectaclesInteractionKit
+      - SpectaclesInteractionKit/Assets
+      - SpectaclesInteractionKit/Assets/Audio
+      - SpectaclesInteractionKit/Assets/Materials
+      - SpectaclesInteractionKit/Assets/Materials/BaseHandVisualsMaterials
+      - SpectaclesInteractionKit/Assets/Materials/PlatformUI
+      - SpectaclesInteractionKit/Assets/Materials/SliderMat
+      - SpectaclesInteractionKit/Assets/Meshes
+      - SpectaclesInteractionKit/Assets/Meshes/PlatformUI
+      - SpectaclesInteractionKit/Assets/Shaders
+      - SpectaclesInteractionKit/Assets/Shaders/BaseHandVisualsShaders
+      - SpectaclesInteractionKit/Assets/Shaders/PlatformUI
+      - SpectaclesInteractionKit/Assets/Shaders/SliderShaders
+      - SpectaclesInteractionKit/Assets/Textures
+      - SpectaclesInteractionKit/Assets/Textures/BaseHandVisualsTextures
+      - SpectaclesInteractionKit/Assets/Textures/PlatformUI
+      - SpectaclesInteractionKit/Components
+      - SpectaclesInteractionKit/Components/Helpers
+      - SpectaclesInteractionKit/Components/Interaction/Billboard
+      - SpectaclesInteractionKit/Components/Interaction/HandVisual
+      - SpectaclesInteractionKit/Components/Interaction/Headlock
+      - SpectaclesInteractionKit/Components/Interaction/Interactable
+      - SpectaclesInteractionKit/Components/Interaction/InteractableManipulation
+      - SpectaclesInteractionKit/Components/Interaction/InteractionPlane
+      - SpectaclesInteractionKit/Components/Interaction/InteractorCursor
+      - SpectaclesInteractionKit/Components/UI
+      - SpectaclesInteractionKit/Components/UI/ContainerFrame
+      - SpectaclesInteractionKit/Components/UI/ContainerFrame/Materials
+      - SpectaclesInteractionKit/Components/UI/ContainerFrame/Meshes
+      - SpectaclesInteractionKit/Components/UI/ContainerFrame/Prefabs
+      - SpectaclesInteractionKit/Components/UI/ContainerFrame/Textures
+      - SpectaclesInteractionKit/Components/UI/ContainerFrame/modules
+      - SpectaclesInteractionKit/Components/UI/ContainerFrame/modules/SimpleLODRenderMeshVisual
+      - SpectaclesInteractionKit/Components/UI/PinchButton
+      - SpectaclesInteractionKit/Components/UI/ScrollBar
+      - SpectaclesInteractionKit/Components/UI/ScrollView
+      - SpectaclesInteractionKit/Components/UI/ScrollView/boundariesProvider
+      - SpectaclesInteractionKit/Components/UI/Slider
+      - SpectaclesInteractionKit/Components/UI/ToggleButton
+      - SpectaclesInteractionKit/Core
+      - SpectaclesInteractionKit/Core/ConfigurationValidator
+      - SpectaclesInteractionKit/Core/HandInteractor
+      - SpectaclesInteractionKit/Core/InteractionManager
+      - SpectaclesInteractionKit/Core/Interactor
+      - SpectaclesInteractionKit/Core/Interactor/raycastAlgorithms
+      - SpectaclesInteractionKit/Core/LogLevelConfiguration
+      - SpectaclesInteractionKit/Core/MobileInteractor
+      - SpectaclesInteractionKit/Core/MouseInteractor
+      - SpectaclesInteractionKit/Decorators
+      - SpectaclesInteractionKit/Examples
+      - SpectaclesInteractionKit/Examples/RocketWorkshop
+      - SpectaclesInteractionKit/Examples/RocketWorkshop/Materials
+      - SpectaclesInteractionKit/Examples/RocketWorkshop/Materials/Icons
+      - SpectaclesInteractionKit/Examples/RocketWorkshop/Materials/Objects
+      - SpectaclesInteractionKit/Examples/RocketWorkshop/Meshes
+      - SpectaclesInteractionKit/Examples/RocketWorkshop/Prefabs
+      - SpectaclesInteractionKit/Examples/RocketWorkshop/Prefabs/Parts
+      - SpectaclesInteractionKit/Examples/RocketWorkshop/Prefabs/ScrollViewListItems
+      - SpectaclesInteractionKit/Examples/RocketWorkshop/SFX
+      - SpectaclesInteractionKit/Examples/RocketWorkshop/Scripts
+      - SpectaclesInteractionKit/Examples/RocketWorkshop/Shaders
+      - SpectaclesInteractionKit/Examples/RocketWorkshop/Textures
+      - SpectaclesInteractionKit/Examples/RocketWorkshop/Textures/ScrollViewThumbnails
+      - SpectaclesInteractionKit/Examples/RocketWorkshop/VFX
+      - SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Clouds Landing
+      - SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Clouds Start
+      - SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Custom Mesh Emitter
+      - SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Exhaust
+      - SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Radial Heat
+      - SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Rocket Animations
+      - SpectaclesInteractionKit/Examples/RocketWorkshop/VFX/Rocket Sparks
+      - SpectaclesInteractionKit/Prefabs
+      - SpectaclesInteractionKit/Providers
+      - SpectaclesInteractionKit/Providers/CameraProvider
+      - SpectaclesInteractionKit/Providers/CursorControllerProvider
+      - SpectaclesInteractionKit/Providers/HandInputData
+      - SpectaclesInteractionKit/Providers/HandInputData/GestureProvider
+      - SpectaclesInteractionKit/Providers/HandInputData/GestureProvider/PalmTapDetection
+      - SpectaclesInteractionKit/Providers/HandInputData/GestureProvider/PinchDetection
+      - SpectaclesInteractionKit/Providers/HandInputData/GestureProvider/PinchDetection/DetectionStrategies
+      - SpectaclesInteractionKit/Providers/InteractionConfigurationProvider
+      - SpectaclesInteractionKit/Providers/MobileInputData
+      - SpectaclesInteractionKit/Providers/TargetProvider
       - SpectaclesSyncKit/Components
       - SpectaclesSyncKit/Components/Instantiator.ts
       - SpectaclesSyncKit/Components/SyncHelpers
@@ -131,6 +233,7 @@ CollapsedEntities:
       - SpectaclesSyncKit/Examples/SyncEntityExample.ts
       - SpectaclesSyncKit/Examples/SyncEntityExampleJavascript.js
       - SpectaclesSyncKit/Location Cloud Storage Module.locationCloudStorageModule
+      - SpectaclesSyncKit/Mapping
       - SpectaclesSyncKit/Mapping/Assets/AnimationMixers
       - SpectaclesSyncKit/Mapping/Assets/AnimationMixers/MappingSuccessCheckmark.animationLayer
       - SpectaclesSyncKit/Mapping/Assets/AnimationMixers/MappingTutorial.animationMixerLayer
@@ -191,6 +294,7 @@ CollapsedEntities:
       - SpectaclesSyncKit/Mapping/Assets/FBX/WindowOccluderBox.fbx/Meshes
       - SpectaclesSyncKit/Mapping/Assets/FBX/WindowOccluderBox.fbx/Meshes/Cube
       - SpectaclesSyncKit/Mapping/Assets/FBX/WindowOccluderBox.fbx/WindowOccluderBox
+      - SpectaclesSyncKit/Mapping/Assets/Materials
       - SpectaclesSyncKit/Mapping/Assets/Materials/AlignUnsuccessNotificationTile.mat
       - SpectaclesSyncKit/Mapping/Assets/Materials/Arrow.mat
       - SpectaclesSyncKit/Mapping/Assets/Materials/BoyTutorialUnlit.mat
@@ -336,6 +440,7 @@ CollapsedEntities:
       - SpectaclesSyncKit/Mapping/src/Utils/JoiningController.ts
       - SpectaclesSyncKit/Mapping/src/Utils/ProjectContainer.ts
       - SpectaclesSyncKit/Mapping/src/Utils/SharedFunctions.ts
+      - SpectaclesSyncKit/SpectaclesInteractionKit
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Audio
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Audio/HoverAudioTrack.wav
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Audio/TriggerEndAudioTrack.wav
@@ -916,7 +1021,15 @@ CollapsedEntities:
       - SpectaclesSyncKit/VersionNumber.ts
       - SpectaclesSyncKit/package.native
       - Sphere.mesh
+      - SyncableObject.ts
+      - TrackFinalizerGameBeginHandlers
       - Untitled TypeScript.ts
+      - WaterMat
+      - World Query Hit - Spawn On Surface
+      - World Query Hit - Spawn On Surface/Materials
+      - World Query Hit - Spawn On Surface/Meshes
+      - World Query Hit - Spawn On Surface/Shaders
+      - World Query Hit - Spawn On Surface/Textures
       - pbr.ss_graph
       - simple_pbr.ss_graph
   options: 4

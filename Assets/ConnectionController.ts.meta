@@ -1,0 +1,51 @@
+- !<AssetImportMetadata/ce523fd1-e815-409b-9431-cfc9a16dcb8c>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 2a5d931e-1cab-4107-bae2-228b04aae950
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 2a5d931e-1cab-4107-bae2-228b04aae950
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 79e7f8df-5c44-4cd4-9889-564a3517ec5f
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/79e7f8df-5c44-4cd4-9889-564a3517ec5f>
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: c4070511-5208-44cc-b00c-718edaaecd80
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    connectionLine: false
+    endPoint: false
+    player1HandSync: false
+    player2HandSync: false
+    startPoint: false
+  ScriptTypesHidden:
+    {}
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - player1HandSync: !<MappingBased.HandObjectSync> 00000000-0000-0000-0000-000000000000
+      player2HandSync: !<MappingBased.HandObjectSync> 00000000-0000-0000-0000-000000000000
+      connectionLine: !<MappingBased.Line> 00000000-0000-0000-0000-000000000000
+      startPoint: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      endPoint: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input HandObjectSync player1HandSync
+    - // @input HandObjectSync player2HandSync
+    - // @input Line connectionLine
+    - // @input SceneObject startPoint
+    - // @input SceneObject endPoint
