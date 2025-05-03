@@ -1,7 +1,7 @@
 import {
   FieldTargetingMode,
   HandInteractor,
-} from "../../../Core/HandInteractor/HandInteractor"
+} from "../../../Core/HandInteractor/HandInteractorOld"
 import {InteractorTriggerType} from "../../../Core/Interactor/Interactor"
 import WorldCameraFinderProvider from "../../../Providers/CameraProvider/WorldCameraFinderProvider"
 import {BaseHand} from "../../../Providers/HandInputData/BaseHand"

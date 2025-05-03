@@ -1,6 +1,6 @@
 import {Interactable} from "../../../Components/Interaction/Interactable/Interactable"
 import {InteractableManipulation} from "../../../Components/Interaction/InteractableManipulation/InteractableManipulation"
-import {HandInteractor} from "../../../Core/HandInteractor/HandInteractor"
+import {HandInteractor} from "../../../Core/HandInteractor/HandInteractorOld"
 import {InteractionManager} from "../../../Core/InteractionManager/InteractionManager"
 import {
   Interactor,

@@ -12,7 +12,7 @@ import {
 
 import {InteractionManager} from "../../../Core/InteractionManager/InteractionManager"
 import {InteractorEvent} from "../../../Core/Interactor/InteractorEvent"
-import {MobileInteractor} from "../../../Core/MobileInteractor/MobileInteractor"
+import {MobileInteractor} from "../../../Core/MobileInteractor/MobileInteractorOld"
 import WorldCameraFinderProvider from "../../../Providers/CameraProvider/WorldCameraFinderProvider"
 import NativeLogger from "../../../Utils/NativeLogger"
 import {validate} from "../../../Utils/validate"

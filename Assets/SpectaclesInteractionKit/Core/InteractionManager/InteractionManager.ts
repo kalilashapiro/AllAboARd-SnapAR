@@ -11,7 +11,7 @@ import {InteractionPlane} from "../../Components/Interaction/InteractionPlane/In
 import {Singleton} from "../../Decorators/Singleton"
 import {LensConfig} from "../../Utils/LensConfig"
 import {getSafeReference} from "../../Utils/SafeReference"
-import {HandInteractor} from "../HandInteractor/HandInteractor"
+import {HandInteractor} from "../HandInteractor/HandInteractorOld"
 import BaseInteractor from "../Interactor/BaseInteractor"
 import {DispatchableEventArgs} from "../Interactor/InteractorEvent"
 import {EventDispatcher} from "./EventDispatcher"

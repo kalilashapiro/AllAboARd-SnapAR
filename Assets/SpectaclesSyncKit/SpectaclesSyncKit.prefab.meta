@@ -3167,7 +3167,7 @@
 - !<ScriptComponent/30282676-ec06-46ac-b2f3-e668622ba126>
   PrefabRemaps:
     []
-  Name: MouseInteractor
+  Name: MouseInteractorNew
   Enabled: true
   ScriptAsset: !<reference> fa8d58de-519f-43c1-a79d-1bfa5fdecfb0
   ScriptInputsDefault:
@@ -3419,7 +3419,7 @@
 - !<ScriptComponent/338212e0-5a34-45e2-9282-ce8d1144fb59>
   PrefabRemaps:
     []
-  Name: HandInteractor
+  Name: HandInteractorNew
   Enabled: true
   ScriptAsset: !<reference> 4d0b0ec7-e669-4c4e-b2f7-32b9c59f24cc
   ScriptInputsDefault:
@@ -5591,7 +5591,7 @@
     "":
       handType: left
       selectVisual: Default
-      handInteractor: !<MappingBased.HandInteractor> 338212e0-5a34-45e2-9282-ce8d1144fb59
+      handInteractor: !<MappingBased.HandInteractorNew> 338212e0-5a34-45e2-9282-ce8d1144fb59
       handMesh: !<reference.RenderMeshVisual> a5cabb52-d59e-424a-bca5-cc989084a2b9
       root: !<reference.SceneObject> 16f0b6f5-b063-4665-a42c-60b7627324d3
       autoJointMapping: true
@@ -8294,7 +8294,7 @@
 - !<ScriptComponent/83b23ec9-8039-42bc-b8e9-f3aac04d8058>
   PrefabRemaps:
     []
-  Name: HandInteractor
+  Name: HandInteractorNew
   Enabled: true
   ScriptAsset: !<reference> 4d0b0ec7-e669-4c4e-b2f7-32b9c59f24cc
   ScriptInputsDefault:
@@ -9945,7 +9945,7 @@
     "":
       handType: right
       selectVisual: Default
-      handInteractor: !<MappingBased.HandInteractor> 83b23ec9-8039-42bc-b8e9-f3aac04d8058
+      handInteractor: !<MappingBased.HandInteractorNew> 83b23ec9-8039-42bc-b8e9-f3aac04d8058
       handMesh: !<reference.RenderMeshVisual> a0bfd8e3-f956-463e-9c57-7d9736c040fa
       root: !<reference.SceneObject> 51d9e721-f564-488d-adfc-fa9cc59ad87c
       autoJointMapping: true
@@ -12254,7 +12254,7 @@
 - !<ScriptComponent/c3273ddb-ba71-48cf-8bbd-802c5871a559>
   PrefabRemaps:
     []
-  Name: MobileInteractor
+  Name: MobileInteractorNew
   Enabled: true
   ScriptAsset: !<reference> 7876e94e-1942-4993-ab2d-d35e572dbe74
   ScriptInputsDefault:
@@ -15129,7 +15129,7 @@
 - !<ScriptComponent/f610cc0a-140f-4252-96a0-86b19aef0aec>
   PrefabRemaps:
     []
-  Name: ConfigurationValidator
+  Name: ConfigurationValidatorNew
   Enabled: true
   ScriptAsset: !<reference> 5249534b-e5e3-494c-afad-124a32012655
   ScriptInputsDefault:

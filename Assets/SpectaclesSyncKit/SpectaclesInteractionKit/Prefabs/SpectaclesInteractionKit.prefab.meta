@@ -62,7 +62,7 @@
 - !<ScriptComponent/08f9fddc-878e-4832-8b5b-eed5e2b7d08c>
   PrefabRemaps:
     []
-  Name: ConfigurationValidator
+  Name: ConfigurationValidatorNew
   Enabled: true
   ScriptAsset: !<reference> 5249534b-e5e3-494c-afad-124a32012655
   ScriptInputsDefault:
@@ -461,7 +461,7 @@
 - !<ScriptComponent/27508fa9-b52f-4370-8fef-42c8edcd4eb2>
   PrefabRemaps:
     []
-  Name: MouseInteractor
+  Name: MouseInteractorNew
   Enabled: true
   ScriptAsset: !<reference> fa8d58de-519f-43c1-a79d-1bfa5fdecfb0
   ScriptInputsDefault:
@@ -591,7 +591,7 @@
 - !<ScriptComponent/3b4499e2-4660-4970-804b-bf357efc077e>
   PrefabRemaps:
     []
-  Name: HandInteractor
+  Name: HandInteractorNew
   Enabled: true
   ScriptAsset: !<reference> 4d0b0ec7-e669-4c4e-b2f7-32b9c59f24cc
   ScriptInputsDefault:
@@ -797,7 +797,7 @@
     "":
       handType: right
       selectVisual: Default
-      handInteractor: !<MappingBased.HandInteractor> 3b4499e2-4660-4970-804b-bf357efc077e
+      handInteractor: !<MappingBased.HandInteractorNew> 3b4499e2-4660-4970-804b-bf357efc077e
       handMesh: !<reference.RenderMeshVisual> ba88cf3f-f114-480e-b50c-16d2e5c7aee6
       root: !<reference.SceneObject> 81735e6e-4177-45a5-92d7-5b1b50dffc7b
       autoJointMapping: true
@@ -1442,7 +1442,7 @@
 - !<ScriptComponent/9355ccc3-323a-44ae-91a7-60b502ddfdde>
   PrefabRemaps:
     []
-  Name: HandInteractor
+  Name: HandInteractorNew
   Enabled: true
   ScriptAsset: !<reference> 4d0b0ec7-e669-4c4e-b2f7-32b9c59f24cc
   ScriptInputsDefault:
@@ -2057,7 +2057,7 @@
 - !<ScriptComponent/d6f39fd9-8555-4349-8e7b-440ab4882279>
   PrefabRemaps:
     []
-  Name: MobileInteractor
+  Name: MobileInteractorNew
   Enabled: true
   ScriptAsset: !<reference> 7876e94e-1942-4993-ab2d-d35e572dbe74
   ScriptInputsDefault:
@@ -2222,7 +2222,7 @@
     "":
       handType: left
       selectVisual: Default
-      handInteractor: !<MappingBased.HandInteractor> 9355ccc3-323a-44ae-91a7-60b502ddfdde
+      handInteractor: !<MappingBased.HandInteractorNew> 9355ccc3-323a-44ae-91a7-60b502ddfdde
       handMesh: !<reference.RenderMeshVisual> 53c9b92b-eb2e-443f-8fef-61fc991884d0
       root: !<reference.SceneObject> 1bd8ab64-7fb1-4a85-9796-25bc7abd6d2c
       autoJointMapping: true

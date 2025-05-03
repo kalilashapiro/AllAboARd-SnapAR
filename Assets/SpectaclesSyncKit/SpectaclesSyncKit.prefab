@@ -510,7 +510,7 @@
 - !<ScriptComponent/0db75573-2e17-481a-ae93-448636779bb2>
   PrefabRemaps:
     []
-  Name: MobileInteractor
+  Name: MobileInteractorNew
   Enabled: true
   ScriptAsset: !<reference> 7876e94e-1942-4993-ab2d-d35e572dbe74
   ScriptInputsDefault:
@@ -8643,7 +8643,7 @@
 - !<ScriptComponent/91ac4dbb-9206-4520-b15b-81969ea1ba91>
   PrefabRemaps:
     []
-  Name: ConfigurationValidator
+  Name: ConfigurationValidatorNew
   Enabled: true
   ScriptAsset: !<reference> 5249534b-e5e3-494c-afad-124a32012655
   ScriptInputsDefault:
@@ -8942,7 +8942,7 @@
     "":
       handType: right
       selectVisual: Default
-      handInteractor: !<MappingBased.HandInteractor> da69b360-0c3c-451e-8c81-40ec04ce1365
+      handInteractor: !<MappingBased.HandInteractorNew> da69b360-0c3c-451e-8c81-40ec04ce1365
       handMesh: !<reference.RenderMeshVisual> 2d4c096c-4e51-4136-ab50-45def173a742
       root: !<reference.SceneObject> 3a9e2a3c-4079-405b-9f3a-f008503f2a51
       autoJointMapping: true
@@ -10919,7 +10919,7 @@
 - !<ScriptComponent/b15cd0fc-cf8c-4ec3-83e2-24d6ba965bf4>
   PrefabRemaps:
     []
-  Name: MouseInteractor
+  Name: MouseInteractorNew
   Enabled: true
   ScriptAsset: !<reference> fa8d58de-519f-43c1-a79d-1bfa5fdecfb0
   ScriptInputsDefault:
@@ -12884,7 +12884,7 @@
 - !<ScriptComponent/da69b360-0c3c-451e-8c81-40ec04ce1365>
   PrefabRemaps:
     []
-  Name: HandInteractor
+  Name: HandInteractorNew
   Enabled: true
   ScriptAsset: !<reference> 4d0b0ec7-e669-4c4e-b2f7-32b9c59f24cc
   ScriptInputsDefault:
@@ -13537,7 +13537,7 @@
     "":
       handType: left
       selectVisual: Default
-      handInteractor: !<MappingBased.HandInteractor> fd023004-7c83-4dd0-8676-831b3e6b6e2e
+      handInteractor: !<MappingBased.HandInteractorNew> fd023004-7c83-4dd0-8676-831b3e6b6e2e
       handMesh: !<reference.RenderMeshVisual> 054418b2-68bf-4a0d-a0f8-188a4d6844a5
       root: !<reference.SceneObject> 35458431-c471-400f-9dbb-79f1a9db8d59
       autoJointMapping: true
@@ -14769,7 +14769,7 @@
 - !<ScriptComponent/fd023004-7c83-4dd0-8676-831b3e6b6e2e>
   PrefabRemaps:
     []
-  Name: HandInteractor
+  Name: HandInteractorNew
   Enabled: true
   ScriptAsset: !<reference> 4d0b0ec7-e669-4c4e-b2f7-32b9c59f24cc
   ScriptInputsDefault:

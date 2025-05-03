@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 1533
+    size: 1520
     values:
       - Base.png
       - Box.mesh
@@ -36,7 +36,6 @@ CollapsedEntities:
       - RiverGeneration/RiverMeshGenerator.ts
       - RiverGeneration/RiverPathController.ts
       - Scene.scene
-      - SpectaclesInteractionKit
       - SpectaclesInteractionKit/Assets
       - SpectaclesInteractionKit/Assets/Audio
       - SpectaclesInteractionKit/Assets/Audio/HoverAudioTrack.wav
@@ -310,11 +309,8 @@ CollapsedEntities:
       - SpectaclesInteractionKit/Components/UI/Slider/Slider.ts
       - SpectaclesInteractionKit/Components/UI/ToggleButton
       - SpectaclesInteractionKit/Components/UI/ToggleButton/ToggleButton.ts
-      - SpectaclesInteractionKit/Core
-      - SpectaclesInteractionKit/Core/ConfigurationValidator
-      - SpectaclesInteractionKit/Core/ConfigurationValidator/ConfigurationValidator.ts
-      - SpectaclesInteractionKit/Core/HandInteractor
-      - SpectaclesInteractionKit/Core/HandInteractor/HandInteractor.ts
+      - SpectaclesInteractionKit/Core/ConfigurationValidator/ConfigurationValidatorOld.ts
+      - SpectaclesInteractionKit/Core/HandInteractor/HandInteractorOld.ts
       - SpectaclesInteractionKit/Core/InteractionManager
       - SpectaclesInteractionKit/Core/InteractionManager/EventDispatcher.ts
       - SpectaclesInteractionKit/Core/InteractionManager/InteractionManager.ts
@@ -351,10 +347,8 @@ CollapsedEntities:
       - SpectaclesInteractionKit/Core/LogLevelConfiguration
       - SpectaclesInteractionKit/Core/LogLevelConfiguration/LogLevelConfiguration.ts
       - SpectaclesInteractionKit/Core/LogLevelConfiguration/SIKLogLevelConfiguration.ts
-      - SpectaclesInteractionKit/Core/MobileInteractor
-      - SpectaclesInteractionKit/Core/MobileInteractor/MobileInteractor.ts
-      - SpectaclesInteractionKit/Core/MouseInteractor
-      - SpectaclesInteractionKit/Core/MouseInteractor/MouseInteractor.ts
+      - SpectaclesInteractionKit/Core/MobileInteractor/MobileInteractorOld.ts
+      - SpectaclesInteractionKit/Core/MouseInteractor/MouseInteractorOld.ts
       - SpectaclesInteractionKit/Decorators
       - SpectaclesInteractionKit/Decorators/Singleton.ts
       - SpectaclesInteractionKit/Examples
@@ -618,7 +612,6 @@ CollapsedEntities:
       - SpectaclesInteractionKit/Utils/views/MeshView.ts
       - SpectaclesInteractionKit/Utils/views/View.ts
       - SpectaclesInteractionKit/package.native
-      - SpectaclesSyncKit
       - SpectaclesSyncKit/Components
       - SpectaclesSyncKit/Components/Instantiator.ts
       - SpectaclesSyncKit/Components/SyncHelpers
@@ -904,7 +897,6 @@ CollapsedEntities:
       - SpectaclesSyncKit/Mapping/src/Utils/JoiningController.ts
       - SpectaclesSyncKit/Mapping/src/Utils/ProjectContainer.ts
       - SpectaclesSyncKit/Mapping/src/Utils/SharedFunctions.ts
-      - SpectaclesSyncKit/SpectaclesInteractionKit
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Audio
       - SpectaclesSyncKit/SpectaclesInteractionKit/Assets/Audio/HoverAudioTrack.wav
@@ -1198,11 +1190,8 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/Slider/Slider.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ToggleButton
       - SpectaclesSyncKit/SpectaclesInteractionKit/Components/UI/ToggleButton/ToggleButton.ts
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Core
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Core/ConfigurationValidator
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Core/ConfigurationValidator/ConfigurationValidator.ts
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Core/HandInteractor
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Core/HandInteractor/HandInteractor.ts
+      - SpectaclesSyncKit/SpectaclesInteractionKit/Core/ConfigurationValidator/ConfigurationValidatorNew.ts
+      - SpectaclesSyncKit/SpectaclesInteractionKit/Core/HandInteractor/HandInteractorNew.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Core/InteractionManager
       - SpectaclesSyncKit/SpectaclesInteractionKit/Core/InteractionManager/EventDispatcher.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Core/InteractionManager/InteractionManager.ts
@@ -1239,10 +1228,8 @@ CollapsedEntities:
       - SpectaclesSyncKit/SpectaclesInteractionKit/Core/LogLevelConfiguration
       - SpectaclesSyncKit/SpectaclesInteractionKit/Core/LogLevelConfiguration/LogLevelConfiguration.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Core/LogLevelConfiguration/SIKLogLevelConfiguration.ts
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Core/MobileInteractor
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Core/MobileInteractor/MobileInteractor.ts
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Core/MouseInteractor
-      - SpectaclesSyncKit/SpectaclesInteractionKit/Core/MouseInteractor/MouseInteractor.ts
+      - SpectaclesSyncKit/SpectaclesInteractionKit/Core/MobileInteractor/MobileInteractorNew.ts
+      - SpectaclesSyncKit/SpectaclesInteractionKit/Core/MouseInteractor/MouseInteractorNew.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Decorators
       - SpectaclesSyncKit/SpectaclesInteractionKit/Decorators/Singleton.ts
       - SpectaclesSyncKit/SpectaclesInteractionKit/Examples

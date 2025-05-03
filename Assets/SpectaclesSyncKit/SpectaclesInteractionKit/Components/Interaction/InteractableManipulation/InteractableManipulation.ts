@@ -13,7 +13,7 @@ import {
 import {Interactable} from "../Interactable/Interactable"
 import {InteractionManager} from "../../../Core/InteractionManager/InteractionManager"
 import {InteractorEvent} from "../../../Core/Interactor/InteractorEvent"
-import {MobileInteractor} from "../../../Core/MobileInteractor/MobileInteractor"
+import {MobileInteractor} from "../../../Core/MobileInteractor/MobileInteractorNew"
 import NativeLogger from "../../../Utils/NativeLogger"
 import WorldCameraFinderProvider from "../../../Providers/CameraProvider/WorldCameraFinderProvider"
 import {validate} from "../../../Utils/validate"

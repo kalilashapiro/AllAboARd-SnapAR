@@ -1,4 +1,4 @@
-import {HandInteractor} from "../../../Core/HandInteractor/HandInteractor"
+import {HandInteractor} from "../../../Core/HandInteractor/HandInteractorOld"
 import {HandInputData} from "../../../Providers/HandInputData/HandInputData"
 import {HandType} from "../../../Providers/HandInputData/HandType"
 import {HandVisuals} from "../../../Providers/HandInputData/HandVisuals"

@@ -1,6 +1,6 @@
 import {DragInteractorEvent} from "../../../Core/Interactor/InteractorEvent"
 import {InteractorInputType} from "../../../Core/Interactor/Interactor"
-import {MobileInteractor} from "../../../Core/MobileInteractor/MobileInteractor"
+import {MobileInteractor} from "../../../Core/MobileInteractor/MobileInteractorNew"
 import NativeLogger from "../../../Utils/NativeLogger"
 import {SceneObjectBoundariesProvider} from "./boundariesProvider/SceneObjectBoundariesProvider"
 import {ScrollArea} from "./ScrollArea"

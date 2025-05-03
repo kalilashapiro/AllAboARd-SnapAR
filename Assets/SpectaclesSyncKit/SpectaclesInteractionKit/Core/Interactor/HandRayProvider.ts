@@ -6,7 +6,7 @@ import {
   FieldTargetingMode,
   HandInteractor,
   RaycastType,
-} from "../HandInteractor/HandInteractor"
+} from "../HandInteractor/HandInteractorNew"
 import RaycastAnchorHead from "./raycastAlgorithms/RaycastAnchorHead"
 import RaycastAnchorVariableShoulder from "./raycastAlgorithms/RaycastAnchorVariableShoulder"
 import RaycastBase from "./raycastAlgorithms/RaycastBase"

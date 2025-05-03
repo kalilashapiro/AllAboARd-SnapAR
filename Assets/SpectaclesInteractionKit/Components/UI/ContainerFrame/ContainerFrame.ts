@@ -6,7 +6,7 @@ import {Billboard} from "../../../Components/Interaction/Billboard/Billboard"
 import {Interactable} from "../../../Components/Interaction/Interactable/Interactable"
 import {InteractableManipulation} from "../../../Components/Interaction/InteractableManipulation/InteractableManipulation"
 import {InteractionPlane} from "../../../Components/Interaction/InteractionPlane/InteractionPlane"
-import {HandInteractor} from "../../../Core/HandInteractor/HandInteractor"
+import {HandInteractor} from "../../../Core/HandInteractor/HandInteractorOld"
 import {
   Interactor,
   InteractorInputType,

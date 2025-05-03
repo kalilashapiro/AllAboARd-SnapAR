@@ -19,7 +19,7 @@
     - '// @ui {"widget":"group_start", "label":"Hand Visual"}'
     - '// @input string handType {"widget":"combobox", "values":[{"label":"Left", "value":"left"}, {"label":"Right", "value":"right"}]}'
     - '// @input string selectVisual = "Default" {"widget":"combobox", "values":[{"label":"Default", "value":"Default"}, {"label":"Occluder", "value":"Occluder"}]}'
-    - // @input HandInteractor handInteractor
+    - // @input HandInteractorNew handInteractor
     - // @input Component.RenderMeshVisual handMesh
     - '// @input float handMeshRenderOrder = 9999 {"hint":"The desired render order of the handMesh"}'
     - '// @input SceneObject root {"hint":"Parent of both the rig and the mesh"}'

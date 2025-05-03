@@ -36,7 +36,7 @@ mirrorHorizontally:
   options: 4
 previewSource:
   type: string
-  value: "C:/Program Files/Snap Inc/Lens Studio/InteractiveResources.bundle/Scenes/Colorful Home"
+  value: "C:/Program Files/Snap Inc/Lens Studio/InteractiveResources.bundle/Scenes/Sunlit Room"
   options: 4
 previewType:
   type: string

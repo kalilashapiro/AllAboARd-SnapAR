@@ -3,14 +3,11 @@
   objects:
     - !<own> 00000000-0000-0065-0000-000000000064
     - !<own> 0005641c-028d-459a-0000-000000014b4d
+    - !<own> c39a8f0d-1b10-4c63-acfc-aac5b8d9cab5
     - !<own> 04724480-e7d6-4c15-9941-264d016804ca
-    - !<own> 85b91c5b-1af3-4ab9-9675-c1c3d7ca23dd
     - !<own> 11394019-21b5-4fe3-8018-2a3d708a46ea
     - !<own> d3991ac0-f60b-436b-90be-39e7454f6b8c
     - !<own> c177bf16-7fa4-4e4f-b4eb-e029f1b7781e
-    - !<own> 0baa539d-bc92-4bc5-a81e-7c8e0c2acb20
-    - !<own> effd9e36-975e-457a-a6c5-6618d612d49a
-    - !<own> c39a8f0d-1b10-4c63-acfc-aac5b8d9cab5
     - !<own> 48202179-207b-4823-a87d-4446b30a4af4
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
@@ -397,7 +394,7 @@
 - !<ScriptComponent/0267e391-4a84-4dcc-9af1-ea9a4cf746d1>
   PrefabRemaps:
     []
-  Name: MobileInteractor
+  Name: MobileInteractorOld
   Enabled: true
   ScriptAsset: !<reference> a467b66e-d0a3-4bd6-9f6e-a65e5a493a7a
   ScriptInputsDefault:
@@ -1443,7 +1440,7 @@
 - !<ScriptComponent/098d0b7e-717d-4f0f-b31f-2abc934b7b18>
   PrefabRemaps:
     []
-  Name: MouseInteractor
+  Name: MouseInteractorNew
   Enabled: true
   ScriptAsset: !<reference> fa8d58de-519f-43c1-a79d-1bfa5fdecfb0
   ScriptInputsDefault:
@@ -1648,7 +1645,7 @@
   PrefabRemaps:
     []
   Name: World Mesh
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -1796,14 +1793,12 @@
   Enabled: true
   ScriptAsset: !<reference> 84c1aa81-4763-43b3-ba76-ea91fcecff16
   ScriptInputsDefault:
-    singlePlayerTargetCube: true
-    multiPlayerTargetCube: true
+    {}
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      singlePlayerTargetCube: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
-      multiPlayerTargetCube: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      {}
   ScriptTypes:
     "":
       {}
@@ -1977,7 +1972,7 @@
 - !<ScriptComponent/10cf2d03-a362-47b7-b162-f133c6822989>
   PrefabRemaps:
     []
-  Name: MobileInteractor
+  Name: MobileInteractorNew
   Enabled: true
   ScriptAsset: !<reference> 7876e94e-1942-4993-ab2d-d35e572dbe74
   ScriptInputsDefault:
@@ -3513,7 +3508,7 @@
 - !<ScriptComponent/24bca3cc-1750-48b4-99d5-cf77df2659eb>
   PrefabRemaps:
     []
-  Name: ConfigurationValidator
+  Name: ConfigurationValidatorOld
   Enabled: true
   ScriptAsset: !<reference> 961883e4-3a4c-43d4-b766-4dca1c6a9881
   ScriptInputsDefault:
@@ -4104,7 +4099,7 @@
 - !<SceneObject/2e21403d-d7f0-4568-8a7f-99dc33c9386e>
   PrefabRemaps:
     []
-  Name: LeftHandInteractor
+  Name: LeftHandInteractorNew
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -5149,7 +5144,7 @@
 - !<ScriptComponent/3b9db400-14cf-4139-b58c-fa178fce2579>
   PrefabRemaps:
     []
-  Name: HandInteractor
+  Name: HandInteractorNew
   Enabled: true
   ScriptAsset: !<reference> 4d0b0ec7-e669-4c4e-b2f7-32b9c59f24cc
   ScriptInputsDefault:
@@ -5226,7 +5221,7 @@
 - !<SceneObject/3c932bd1-2669-4400-a01d-5dc813c9b54c>
   PrefabRemaps:
     []
-  Name: MobileInteractor
+  Name: MobileInteractorNew
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -5807,7 +5802,7 @@
     "":
       handType: left
       selectVisual: Default
-      handInteractor: !<MappingBased.HandInteractor> 5f6fdac1-3c1b-4678-bf24-16d6263aa3af
+      handInteractor: !<MappingBased.HandInteractorOld> 5f6fdac1-3c1b-4678-bf24-16d6263aa3af
       handMesh: !<reference.RenderMeshVisual> 5a35653d-3fbd-466c-842c-ae73a167d2fc
       root: !<reference.SceneObject> 68b39997-363e-4ed4-b3f0-15c80c117ad9
       autoJointMapping: true
@@ -5943,7 +5938,7 @@
     "":
       handType: right
       selectVisual: Default
-      handInteractor: !<MappingBased.HandInteractor> ea7966ad-e320-4d0a-80b6-0f370ec2bc95
+      handInteractor: !<MappingBased.HandInteractorOld> ea7966ad-e320-4d0a-80b6-0f370ec2bc95
       handMesh: !<reference.RenderMeshVisual> 1265206b-08c0-4945-851a-5044ff8b8487
       root: !<reference.SceneObject> f76f345d-690c-4ad1-958f-b3fc644e1f3c
       autoJointMapping: true
@@ -6441,6 +6436,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/4ab28716-ca70-4d2a-9ac4-14a7ff373f42>
+  PrefabRemaps:
+    []
+  Name: RiverControllerTwo
+  Enabled: false
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    []
 - !<ScriptComponent/4ab682d2-39ad-4850-a471-bfe1e5a8eda9>
   PrefabRemaps:
     []
@@ -6854,7 +6864,7 @@
     "":
       handType: left
       selectVisual: Default
-      handInteractor: !<MappingBased.HandInteractor> 3b9db400-14cf-4139-b58c-fa178fce2579
+      handInteractor: !<MappingBased.HandInteractorNew> 3b9db400-14cf-4139-b58c-fa178fce2579
       handMesh: !<reference.RenderMeshVisual> 30be6abb-77cf-4884-9866-0e21615f47e3
       root: !<reference.SceneObject> a5c473b3-253c-4e35-8684-55edee7bc985
       autoJointMapping: true
@@ -7902,7 +7912,7 @@
 - !<ScriptComponent/5f6fdac1-3c1b-4678-bf24-16d6263aa3af>
   PrefabRemaps:
     []
-  Name: HandInteractor
+  Name: HandInteractorOld
   Enabled: true
   ScriptAsset: !<reference> 89583ecd-9847-4146-a128-5bade821dc84
   ScriptInputsDefault:
@@ -8277,7 +8287,7 @@
 - !<SceneObject/648592ef-c761-4eac-9d59-b72be51e7a1a>
   PrefabRemaps:
     []
-  Name: RightHandInteractor
+  Name: RightHandInteractorNew
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -8417,7 +8427,7 @@
 - !<SceneObject/65f8058c-d004-4654-a582-1a01382c5c9b>
   PrefabRemaps:
     []
-  Name: SpectaclesInteractionKit
+  Name: SpectaclesInteractionKitNew
   Enabled: false
   Layers: 1
   LocalTransform:
@@ -9183,7 +9193,7 @@
 - !<SceneObject/715f153e-16ab-4e6c-adc2-f435814d6d87>
   PrefabRemaps:
     []
-  Name: Configuration
+  Name: ConfigurationOld
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -11275,7 +11285,7 @@
 - !<SceneObject/8ef91ad1-641b-4b4f-98b6-cec3a4e83428>
   PrefabRemaps:
     []
-  Name: MouseInteractor
+  Name: MouseInteractorOld
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -12254,7 +12264,7 @@
 - !<ScriptComponent/9e5a4c97-79ca-4c4d-aae3-875b982e7a3a>
   PrefabRemaps:
     []
-  Name: ConfigurationValidator
+  Name: ConfigurationValidatorNew
   Enabled: true
   ScriptAsset: !<reference> 5249534b-e5e3-494c-afad-124a32012655
   ScriptInputsDefault:
@@ -12553,7 +12563,7 @@
 - !<ScriptComponent/a0bb12eb-4c68-4bed-bf3a-06fddcaaf151>
   PrefabRemaps:
     []
-  Name: MouseInteractor
+  Name: MouseInteractorOld
   Enabled: true
   ScriptAsset: !<reference> 4d94b9bf-f062-4fe3-a7c9-f4a738919609
   ScriptInputsDefault:
@@ -14358,7 +14368,7 @@
     "":
       handType: right
       selectVisual: Default
-      handInteractor: !<MappingBased.HandInteractor> ced1856a-8755-43b2-9326-556cf6a5ba3d
+      handInteractor: !<MappingBased.HandInteractorNew> ced1856a-8755-43b2-9326-556cf6a5ba3d
       handMesh: !<reference.RenderMeshVisual> 77216f0a-03ec-41fd-8871-7d13e5413015
       root: !<reference.SceneObject> 31c1c387-7e69-4c15-97a5-0c8aa2d9c796
       autoJointMapping: true
@@ -14580,7 +14590,7 @@
     - fad59942-dcde-4cf5-b928-6ba38d12782d: 41882d16-d246-4049-8a30-f1ceadba2b10
     - fb5d3379-6154-4f15-93fa-ae84b3b80290: d788274c-1066-42d1-8b14-89febab6cf54
     - fc234ae5-93cd-4873-a539-0f7aba6473e0: 28d4a7b1-45e7-43ec-9fca-6e07debffbc1
-  Name: SpectaclesInteractionKit
+  Name: SpectaclesInteractionKitOld
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -15435,7 +15445,7 @@
 - !<ScriptComponent/ced1856a-8755-43b2-9326-556cf6a5ba3d>
   PrefabRemaps:
     []
-  Name: HandInteractor
+  Name: HandInteractorNew
   Enabled: true
   ScriptAsset: !<reference> 4d0b0ec7-e669-4c4e-b2f7-32b9c59f24cc
   ScriptInputsDefault:
@@ -15610,7 +15620,7 @@
 - !<SceneObject/d0f913d1-332b-4c3b-80a5-5127fb43ba37>
   PrefabRemaps:
     []
-  Name: MobileInteractor
+  Name: MobileInteractorOld
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -15625,7 +15635,7 @@
 - !<SceneObject/d0fc0670-6f9e-42f1-8ee3-846b400bdc09>
   PrefabRemaps:
     []
-  Name: LeftHandInteractor
+  Name: LeftHandInteractorOld
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -16054,7 +16064,7 @@
 - !<SceneObject/d70e2e0d-87da-4669-954a-1551be7cd4ed>
   PrefabRemaps:
     []
-  Name: MouseInteractor
+  Name: MouseInteractorNew
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -17406,6 +17416,10 @@
   Children:
     - !<own> 8ae90820-3e8a-44de-98d8-ce122eee95ad
     - !<own> 4ebea519-101e-4f14-a8a2-eb8710e8548a
+    - !<own> 4ab28716-ca70-4d2a-9ac4-14a7ff373f42
+    - !<own> 85b91c5b-1af3-4ab9-9675-c1c3d7ca23dd
+    - !<own> effd9e36-975e-457a-a6c5-6618d612d49a
+    - !<own> 0baa539d-bc92-4bc5-a81e-7c8e0c2acb20
   Components:
     []
 - !<SceneObject/e8f269ab-e329-497d-a868-5d050776674e>
@@ -17478,7 +17492,7 @@
 - !<ScriptComponent/ea7966ad-e320-4d0a-80b6-0f370ec2bc95>
   PrefabRemaps:
     []
-  Name: HandInteractor
+  Name: HandInteractorOld
   Enabled: true
   ScriptAsset: !<reference> 89583ecd-9847-4146-a128-5bade821dc84
   ScriptInputsDefault:
@@ -17990,7 +18004,7 @@
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
   Children:
@@ -18112,7 +18126,7 @@
 - !<SceneObject/f147b3ca-d394-4d7e-af74-3706cae0a821>
   PrefabRemaps:
     []
-  Name: RightHandInteractor
+  Name: RightHandInteractorOld
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -18406,7 +18420,7 @@
 - !<SceneObject/f3b72e9e-8ad4-4f9c-b4d8-32c1af5adfcf>
   PrefabRemaps:
     []
-  Name: Configuration
+  Name: ConfigurationNew
   Enabled: true
   Layers: 1
   LocalTransform:
