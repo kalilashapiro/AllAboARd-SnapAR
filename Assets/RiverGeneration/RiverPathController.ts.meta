@@ -26,6 +26,7 @@
   CurrentVisibility: Editable
   MaxVisibility: Editable
   ScriptInputsHidden:
+    bevelWidth: false
     lipHeight: false
     lipWidth: false
     riverMeshVisual: false
@@ -38,6 +39,7 @@
       riverWidth: !<float> 30.000000
       lipHeight: !<float> 5.000000
       lipWidth: !<float> 10.000000
+      bevelWidth: !<float> 1.000000
   ScriptTypes:
     -
       {}
@@ -46,3 +48,4 @@
     - // @input float riverWidth = 30
     - // @input float lipHeight = 5
     - // @input float lipWidth = 10
+    - // @input float bevelWidth = 1

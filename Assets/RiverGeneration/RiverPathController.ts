@@ -22,10 +22,6 @@ export class RiverPathController extends BaseScriptComponent {
     @input
     lipWidth: number = 10.0;
 
-    // Add input for bevel width
-    @input
-    bevelWidth: number = 1.0; // Default to 1 unit
-
     // Optional: Use world tracking for placing points
     // @input
     // worldTrackingComponent: WorldTrackingComponent;
@@ -147,18 +143,11 @@ export class RiverPathController extends BaseScriptComponent {
             return;
         }
 
-        // Ensure bevelWidth is not excessively large (e.g., cap it relative to lip/river dimensions)
-        const safeBevelWidth = Math.max(0, Math.min(this.bevelWidth, this.lipWidth * 0.5, this.lipHeight * 0.5, this.riverWidth * 0.25));
-        if (safeBevelWidth !== this.bevelWidth) {
-            print(`RiverPathController: Clamped bevelWidth from ${this.bevelWidth} to ${safeBevelWidth}`);
-        }
-
         const newMesh = RiverMeshGenerator.buildRiverMesh(
             this.pathPoints,
             this.riverWidth,
             this.lipHeight,
-            this.lipWidth,
-            safeBevelWidth // Pass the safe bevel width
+            this.lipWidth
         );
 
         if (newMesh) {
