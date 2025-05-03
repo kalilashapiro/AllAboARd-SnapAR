@@ -26,15 +26,17 @@
   CurrentVisibility: Editable
   MaxVisibility: Editable
   ScriptInputsHidden:
-    {}
+    multiPlayerTargetCube: false
+    singlePlayerTargetCube: false
   ScriptTypesHidden:
     {}
   DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
-    -
-      {}
+    - singlePlayerTargetCube: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      multiPlayerTargetCube: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
-    []
+    - // @input SceneObject singlePlayerTargetCube
+    - // @input SceneObject multiPlayerTargetCube

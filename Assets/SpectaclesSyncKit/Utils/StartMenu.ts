@@ -4,6 +4,18 @@ import WorldCameraFinderProvider from "../SpectaclesInteractionKit/Providers/Cam
 import {SyncKitLogger} from "./SyncKitLogger"
 import { FinalizeTrackAndSetupControls } from "../../TrackFinalizerGameBeginHandlers/FinalizeTrackAndSetupControls";
 
+// --- Type Declarations for Lens Studio Globals ---
+// Removed declarations - caused conflicts
+// declare const global: any;
+// declare const input: Input;
+// declare const KeyCode: any;
+// declare class Input {
+//     getKeyDown(keyCode: number): boolean;
+// }
+// declare const vec3: any;
+// declare const quat: any;
+// --- End Type Declarations ---
+
 const TAG = "StartMenu"
 
 @component
@@ -35,6 +47,11 @@ export class StartMenu extends BaseScriptComponent {
   private worldCamera: WorldCameraFinderProvider
 
   private startMenuTransform: Transform
+
+  // // Timer variables for auto-start // Removed
+  // private timeElapsed: number = 0;
+  // private gameHasStarted: boolean = false;
+  // private readonly AUTO_START_DELAY_SECONDS: number = 30.0;
 
   private readonly log = new SyncKitLogger(TAG)
 
@@ -83,7 +100,11 @@ export class StartMenu extends BaseScriptComponent {
    * Start the game in single player mode by hiding this menu.
    */
   private onSinglePlayerPress() {
-    this.log.i("Single Player button pressed");
+    // // Prevent timer or double-clicks from triggering again // Removed
+    // if (this.gameHasStarted) return;
+    // this.gameHasStarted = true;
+
+    this.log.i("Single Player button pressed"); // Reverted log message
     switch (this.singlePlayerType) {
       case "manual":
       default:
@@ -110,6 +131,10 @@ export class StartMenu extends BaseScriptComponent {
    * Handles the multi-player button press or direct multiplayer start.
    */
   private onMultiPlayerPress() {
+    // // Prevent timer or double-clicks from triggering again // Removed
+    // if (this.gameHasStarted) return;
+    // this.gameHasStarted = true;
+
     this.log.i("Multi Player button pressed or direct launch");
     this.log.i("Starting multiplayer flow");
     this.getSceneObject().enabled = false;
@@ -142,6 +167,22 @@ export class StartMenu extends BaseScriptComponent {
         return; // Don't update rotation if the menu is hidden
     }
 
+    // --- Auto-Start Timer Logic --- // Removed
+    /*
+    if (!this.gameHasStarted) {
+        this.timeElapsed += getDeltaTime();
+        print(`Time Elapsed: ${this.timeElapsed}`); // Optional: uncomment for debugging
+        if (this.timeElapsed >= this.AUTO_START_DELAY_SECONDS) {
+            this.log.i(`Auto-start timer reached (${this.AUTO_START_DELAY_SECONDS}s). Starting Single Player.`);
+            this.onSinglePlayerPress(); 
+            // Note: onSinglePlayerPress will set gameHasStarted to true
+            // and disable the menu, stopping further updates here.
+            return; // Exit update early as game has started
+        }
+    }
+    */
+    // --- End Timer Logic ---
+
     // Calculate the direction the menu should face (towards the camera)
     const cameraPos = this.worldCamera.getTransform().getWorldPosition();
     const menuPos = this.startMenuTransform.getWorldPosition();
@@ -159,30 +200,5 @@ export class StartMenu extends BaseScriptComponent {
 
     // Apply the rotation
     this.startMenuTransform.setWorldRotation(lookRotation);
-
-    // --- Broadcast Button Positions --- 
-    if (this.finalizeTrackScript && this.singlePlayerButton && this.multiPlayerButton) {
-      try { // Add try-catch for safety, e.g., if buttons are destroyed unexpectedly
-        const singlePlayerObj = this.singlePlayerButton.getSceneObject();
-        const multiPlayerObj = this.multiPlayerButton.getSceneObject();
-
-        if (singlePlayerObj && multiPlayerObj) {
-          const singlePlayerPos = singlePlayerObj.getTransform().getWorldPosition();
-          const multiPlayerPos = multiPlayerObj.getTransform().getWorldPosition();
-          
-          this.finalizeTrackScript.updateButtonTargetPositions(singlePlayerPos, multiPlayerPos);
-        } else {
-          // Log sparingly if objects are missing
-           // this.log.w("Button SceneObject not found in onUpdate"); 
-        }
-      } catch (e) {
-        this.log.e("Error getting button positions: " + e);
-      }
-    } else {
-        // Log sparingly if scripts/buttons aren't set
-        // if (!this.finalizeTrackScript) this.log.w("FinalizeTrackScript not set for broadcasting positions");
-        // if (!this.singlePlayerButton || !this.multiPlayerButton) this.log.w("StartMenu buttons not set for broadcasting positions");
-    }
-    // --- End Broadcast --- 
   }
 }

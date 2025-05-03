@@ -57,6 +57,9 @@ export class NewScript extends BaseScriptComponent {
     }
 
     onHitTestResult(results) {
+        // Make threshold accessible within the function scope
+        const horizontalThreshold = 0.9; 
+
         if (results === null) {
             this.targetObject.enabled = false;
         } else {
@@ -64,37 +67,30 @@ export class NewScript extends BaseScriptComponent {
 
             // --- Check if the surface is horizontal enough ---
             const upDot = hitNormal.normalize().dot(vec3.up());
-            const horizontalThreshold = 0.9; // Adjust this value (closer to 1 means more strictly horizontal)
+            // const horizontalThreshold = 0.9; // Adjust this value (closer to 1 means more strictly horizontal)
 
             if (upDot < horizontalThreshold) {
-                // Surface is too vertical, ignore this hit and disable the target object
-                this.targetObject.enabled = false;
-                // print("WorldQueryAddToTrack: Hit ignored - surface too vertical (Normal: " + hitNormal.toString() + ", Dot: " + upDot + ")");
-                return; // Stop processing this hit result
+                // Surface is too vertical, keep target object oriented but disabled for placement preview
+                // We still might want to trigger on it, so don't return early, just disable preview.
+                this.targetObject.enabled = false; 
+                // Update orientation even if disabled, so the check during trigger works
+                this.updateTargetOrientation(results.position, hitNormal); 
+            } else {
+                 // If we reach here, the surface is horizontal enough
+                this.targetObject.enabled = true;
+                // Update orientation
+                this.updateTargetOrientation(results.position, hitNormal); 
             }
             // --- End surface check ---
+            
+            // //get hit information // Already defined above
+            // const hitPosition = results.position; 
 
-            // If we reach here, the surface is horizontal enough
-            this.targetObject.enabled = true;
-
-            //get hit information
-            const hitPosition = results.position;
-
-            //identifying the direction the object should look at based on the normal of the hit location.
-
-
-            var lookDirection;
-            if (1 - Math.abs(hitNormal.normalize().dot(vec3.up())) < EPSILON) {
-                lookDirection = vec3.forward();
-            } else {
-                lookDirection = hitNormal.cross(vec3.up());
-            }
-
-
-            const toRotation = quat.lookAt(lookDirection, hitNormal);
-            //set position and rotation
-            this.targetObject.getTransform().setWorldPosition(hitPosition);
-            this.targetObject.getTransform().setWorldRotation(toRotation);
+            // //identifying the direction the object should look at based on the normal of the hit location. // Moved to helper
+            // ... orientation logic ...
+            // //set position and rotation // Moved to helper
+            // this.targetObject.getTransform().setWorldPosition(hitPosition);
+            // this.targetObject.getTransform().setWorldRotation(toRotation);
 
 
             if (
@@ -102,28 +98,50 @@ export class NewScript extends BaseScriptComponent {
                 this.primaryInteractor.currentTrigger === InteractorTriggerType.None
             ) {
                 // Called when a trigger ends
-                // print("WorldQueryAddToTrack: Trigger detected (pinch/click release)");
 
-                // --- Call River Path Controller Directly ---
-                if (this.riverController) {
-                    // print("WorldQueryHitExample: Calling riverController.addPoint directly.");
-                    this.riverController.addPoint(hitPosition);
+                // --- Check surface angle AT TRIGGER time --- 
+                const currentHitNormal = this.targetObject.getTransform().getWorldRotation().multiplyVec3(vec3.up()); // Get normal from target orientation
+                const currentUpDot = currentHitNormal.normalize().dot(vec3.up());
+                
+                // Decide action based on surface angle
+                if (currentUpDot < horizontalThreshold) {
+                    // Triggered on a Wall or non-horizontal surface
+                    print("Wall pressed!"); // User requested print statement
+                    // Do NOT add point or spawn object
                 } else {
-                    // print("WorldQueryHitExample: Error - RiverController input is not set in the Inspector!");
+                    // Triggered on a horizontal surface - Perform normal action
+                    // print("WorldQueryAddToTrack: Triggered on horizontal surface"); // Optional log
+                    
+                    // --- Call River Path Controller Directly ---
+                    if (this.riverController) {
+                        this.riverController.addPoint(results.position); // Use hitPosition from the hit test result
+                    } else {
+                        // print("WorldQueryHitExample: Error - RiverController input is not set in the Inspector!");
+                    }
+                    // --- End direct call ---
+
+                    // Copy the object
+                    let parent = this.prefabToSpawn.getParent();
+                    let newObject = parent.copyWholeHierarchy(this.prefabToSpawn);
+                    newObject.setParentPreserveWorldTransform(null);
                 }
-                // --- End direct call ---
-
-
-                // Copy the plane/axis object
-                // let parent = this.objectsToSpawn[this.indexToSpawn].getParent(); // Use prefabToSpawn
-                // let newObject = parent.copyWholeHierarchy(this.objectsToSpawn[this.indexToSpawn]); // Use prefabToSpawn
-                let parent = this.prefabToSpawn.getParent();
-                let newObject = parent.copyWholeHierarchy(this.prefabToSpawn);
-                newObject.setParentPreserveWorldTransform(null);
+                // --- End surface angle check --- 
             }
         }
     }
 
+    // Helper function to update target object's position and rotation
+    updateTargetOrientation(position: vec3, normal: vec3) {
+        var lookDirection;
+        if (1 - Math.abs(normal.normalize().dot(vec3.up())) < EPSILON) {
+            lookDirection = vec3.forward();
+        } else {
+            lookDirection = normal.cross(vec3.up());
+        }
+        const toRotation = quat.lookAt(lookDirection, normal);
+        this.targetObject.getTransform().setWorldPosition(position);
+        this.targetObject.getTransform().setWorldRotation(toRotation);
+    }
 
     onUpdate() {
         this.primaryInteractor = SIK.InteractionManager.getTargetingInteractors().shift();
