@@ -2,6 +2,7 @@ import {SessionController} from "../Core/SessionController"
 import {PinchButton} from "../SpectaclesInteractionKit/Components/UI/PinchButton/PinchButton"
 import WorldCameraFinderProvider from "../SpectaclesInteractionKit/Providers/CameraProvider/WorldCameraFinderProvider"
 import {SyncKitLogger} from "./SyncKitLogger"
+import { FinalizeTrackAndSetupControls } from "../../TrackFinalizerGameBeginHandlers/FinalizeTrackAndSetupControls";
 
 const TAG = "StartMenu"
 
@@ -27,6 +28,9 @@ export class StartMenu extends BaseScriptComponent {
 
   @input
   private readonly enableOnSingleplayerNodes: SceneObject[]
+
+  @input
+  private readonly finalizeTrackScript: FinalizeTrackAndSetupControls;
 
   private worldCamera: WorldCameraFinderProvider
 
@@ -57,7 +61,7 @@ export class StartMenu extends BaseScriptComponent {
       this.onSinglePlayerPress()
     )
     this.multiPlayerButton.onButtonPinched.add(() =>
-      this.startMultiplayerSession()
+      this.onMultiPlayerPress()
     )
   }
 
@@ -70,7 +74,7 @@ export class StartMenu extends BaseScriptComponent {
       global.launchParams.getBool("StartMultiplayer")
     this.log.i(`Lens started as multiplayer: ${shouldStartMultiplayer}`)
     if (shouldStartMultiplayer) {
-      this.startMultiplayerSession()
+      this.onMultiPlayerPress()
     }
   }
 
@@ -95,18 +99,29 @@ export class StartMenu extends BaseScriptComponent {
           node.enabled = true
         })
 
-        this.startMultiplayerSession()
+        this.onMultiPlayerPress()
         break
     }
   }
 
   /**
-   * Start the session by initializing the Spectacles Sync Kit, and hiding this menu.
+   * Handles the multi-player button press or direct multiplayer start.
    */
-  private startMultiplayerSession() {
-    this.log.i("Starting session")
-    this.getSceneObject().enabled = false
-    SessionController.getInstance().init()
+  private onMultiPlayerPress() {
+    this.log.i("Starting multiplayer flow");
+    this.getSceneObject().enabled = false;
+    SessionController.getInstance().init();
+
+    this.triggerFinalizeTrackScript();
+  }
+
+  // Helper function to safely call the finalize script
+  private triggerFinalizeTrackScript() {
+    if (this.finalizeTrackScript) {
+      this.finalizeTrackScript.initializeGame();
+    } else {
+      this.log.w("FinalizeTrackScript input is not set in the Inspector!");
+    }
   }
 
   private setStartMenuInFrontOfUser() {

@@ -22,6 +22,8 @@ checkUndefined("startMenuDistanceFromUser", []);
 checkUndefined("singlePlayerType", []);
 // @input SceneObject[] enableOnSingleplayerNodes
 checkUndefined("enableOnSingleplayerNodes", []);
+// @input FinalizeTrackAndSetupControls finalizeTrackScript
+checkUndefined("finalizeTrackScript", []);
 var scriptPrototype = Object.getPrototypeOf(script);
 if (!global.BaseScriptComponent){
    function BaseScriptComponent(){}

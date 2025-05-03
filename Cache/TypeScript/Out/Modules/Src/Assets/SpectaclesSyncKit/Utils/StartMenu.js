@@ -24,7 +24,7 @@ let StartMenu = class StartMenu extends BaseScriptComponent {
         this.checkIfStartedAsMultiplayer();
         this.setStartMenuInFrontOfUser();
         this.singlePlayerButton.onButtonPinched.add(() => this.onSinglePlayerPress());
-        this.multiPlayerButton.onButtonPinched.add(() => this.startMultiplayerSession());
+        this.multiPlayerButton.onButtonPinched.add(() => this.onMultiPlayerPress());
     }
     /**
      * If the systemUI has requested that the lens launch directly into multiplayer mode,
@@ -34,7 +34,7 @@ let StartMenu = class StartMenu extends BaseScriptComponent {
         const shouldStartMultiplayer = global.launchParams.getBool("StartMultiplayer");
         this.log.i(`Lens started as multiplayer: ${shouldStartMultiplayer}`);
         if (shouldStartMultiplayer) {
-            this.startMultiplayerSession();
+            this.onMultiPlayerPress();
         }
     }
     /**
@@ -54,17 +54,27 @@ let StartMenu = class StartMenu extends BaseScriptComponent {
                 this.enableOnSingleplayerNodes.forEach((node) => {
                     node.enabled = true;
                 });
-                this.startMultiplayerSession();
+                this.onMultiPlayerPress();
                 break;
         }
     }
     /**
-     * Start the session by initializing the Spectacles Sync Kit, and hiding this menu.
+     * Handles the multi-player button press or direct multiplayer start.
      */
-    startMultiplayerSession() {
-        this.log.i("Starting session");
+    onMultiPlayerPress() {
+        this.log.i("Starting multiplayer flow");
         this.getSceneObject().enabled = false;
         SessionController_1.SessionController.getInstance().init();
+        this.triggerFinalizeTrackScript();
+    }
+    // Helper function to safely call the finalize script
+    triggerFinalizeTrackScript() {
+        if (this.finalizeTrackScript) {
+            this.finalizeTrackScript.initializeGame();
+        }
+        else {
+            this.log.w("FinalizeTrackScript input is not set in the Inspector!");
+        }
     }
     setStartMenuInFrontOfUser() {
         const head = this.worldCamera.getTransform().getWorldPosition();
