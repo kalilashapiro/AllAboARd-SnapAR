@@ -19321,6 +19321,7 @@
     lipHeight: true
     lipWidth: true
     subdivisionCount: true
+    maxYDifferenceFromStart: true
     clickDistanceThreshold: true
     waterWidthExpansion: true
   ScriptTypesDefault:
@@ -19332,7 +19333,7 @@
       lipHeight: !<float> 5.000000
       lipWidth: !<float> 10.000000
       subdivisionCount: !<float> 8.000000
-      maxYDifferenceFromStart: !<float> 10.000000
+      maxYDifferenceFromStart: !<float> -1.000000
       clickDistanceThreshold: !<float> 15.000000
       relaxationIterations: !<float> 4.000000
       relaxationFactor: 0.700000

@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 1544
+    size: 1598
     values:
       - Base.png
       - Box.mesh
@@ -9,6 +9,59 @@ CollapsedEntities:
       - Echopark.hdr
       - Echopark.hdr/Diffuse
       - Echopark.hdr/Specular
+      - Lighthouse.fbx/.hidden
+      - Lighthouse.fbx/.hidden/Blue part
+      - Lighthouse.fbx/.hidden/white
+      - Lighthouse.fbx/Lighthouse
+      - Lighthouse.fbx/Materials
+      - Lighthouse.fbx/Materials/Blue part
+      - Lighthouse.fbx/Materials/Default.001
+      - Lighthouse.fbx/Materials/Inner circle
+      - Lighthouse.fbx/Materials/Material.003
+      - Lighthouse.fbx/Materials/Material.014
+      - Lighthouse.fbx/Materials/Material.022
+      - Lighthouse.fbx/Materials/Outer circle
+      - Lighthouse.fbx/Materials/Pole
+      - Lighthouse.fbx/Materials/Rail
+      - Lighthouse.fbx/Materials/Roof blue
+      - Lighthouse.fbx/Materials/Roof grey
+      - Lighthouse.fbx/Materials/White part 1
+      - Lighthouse.fbx/Materials/White part 2
+      - Lighthouse.fbx/Materials/Wood surface
+      - Lighthouse.fbx/Meshes
+      - Lighthouse.fbx/Meshes/Circle.003
+      - Lighthouse.fbx/Meshes/Circle.004
+      - Lighthouse.fbx/Meshes/Circle.005
+      - Lighthouse.fbx/Meshes/Circle.006
+      - Lighthouse.fbx/Meshes/Cylinder
+      - Lighthouse.fbx/Meshes/Cylinder.001
+      - Lighthouse.fbx/Meshes/Cylinder.002
+      - Lighthouse.fbx/Meshes/Cylinder.003
+      - Lighthouse.fbx/Meshes/Cylinder.004
+      - Lighthouse.fbx/Meshes/Cylinder.005
+      - Lighthouse.fbx/Meshes/Cylinder.006
+      - Lighthouse.fbx/Meshes/Cylinder.007
+      - Lighthouse.fbx/Meshes/Cylinder.008
+      - Lighthouse.fbx/Meshes/Cylinder.009
+      - Lighthouse.fbx/Meshes/Cylinder.010
+      - Lighthouse.fbx/Meshes/Cylinder.011
+      - Lighthouse.fbx/Meshes/Object_9.001
+      - Lighthouse.fbx/Meshes/Plane.006
+      - Lighthouse.fbx/Textures
+      - Lighthouse.fbx/Textures/Blue part
+      - Lighthouse.fbx/Textures/Frag pole
+      - Lighthouse.fbx/Textures/Image_0
+      - Lighthouse.fbx/Textures/Inner circle
+      - Lighthouse.fbx/Textures/Outter circle
+      - Lighthouse.fbx/Textures/Rail
+      - Lighthouse.fbx/Textures/Red flag
+      - Lighthouse.fbx/Textures/Roof blue
+      - Lighthouse.fbx/Textures/Roof grey
+      - Lighthouse.fbx/Textures/Top
+      - Lighthouse.fbx/Textures/White part 1
+      - Lighthouse.fbx/Textures/White part 2
+      - Lighthouse.fbx/Textures/Wood door
+      - Lighthouse.fbx/Textures/Wood surface
       - MaterialParams.png
       - Normal.png
       - PBR.mat
@@ -1538,6 +1591,7 @@ CollapsedEntities:
       - WaterMat/seamless_water.jpg
       - World Mesh.mat
       - World Mesh.worldmesh
+      - World Query Hit - Spawn On Surface
       - World Query Hit - Spawn On Surface/Shaders
       - World Query Hit - Spawn On Surface/Shaders/cloud.ss_graph
       - World Query Hit - Spawn On Surface/Shaders/pbr.ss_graph

@@ -1,5 +1,6 @@
 ExternalSources:
   type: "std::map<class Es::Uuid,class Es::Path,struct std::less<class Es::Uuid>,class std::allocator<struct std::pair<class Es::Uuid const ,class Es::Path> > >"
   value:
+    - 52a43f1b-d6b1-41e3-88ae-bf7b017aecb5: "D:/Downloads/Lighthouse-20250503T162707Z-001/Lighthouse/Lighthouse.fbx"
     - 91c6f947-788c-4c58-844b-231557758ae9: "D:/Downloads/sandy_gravel_02_1k/textures/sandy_gravel_02_diff_1k.jpg"
   options: 4
